@@ -1,0 +1,25 @@
+\ProvidesFile{rnt-pic.sty}
+                [2007/08/22 v0.2]
+\RequirePackage{ifpdf}
+
+\ifpdf
+  \RequirePackage[pdftex]{graphicx}
+  \DeclareGraphicsRule{*}{eps}{*}{}
+\else
+  \RequirePackage[xdvi]{graphicx}
+\fi
+
+%---------------
+\def\obrazok#1#2{%
+\begin{figure}[!htb]
+\ifpdf
+  \centerline{\includegraphics{#1.pdf}}
+\else
+  \centerline{\includegraphics{#1.eps}}
+\fi
+\par
+\centerline{\parbox{13cm}{\sl \caption{#2}}}
+\end{figure}
+} 
+%
+\endinput                
