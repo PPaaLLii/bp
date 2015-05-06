@@ -128,19 +128,26 @@ Medzi základné typy metrík patria údaje o počte (counting), údaje o čase 
 Niekedy je užitočné zbierať hodnotu, ktorá nezávisí od predchádzajúcich hodnôt napríklad počet objektov v rade, veľkosť dát odoslanej odpovede, alebo zaťaženie procesora. 
 Tieto hodnoty môžu byť číselné alebo nečíselné. Tieto hodnoty pravidelne zbierame a odosielame na spracovanie a zobrazenie.
 
-\subsection{Motivácia}
+\subsection{Algoritmus monitorovania informačného systému}
+
+\begin{enumerate}
+	\item Určenie cieľov monitorovania informačného systému.
+	\item Výber vhodných metrík.
+	\item Výber nástrojov na monitorovanie a zobrazovanie metrík.
+	\item Integrácia nástrojov do informačného systému.
+	\item Analýza získaných metrík.
+	\item Vyvodenie dôsledkov monitorovania.
+\end{enumerate}
+
+\subsection{Monitorovanie Ais2}
 
 V našej bakalárskej práci chceme navrhnúť systém monitorovania akademického informačného systému AIS2.
-Chceme monitorovať tento informačný systém s cieľom identifikovať problémy skôr ako používateľ.
-Ak zbadá problém používateľ, už je neskoro.
-Medzitým, ako nahlási problém vývojárom informačného systému, tento problém už mohlo zaznamenať množstvo ďalších používateľov.
-Vývojári potom musia rýchlo problém identifikovať a opraviť, čo môže byť netriviálna záležitosť.
-Ak by sme problém zaznamenali hneď ako nastane, mali by sme viac času na jeho riešenie.
-
-Ďalším problémom je to, že vývojári systému AIS2 nie sú správcami systému.
+Problémom je to, že vývojári systému AIS2 nie sú správcami systému.
 Nemôžu preto získavať metriky ako napríklad zaťaženie serverov, voľná operačná pamäť, či iné systémové metriky.
 Aby zabezpečili hladký chod systému, musia sa spoľahnúť na aplikačné metriky.
-Keďže systém AIS beží vo viacerých inštaláciách, 
+Tie nám daju informácie o aktuálnom stave aplikácie a o jej správaní.
+
+Keďže systém AIS2 beží vo viacerých inštaláciách, 
 	je potrebné monitorovať viacero inštalácií tohto systému samostatne, aj ako celok.
 Chceme ich vedieť porovnať medzi sebou, 
 	aby sme vedeli odlíšiť problémy v konkrétnej inštalácii a globálne problémy týkajúce sa systému samotného.
@@ -150,6 +157,17 @@ Bude jednoduchšie inštalácie porovnať a analyzovať nazbierané metriky.
 
 Ďalším cieľom monitorovania AIS-u je optimalizácia interakcie systému s používateľom.
 Chceme detekovať zle navrhnuté dialógy, ich neprehľadné umiestnenie v systéme, a analyzovať interakciu s používateľmi, napríklad aj dynamickým upravovaním používateľského rozhrania.
+
+\subsection{Problémy}
+
+Hlavným cieľom monitorovania informačného systému je identifikovať problémy skôr ako používateľ.
+Ak zbadá problém používateľ, už je neskoro.
+Medzitým, ako nahlási problém vývojárom informačného systému, tento problém už mohlo zaznamenať množstvo ďalších používateľov.
+Vývojári potom musia rýchlo problém identifikovať a opraviť, čo môže byť netriviálna záležitosť.
+Ak by sme problém zaznamenali hneď ako nastane, mali by sme viac času na jeho riešenie.
+
+Problém môže nastať, ak máme metrík veľa.
+Monitorovanie systému nesmie systém výrazne zaťažiť, lebo by monitorovanie nebolo efektívne.
 
 \subsection{Ilustračný Príklad}
 
