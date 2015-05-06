@@ -128,17 +128,6 @@ Medzi základné typy metrík patria údaje o počte (counting), údaje o čase 
 Niekedy je užitočné zbierať hodnotu, ktorá nezávisí od predchádzajúcich hodnôt napríklad počet objektov v rade, veľkosť dát odoslanej odpovede, alebo zaťaženie procesora. 
 Tieto hodnoty môžu byť číselné alebo nečíselné. Tieto hodnoty pravidelne zbierame a odosielame na spracovanie a zobrazenie.
 
-\subsection{Algoritmus monitorovania informačného systému}
-
-\begin{enumerate}
-	\item Určenie cieľov monitorovania informačného systému.
-	\item Výber vhodných metrík.
-	\item Výber nástrojov na monitorovanie a zobrazovanie metrík.
-	\item Integrácia nástrojov do informačného systému.
-	\item Analýza získaných metrík.
-	\item Vyvodenie dôsledkov monitorovania.
-\end{enumerate}
-
 \subsection{Monitorovanie Ais2}
 
 V našej bakalárskej práci chceme navrhnúť systém monitorovania akademického informačného systému AIS2.
@@ -198,9 +187,9 @@ My sa zaoberáme open-source nástrojmi.
 	\item Analyzovať možnosti využitia monitorovania pre účely optimalizácie interakcie s používateľom.
 \end{enumerate}
 
-\section{Návrh Riešenia}
+\newpage
 
-\subsection{Krátkodobé zbieranie metrík}
+\section{Návrh Riešenia}
 
 \subsection{Úvod k zberu metrík}
 
@@ -208,6 +197,47 @@ Ak chceme získať užitočné dáta o systéme aby sme ich mohli analyzovať, m
 Pred zbieraním metrík si treba najprv dobre premyslieť, čo chceme zbierať, 
 aké metriky sú pre nás vhodné a aký cieľ chceme zberom metrík dosiahnuť.
 Treba si dobre a jasne definovať metriky, aby sme z~nich mali čo najväčší osoh.
+
+\subsection{Algoritmus monitorovania informačného systému}
+
+\begin{enumerate}
+	\item Určenie cieľov monitorovania informačného systému.
+	\item Výber vhodných metrík.
+	\item Výber nástrojov na monitorovanie a zobrazovanie metrík.
+	\item Integrácia nástrojov do informačného systému.
+	\item Analýza získaných metrík.
+	\item Vyvodenie dôsledkov monitorovania.
+\end{enumerate}
+
+\subsection{Zber metrík v reálnom čase}
+
+Riešenie problému detekcie nežiadúceho správania sa systému nám môže poskytnúť zber metrík v reálnom čase.
+
+
+\subsection{Dlhodobé zbieranie metrík}
+
+Krátkodobé merania systému nám podajú užitočnú informáciu o aktuálnom stave systému a o jeho používateľoch.
+Nás však zaujímajú aj dlhodobé merania.
+Tie nám povedia, kedy v priebehu roka je systém najviac zaťažený, kedy najmenej, a aké funkcionality používatelia využívajú v konkrétnych obdobiach.
+To sa nám pomôže pripraviť na najväčšiu záťaž.
+
+\subsection{Zbieranie metrík za účelom hľbkovej analýzy}
+
+Dlhodobými meraniami vieme zaznamenávať vzory správania používateľov v našom informačnom systéme.
+Takýmto vzorom môže byť v akademickom informačnom systéme napríklad:
+
+\begin{itemize}
+	\item Používatelia si najčastejšie po prihlásení do aplikácie prečítajú nové správy.
+	\item Po prečítaní správ sa odhlásia alebo:
+	\begin{itemize}
+		\item Ak je začiatok semestra, pozrú si rozvrh hodín.
+		\item Ak je stred semestra, pozrú sa na priebežné hodnotenie.
+		\item Ak je koniec semestra, prihlásia sa na skúšku.
+	\end{itemize}
+\end{itemize}
+
+Ak získame takéto vzory, môžeme napríklad dynamicky meniť používateľské rozhranie počas priebehu semestra a sprístupniť tak najčastejšie hľadané informácie podľa vzorov na viditeľnejšie miesta v našom systéme.
+
 
 \subsection{Nástroje na Zber Metrík}
 
@@ -404,27 +434,7 @@ Zabbix vie detekovať problémy a tie jednoduchšie aj vyriešiť (napríklad re
 Záleží od komplexnosti systému, ktorý nástroj si vyberieme.
 
 
-\subsection{Dlhodobé zbieranie metrík}
-
-Krátkodobé merania systému nám podajú užitočnú informáciu o aktuálnom stave systému a o jeho používateľoch.
-Nás však zaujímajú aj dlhodobé merania.
-Tie nám povedia, kedy v priebehu roka je systém najviac zaťažený, kedy najmenej, a aké funkcionality používatelia využívajú v konkrétnych obdobiach.
-To sa nám pomôže pripraviť na najväčšiu záťaž.
-
-Dlhodobými meraniami vieme zaznamenávať vzory správania používateľov v našom informačnom systéme.
-Takýmto vzorom môže byť v akademickom informačnom systéme napríklad:
-
-\begin{itemize}
-	\item Používatelia si najčastejšie po prihlásení do aplikácie prečítajú nové správy.
-	\item Po prečítaní správ sa odhlásia alebo:
-	\begin{itemize}
-		\item Ak je začiatok semestra, pozrú si rozvrh hodín.
-		\item Ak je stred semestra, pozrú sa na priebežné hodnotenie.
-		\item Ak je koniec semestra, prihlásia sa na skúšku.
-	\end{itemize}
-\end{itemize}
-
-Ak získame takéto vzory, môžeme napríklad dynamicky meniť používateľské rozhranie počas priebehu semestra a sprístupniť tak najčastejšie hľadané informácie podľa vzorov na viditeľnejšie miesta v našom systéme.
+\newpage
 
 \section{Záver}
 
