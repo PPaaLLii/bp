@@ -17,15 +17,16 @@
 \konzultant{RNDr. Erik Bruoth PhD.}
 \rok{2015}
 
-\podakovanie{Chcem sa poďakovať vedúcemu tejto práce Doc. RNDr. Gabrielovi Semanišinovi PhD., konzultantovi RNDr. Erikovi Bruothovi PhD. a Mgr. Slavomírovi Varchulovi za  cenné rady, odbornú pomoc a~konzultácie, ktoré mi poskytli pri vypracovaní tejto práce. \\ \\
+\podakovanie{Chcem sa poďakovať vedúcemu tejto práce Doc. RNDr. Gabrielovi Semanišinovi PhD., konzultantovi RNDr. Erikovi Bruothovi PhD. a Mgr. Slavomírovi Varchulovi za  cenné rady, odbornú pomoc a~konzultácie, ktoré mi poskytli pri vypracovaní tejto bakalárskej práce. \\ \\
 Osobitné poďakovanie patrí mojej rodine a priateľom za podporu a pochopenie.}
 
-\abstrakt{Hlavným cieľom našej bakalárskej práce je navrhnúť spôsob monitorovania informačného systému za účelom zbierania užitočných informácií ohľadom výkonu systému a používateľských preferenciách. Zaoberáme sa najmä otázkami aké informácie zbierať a akými nástrojmi ich zbierať. Existuje množstvo nástrojov z časti riešiacich našu problematiku. Zameriame sa na open-source nástroje. V práci si rozoberieme tie najpoužívanejšie, ich výhody a nevýhody a vybrané nástroje integrujeme do akademického informačného systému AIS. Pomocou nich sa pokúsime zbierať a zobrazovať metriky, ktoré nám pomôžu identifikovať problémy a funkcie, ktoré je potreba vylepšiť.}
+\abstrakt{Hlavným cieľom našej bakalárskej práce je navrhnúť spôsob monitorovania informačného systému za účelom zbierania užitočných informácií ohľadom výkonu systému a používateľských preferenciách. Zaoberáme sa najmä otázkami aké informácie zbierať a akými nástrojmi ich zbierať. Existuje množstvo nástrojov z časti riešiacich našu problematiku. Zameriame sa na open-source nástroje. V práci si rozoberieme tie najpoužívanejšie, ich výhody a nevýhody a vybrané nástroje integrujeme do akademického informačného systému AIS2. Pomocou nich sa pokúsime zbierať a zobrazovať metriky, ktoré nám pomôžu identifikovať problémy a funkcie, ktoré je potreba vylepšiť.}
 
 \begin{document}
 \maketitle
 \newpage
 
+\setcounter{tocdepth}{3}
 \tableofcontents
 
 \newpage
@@ -200,11 +201,30 @@ Treba si dobre a jasne definovať metriky, aby sme z~nich mali čo najväčší 
 
 \subsection{Algoritmus monitorovania informačného systému}
 
+Určenie cieľov monitorovania informačného systému je dôležité.
+Musíme si dobre premyslieť, na čo chceme monitorovanie zamerať, čo chceme zlepšiť, čo potrebujeme odmerať.
+Taktiež je dôležité premyslieť si, čo urobíme s výsledkom monitorovania a nakoľko bude výsledok merania relevantný a pravdivý.
+To závisí aj od metrík, ktoré si zvolíme, od času a obdobia, v ktorom systém budeme monitorovať.
+Treba si ujasniť problémy, ktoré chceme vyriešiť pomocou monitorovania.
+
+Na to, aby sme monitorovaním dosiahli stanovené ciele, musíme si zvoliť vhodné metriky, 
+	ktoré nám poskytnú odpovede na naše otázky.
+Každý systém je odlišný a tak neexistuje návod, aké metriky si zvoliť.
+Treba sa zamyslieť nad tým, aké údaje by nám pomohli, keby sme ich mali k dispozícii.
+Ak potrebujeme získať informácie o používateľoch a o ich správaní v systéme, pomohli by nám používateľské metriky.
+Ak potrebujeme získavať údaje o stave aplikácie, potom je pre nás vhodné zbierať aplikačné metriky.
+Keď chceme zistiť, aký je výkon systému a ako sa správa systém pri zaťažení a pod akou záťažou je v konkrétnych obdobiach, potom by sme sa mali zamerať na systémové metriky.
+
+Ak už máme definované metriky, ktoré chceme zbierať, v ďalšej časti prípravy na monitorovanie si zvolíme vhodné nástroje na zber metrík a na ukladanie a zobrazovanie metrík.
+
+
+
 \begin{enumerate}
 	\item Určenie cieľov monitorovania informačného systému.
 	\item Výber vhodných metrík.
 	\item Výber nástrojov na monitorovanie a zobrazovanie metrík.
 	\item Integrácia nástrojov do informačného systému.
+	\item Samotný Zber metrík
 	\item Analýza získaných metrík.
 	\item Vyvodenie dôsledkov monitorovania.
 \end{enumerate}
