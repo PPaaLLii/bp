@@ -273,13 +273,12 @@ Na obrázku 1. môžete vidieť diagram algoritmu pre monitorovanie informačné
 
 \section{Typy monitorovania}
 
-\subsection{Zber metrík v reálnom čase}
+\subsection{Monitorovanie systému v reálnom čase}
 
 Monitorovanie systému v reálnom čase nám pomôže detekovať problém skôr, ako ho zbadá používateľ.
 
 
-
-\subsection{Dlhodobé zbieranie metrík}
+\subsection{Dlhodobé monitorovanie systému}
 
 Krátkodobé merania systému nám podajú užitočnú informáciu o aktuálnom stave systému a o jeho používateľoch.
 Nás však zaujímajú aj dlhodobé merania.
@@ -288,7 +287,7 @@ To sa nám pomôže pripraviť na najväčšiu záťaž.
 
 % TODO dopisat novu funkcionalitu
 
-\subsection{Zbieranie metrík za účelom hľbkovej analýzy}
+\subsection{Monitorovanie systému za účelom hĺbkovej analýzy}
 
 Dlhodobými meraniami vieme zaznamenávať vzory správania používateľov v našom informačnom systéme.
 Takýmto vzorom môže byť v akademickom informačnom systéme napríklad:
@@ -392,11 +391,16 @@ Kvôli prehľadnosti sú základné rozdiely popísané v tabuľke 1.
 
 \section{Nástroje na Ukladanie a Zobrazenie Metrík}
 
-Keďže monitorovanie informačných systémov je populárne, existujú rôzne nástroje na~ukladanie a zobrazenie metrík.
+Nástroje na zbieranie metrík majú často za úlohu agregovať metriky a preposielať ich do ďalších nástrojov.
+Existujú rôzne nástroje na~ukladanie a zobrazenie metrík.
 Niektoré z nich sú komerčné, iné open-source.
 Medzi často používané open-source nástroje patria nástroje Graphite, Zabbix a Ganglia.
 Tieto nástroje vedia prijať dáta z iných nástrojov, uložiť ich v databáze a~vhodným spôsobom ich zobraziť, aby sa dali ľahšie interpretovať.
-Metriky sa zobrazujú v podobe histogramov alebo čiarových diagramov cez používateľské rozhranie vo forme webovej aplikácie.
+
+Rôzne nástroje na zbieranie metrík majú rôznu architektúru a ponúkajú rozličnú funkcionalitu.
+Záleží od veľkosti a komplexnosti systému a od požadovanej funkcionality ktorý nástroj si vyberieme.
+
+Metriky sa najčastejšie zobrazujú v podobe histogramov alebo čiarových diagramov cez používateľské rozhranie vo forme webovej aplikácie.
 
 \subsection{Nástroj Graphite}
 
@@ -407,7 +411,7 @@ Kód graphitu je napísaný v programovacom jazyku python.
 Metriky stačí poslať do nástroja Graphite a on ich sám zaradí do stromu metrík podľa prefixu.
 Po inštalácii sa nevyžaduje žiadna dodatočná konfigurácia.
 
-Na obrázku 1 môžete vidieť používaťeľské rozhranie nástroja graphite a čiarový diagram pre metriku zaťaženie procesora.
+Na obrázku 2 môžete vidieť používaťeľské rozhranie nástroja graphite a čiarový diagram pre metriku zaťaženie procesora.
 
 \begin{figure}
 \begin{center}
@@ -421,12 +425,25 @@ Na vykresľovanie grafov využíva python knižnicu PyCairo.
 V praxi sa používa pri jednoduchých projektoch, ak nám postačuje získané metriky zobrazovať.
 Pri monitorovaní komplexnejších systémov sa používajú zložitejšie nástroje ako napríklad Zabbix alebo Ganglia.
 
+\subsubsection{Výhody nástroja Graphite}
+
+Graphite je jednoduchý nástroj určený pre monitorovanie malých jednoduchších systémov.
+Hlavnou výhodou je, že po inštalácii nástroja sa nevyžaduje žiadna konfigurácia metrík.
+Ďalšou výhodou je jednoduché zobrazenie viacerých metrík v jednom grafe.
+Graphite je zameraný na monitorovanie systémov v reálnom čase.
+
+\subsection{Nevýhody nástroja Graphyte}
+
+Nástroj Graphite je zameraný len na vykresľovanie metrík a neponúka žiadnú dodatočnú funkcionalitu.
+Jeho nevýhodou je, že sa má komplikovanú inštaláciu.
+
+
 \subsection{Nástroj Zabbix}
 
 Ďalším používaným nástrojom je Zabbix.
 Jeho kód je napísaný v jazyku C a~používateľské rozhranie v podobe webovej aplikácie je napísaný v jazyku PHP.
 Na ukladanie metrík používa Mysql databázu.
-Na obrázku 2 môžete vidieť používateľské rozhranie nástroja Zabbix.
+Na obrázku 3 môžete vidieť používateľské rozhranie nástroja Zabbix.
 
 \begin{figure}
 	\begin{center}
@@ -435,24 +452,39 @@ Na obrázku 2 môžete vidieť používateľské rozhranie nástroja Zabbix.
 	\caption{Používateľské rozhranie nástroja Zabbix}
 \end{figure}
 
-Zabbix okrem vizualizácie dokáže zbierať vlastné metriky, pomáha detekovať problém a vie o ňom notifikovať administrátorov.
+Zabbix je komplexný nástroj určený aj pre väčšie systémy.
+Okrem vizualizácie dokáže zbierať vlastné metriky, pomáha detekovať problém a vie o ňom notifikovať administrátorov.
 Je to omnoho mohutnejší nástroj ako Graphite.
 
 K informačnému systému patrí aj hardvér, na ktorom systém beží.
-Informácie o hardvéri a rôzne systémové metriky môžeme zbierať pomocou Zabbixu.
-Môžeme monitorovať napríklad výkon systému, sieťové zariadenia, virtuálne stroje, databázy, Java virtual machine alebo Java aplikačné servery.
+Informácie o hardvéri a rôzne iné systémové metriky môžeme zbierať pomocou modulu Zabbix agent.
+Zabbix agent pravidelne posiela získané udaje zo stroja, kde je nasadený na Zabbix server.
+Môžeme tak jednoducho monitorovať napríklad výkon systému, sieťové zariadenia, virtuálne stroje, databázy, Java virtual machine alebo Java aplikačné servery.
 
-Zbieranie dát umožňuje napríklad Zabbix agent, ktorý pravidelne posiela získané udaje zo stroja, kde je nasadený na Zabbix server.
-Zabbix tiež umožňuje na zber dát použiť SNMP a IPMI agentov alebo Zabbix sender nástroj, ktorým do Zabbixu vieme poslať ľubovoľné metriky.
-Každá metrika, ktorá je poslaná do Zabbixu musí byť dopredu nakonfigurovaná.
+Zabbix tiež umožňuje na zber dát použiť SNMP a IPMI agentov alebo Zabbix sender nástroj, ktorým do Zabbixu vieme poslať ľubovoľné metriky z nástrojov na zbieranie metrík.
 
-Detekcia problému funguje pomocou definovania triggerov, ktoré odhalia, že niečo nefunguje.
+Zabbix môže slúžiť aj na detekciu problémov so systémom.
+Detekcia problémov v Zabbixe funguje pomocou definovania triggerov, ktoré odhalia, že niečo nefunguje.
 Môže to byť napríklad výpadok stroja, málo voľného miesta na disku monitorovaného zariadenia alebo veľa pripojených používateľov.
+V triggery sa nastavý prah, ktorým určíme maximálnu akceptovateľnú hodnotu metriky.
 
-Ak Zabbix detekuje problém, môže nás o tom notifikovať alebo vykonať požadovanú akciu.
+Ak sa táto hodnota prekročí, Zabbix nás o tom môže notifikovať alebo vykoná nastavenú akciu.
 Môže nás notifikovať prostredníctvom e-mailu, SMS správy alebo správy cez Jabber.
-Môžeme si nastaviť, aké dáta sa nám v notifikácii zobrazia.
+Môžeme si tiež nastaviť, aké dáta sa nám v notifikácii zobrazia.
 Okrem notifikačnej správy Zabbix vie po detekcii problému vykonať napríklad shell príkaz cez~ssh.
+
+\subsubsection{Výhody nástroja Zabbix}
+
+Veľkou výhodou nástroja Zabbix je to, že na ukladanie metrík používa Mysql databázu.
+Dáta tak máme uložené v relačnej databáze a vieme sa na ne jednoducho dopytovať.
+
+
+
+\subsubsection{Neýhody nástroja Zabbix}
+
+Hlavná nevýhoda Zabbixu je to, že každá metrika, ktorú chceme monitorovať musí byť dopredu nakonfigurovaná.
+Ak máme metrík veľa, úvodná konfigurácia je pracná.
+Pri každej novej funkcionalite informačného systému s predpokladom, že ju chceme monitorovať, je potrebné nakonfigurovať nové metriky aj v Zabbixe.
 
 \subsection{Nástroj Ganglia}
 
@@ -460,18 +492,18 @@ Dalším obľúbeným nástrojom je Ganglia.
 Ganglia je open-source nástroj zameraný na~distribuované monitorovanie celých clustrov či gridov.
 Je naozaj rozšírený, používajú ho napríklad známe spoločnosti ako Twitter, flickr, National Aeronautics and Space Administration (NASA), Wikipedia, CERN, Cisco, HP, Microsoft, Dell, nVidia, U.S. Air Force.
 
-Metriky do Ganglie môžeme poslať pomocou Gmond modulov, gmetric modulu alebo inými nástrojmi, ako napríklad statsd.
+Metriky do Ganglie môžeme poslať pomocou Gmond modulov, Gmetric modulu alebo inými nástrojmi, ako napríklad statsd.
 Ak posielame metriky do Ganglie, nemusíme ich mať dopredu nakonfiguroavné.
 Gmetad vytvorí nový RRD súbor pre každú novú metriku, čo značne uľahčí konfiguráciu, ak metrík máme veľa.
 Web používaťeľské rozhranie potom zobrazí základný graf pre každú metriku.
 
-Ganglia na posielanie metrík na centrálny server používa dvoch démonov a to gmond a gmetad.
+Ganglia na posielanie metrík na centrálny server používa dvoch démonov a to Gmond a Gmetad.
 Gmond môže posielať alebo prijímať metriky, ktoré si drží v pamäti.
 Gmetad v rámci gridu ťahá dáta z jedného gmond démona v rámci gridu.
 Gmond moduly so sebou komunikujú cez UDP, do Gmetad posielajú XML cez TCP.
 Gmetad si medzi sebou posielajú metriky cez TCP vo forme XML.
 Gmond medzi sebou kominikujú buď unicastom alebo multicastom.
-Architektúra je popísaná na obrázku 3.
+Architektúra pomocou unicastu je popísaná na obrázku 4.
 
 \begin{figure}
 	\begin{center}
@@ -486,6 +518,20 @@ Architektúra je popísaná na obrázku 3.
 	\end{center}
 	\caption{Používateľské rozhranie nástroja Ganglia}
 \end{figure}
+
+Ganglia priamo nepodporuje detekciu problémov so systémom.
+Umožňuje však prepojenie s nástrojom Naggios, ktorý je na to určený.
+
+\subsubsection{Výhody nástroja Ganglia}
+
+Asi najväčšou výhodou nástroja Ganglia je to, že dokáže monitorovať celé clustre a gridy.
+Je určená na agregáciu metrík z viacerých serverov a z komplexných informačných systémov.
+Na ukladanie metrík používa RRD databázu, takže metriky nemusíme v Ganglii konfigurovať.
+Výhodné je aj jednoduché prepojenie s nástrojom Naggios.
+
+\subsubsection{Nevýhody nástroja Ganglia}
+
+
 
 \subsection{Graphite vs Zabbix vs Ganglia}
 
