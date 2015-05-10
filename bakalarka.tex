@@ -190,16 +190,18 @@ My sa zaoberáme open-source nástrojmi.
 
 \newpage
 
-\section{Návrh Riešenia}
+%\section{Návrh Riešenia}
 
-\subsection{Úvod k zberu metrík}
+%\subsection{Úvod k zberu metrík}
+
+\section{Algoritmus monitorovania informačného systému}
 
 Ak chceme získať užitočné dáta o systéme aby sme ich mohli analyzovať, musíme ich najprv zozbierať.
 Pred zbieraním metrík si treba najprv dobre premyslieť, čo chceme zbierať, 
 aké metriky sú pre nás vhodné a aký cieľ chceme zberom metrík dosiahnuť.
 Treba si dobre a jasne definovať metriky, aby sme z~nich mali čo najväčší osoh.
 
-\subsection{Algoritmus monitorovania informačného systému}
+%\section{Algoritmus monitorovania informačného systému}
 
 Monitorovanie informačného systému od prípravy na monitorovanie až po analýzu výsledkov monitorovania sa dá popísať nasledujúcim algoritmom:
 
@@ -208,7 +210,7 @@ Monitorovanie informačného systému od prípravy na monitorovanie až po anal�
 	\item Výber vhodných metrík.
 	\item Výber nástrojov na monitorovanie a zobrazovanie metrík.
 	\item Integrácia nástrojov a metrík do informačného systému.
-	\item Samotný Zber metrík.
+	\item Samotný zber metrík.
 	\item Analýza získaných metrík.
 	\item Vyvodenie dôsledkov monitorovania.
 \end{enumerate}
@@ -267,9 +269,14 @@ Na obrázku 1. môžete vidieť diagram algoritmu pre monitorovanie informačné
 \end{center}
 \end{figure}
 
+\newpage
+
+\section{Typy monitorovania}
+
 \subsection{Zber metrík v reálnom čase}
 
-Riešenie problému detekcie nežiadúceho správania sa systému nám môže poskytnúť zber metrík v reálnom čase.
+Monitorovanie systému v reálnom čase nám pomôže detekovať problém skôr, ako ho zbadá používateľ.
+
 
 
 \subsection{Dlhodobé zbieranie metrík}
@@ -278,6 +285,8 @@ Krátkodobé merania systému nám podajú užitočnú informáciu o aktuálnom 
 Nás však zaujímajú aj dlhodobé merania.
 Tie nám povedia, kedy v priebehu roka je systém najviac zaťažený, kedy najmenej, a aké funkcionality používatelia využívajú v konkrétnych obdobiach.
 To sa nám pomôže pripraviť na najväčšiu záťaž.
+
+% TODO dopisat novu funkcionalitu
 
 \subsection{Zbieranie metrík za účelom hľbkovej analýzy}
 
@@ -296,8 +305,11 @@ Takýmto vzorom môže byť v akademickom informačnom systéme napríklad:
 
 Ak získame takéto vzory, môžeme napríklad dynamicky meniť používateľské rozhranie počas priebehu semestra a sprístupniť tak najčastejšie hľadané informácie podľa vzorov na viditeľnejšie miesta v našom systéme.
 
+% TODO zle navrhnuté dialógy
 
-\subsection{Nástroje na Zber Metrík}
+\newpage
+
+\section{Nástroje na Zber Metrík}
 
 Ak už máme jasne definované metriky, môžeme ich začať zbierať.
 Zber metrík je~často riešený problém, v zbere metrík nám môžu pomôcť rôzne nástroje.
@@ -312,10 +324,8 @@ Obe nástroje sú odlišné z hľadiska integrácie a architektúry.
 Naším čiastočným cieľom je porovnať ich.
 V nasledujúcich odstavcoch si popíšeme ich výhody a nevýhody.
 
-\subsubsection{Nástroj Metrics}
+\subsection{Nástroj Metrics}
 
-
-\noindent
 Metrics je open-source java knižnica na zber metrík.
 Získané metriky posiela do nástrojov na zobrazovanie metrík ako napríklad Graphite alebo Ganglia, alebo ukladá do databázy prostredníctvom logovacích nástrojov.
 
@@ -328,10 +338,8 @@ Nástroj Metrics nám pomôže dostať namerané metriky do~ďalších nástrojo
 Asi najväčšou konkurenciou k Metrics je nástroj Statsd.
 
 
-\subsubsection{Nástroj Statsd}
+\subsection{Nástroj Statsd}
 
-
-\noindent
 Open-source nástroj Statsd je určený na zber metrík a následné preposlanie do nástrojov na spracovanie a zobrazenie.
 Má kientov pre množstvo programovacích jazykov ako napríklad node.js, java, python, ruby, perl, php, c, cpp, .net, či dokonca plugin pre wordpress. 
 
@@ -342,10 +350,8 @@ Umožňuje posielať dáta do nástrojov ako napríklad Graphite, Ganglia, Libra
 Architektúra tohto nástroja je trochu zložitejšia.
 
 
-\subsubsection{Metrics vs Statsd}
+\subsection{Metrics vs Statsd}
 
-
-\noindent
 Obe nástroje slúžia na zbieranie metrík, majú však rozdielnú architektúru. 
 Ponúkajú rôzne možnosti integrácie s ďalšími nástrojmi. 
 Kvôli prehľadnosti sú základné rozdiely popísané v tabuľke 1.
@@ -382,7 +388,9 @@ Kvôli prehľadnosti sú základné rozdiely popísané v tabuľke 1.
 	\end{tabular}
 \end{table}
 
-\subsection{Nástroje na Ukladanie a Zobrazenie Metrík}
+\newpage
+
+\section{Nástroje na Ukladanie a Zobrazenie Metrík}
 
 Keďže monitorovanie informačných systémov je populárne, existujú rôzne nástroje na~ukladanie a zobrazenie metrík.
 Niektoré z nich sú komerčné, iné open-source.
@@ -390,9 +398,8 @@ Medzi často používané open-source nástroje patria nástroje Graphite, Zabbi
 Tieto nástroje vedia prijať dáta z iných nástrojov, uložiť ich v databáze a~vhodným spôsobom ich zobraziť, aby sa dali ľahšie interpretovať.
 Metriky sa zobrazujú v podobe histogramov alebo čiarových diagramov cez používateľské rozhranie vo forme webovej aplikácie.
 
-\subsubsection{Nástroj Graphite}
+\subsection{Nástroj Graphite}
 
-\noindent
 Nástroj Graphite je veľmi obľúbeným nástrojom v oblasti zobrazovania metrík.
 Nástroje ako napríklad Statsd alebo Metrics pošlú získané metriky do Graphitu a ten ich uloží pomocou integrovaného nástroja Carbon do Whisper databázy. 
 Whisper databáza je veľmi podobná RRD (round robin database) databáze, ale je prispôsobená a~napísaná v pythone.
@@ -414,19 +421,18 @@ Na vykresľovanie grafov využíva python knižnicu PyCairo.
 V praxi sa používa pri jednoduchých projektoch, ak nám postačuje získané metriky zobrazovať.
 Pri monitorovaní komplexnejších systémov sa používajú zložitejšie nástroje ako napríklad Zabbix alebo Ganglia.
 
-\subsubsection{Nástroj Zabbix}
+\subsection{Nástroj Zabbix}
 
-\noindent
 Ďalším používaným nástrojom je Zabbix.
 Jeho kód je napísaný v jazyku C a~používateľské rozhranie v podobe webovej aplikácie je napísaný v jazyku PHP.
 Na ukladanie metrík používa Mysql databázu.
 Na obrázku 2 môžete vidieť používateľské rozhranie nástroja Zabbix.
 
 \begin{figure}
-\begin{center}
-\includegraphics[scale=0.41]{zabbix.png}
-\end{center}
-\caption{Používateľské rozhranie nástroja Zabbix}
+	\begin{center}
+		\includegraphics[scale=0.41]{zabbix.png}
+	\end{center}
+	\caption{Používateľské rozhranie nástroja Zabbix}
 \end{figure}
 
 Zabbix okrem vizualizácie dokáže zbierať vlastné metriky, pomáha detekovať problém a vie o ňom notifikovať administrátorov.
@@ -448,9 +454,8 @@ Môže nás notifikovať prostredníctvom e-mailu, SMS správy alebo správy cez
 Môžeme si nastaviť, aké dáta sa nám v notifikácii zobrazia.
 Okrem notifikačnej správy Zabbix vie po detekcii problému vykonať napríklad shell príkaz cez~ssh.
 
-\subsubsection{Nástroj Ganglia}
+\subsection{Nástroj Ganglia}
 
-\noindent
 Dalším obľúbeným nástrojom je Ganglia.
 Ganglia je open-source nástroj zameraný na~distribuované monitorovanie celých clustrov či gridov.
 Je naozaj rozšírený, používajú ho napríklad známe spoločnosti ako Twitter, flickr, National Aeronautics and Space Administration (NASA), Wikipedia, CERN, Cisco, HP, Microsoft, Dell, nVidia, U.S. Air Force.
@@ -469,20 +474,20 @@ Gmond medzi sebou kominikujú buď unicastom alebo multicastom.
 Architektúra je popísaná na obrázku 3.
 
 \begin{figure}
-\begin{center}
-\includegraphics[scale=0.55]{ganglia-architecture.png}
-\end{center}
-\caption{Posielanie metrík do Ganglie použitím unicastu}
+	\begin{center}
+		\includegraphics[scale=0.55]{ganglia-architecture.png}
+	\end{center}
+	\caption{Posielanie metrík do Ganglie použitím unicastu}
 \end{figure}
 
 \begin{figure}
-\begin{center}
-\includegraphics[scale=0.41]{ganglia.png}
-\end{center}
-\caption{Používateľské rozhranie nástroja Ganglia}
+	\begin{center}
+		\includegraphics[scale=0.41]{ganglia.png}
+	\end{center}
+	\caption{Používateľské rozhranie nástroja Ganglia}
 \end{figure}
 
-\subsubsection{Graphite vs Zabbix vs Ganglia}
+\subsection{Graphite vs Zabbix vs Ganglia}
 
 Ako sme už písali, nástroj Graphite je vhodný na monitorovanie menších systémov.
 Pre väčšie informačné systémy je lepšie použiť komplexnejší nástroj, ako napríklad Zabbix alebo Gangliu.
@@ -498,5 +503,14 @@ Záleží od komplexnosti systému, ktorý nástroj si vyberieme.
 
 V tejto práci sme sa zaoberali monitorovaním informačných systémov, prečo je monitorovanie výhodné a ako nám môže pomôcť pri jeho rozvíjaní.
 Rozobrali sme si open-source nástroje na zbieranie a vizualizáciu metrík a to Statsd, Metrics, Graphite, Zabbix a Ganglia.
+
+%
+\bibliography{bakalarka}
+
+\renewcommand{\bibname}{Zoznam pou�itej literat�ry}
+%\begin{thebibliography}{9}
+%\bibitem{1} Ipsum, L.: Lorem ipsum dolor sit amet.
+%\end{thebibliography}
+%
 
 \end{document}
