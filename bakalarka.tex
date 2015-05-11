@@ -129,7 +129,7 @@ Medzi základné typy metrík patria údaje o počte (counting), údaje o čase 
 Niekedy je užitočné zbierať hodnotu, ktorá nezávisí od predchádzajúcich hodnôt napríklad počet objektov v rade, veľkosť dát odoslanej odpovede, alebo zaťaženie procesora. 
 Tieto hodnoty môžu byť číselné alebo nečíselné. Tieto hodnoty pravidelne zbierame a odosielame na spracovanie a zobrazenie.
 
-\subsection{Monitorovanie Ais2}
+\subsection{Monitorovanie systému Ais2}
 
 V našej bakalárskej práci chceme navrhnúť systém monitorovania akademického informačného systému AIS2.
 Problémom je to, že vývojári systému AIS2 nie sú správcami systému.
@@ -276,7 +276,9 @@ Na obrázku 1. môžete vidieť diagram algoritmu pre monitorovanie informačné
 \subsection{Monitorovanie systému v reálnom čase}
 
 Monitorovanie systému v reálnom čase nám pomôže detekovať problém skôr, ako ho zbadá používateľ.
-
+Prehľadné grafy zobrazujúce nazbierané metriky nám ukážu dôležité informácie o stave systému.
+Niektoré nástroje nás dokonca upozornia, ak v systéme nastane problém.
+Po vyriešení problému zas z grafov vyčítame, či sme detekovaný problém vyriešili a ako dobre sme ho vyriešili.
 
 \subsection{Dlhodobé monitorovanie systému}
 
@@ -285,7 +287,8 @@ Nás však zaujímajú aj dlhodobé merania.
 Tie nám povedia, kedy v priebehu roka je systém najviac zaťažený, kedy najmenej, a aké funkcionality používatelia využívajú v konkrétnych obdobiach.
 To sa nám pomôže pripraviť na najväčšiu záťaž.
 
-% TODO dopisat novu funkcionalitu
+Po vylepšení niektorej funkcionality v systéme vieme porovnať nové hodnoty metrík s historickými hodnotami metrík pre danú funkcionalitu.
+Dozvieme sa tak, či sme funkcionalitu naopak nezhoršili a či bude schopná vydržať záťaž.
 
 \subsection{Monitorovanie systému za účelom hĺbkovej analýzy}
 
@@ -304,7 +307,15 @@ Takýmto vzorom môže byť v akademickom informačnom systéme napríklad:
 
 Ak získame takéto vzory, môžeme napríklad dynamicky meniť používateľské rozhranie počas priebehu semestra a sprístupniť tak najčastejšie hľadané informácie podľa vzorov na viditeľnejšie miesta v našom systéme.
 
-% TODO zle navrhnuté dialógy
+Dlhodobými meraniami systému vieme získať aj ďalšie zaujímavé informácie.
+Nad množstvom vyzbieraných metrík sa dá robiť hĺbková analýza v podobe dolovania dát.
+No na hĺbkovú analýzu budeme potrebovať väčšinou odlišné dáta od tých, ktoré pre nás majú zmysel pri monitorovaní v reálnom čase.
+Budú nás zaujímať iné metriky a aj ciele takejto analýzy budeme mať odlišné.
+
+\subsection{Dlhodobé monitorovanie systému s použitím logovania}
+%logstash, session, rrd, 
+
+
 
 \newpage
 
@@ -531,7 +542,7 @@ Výhodné je aj jednoduché prepojenie s nástrojom Naggios.
 
 \subsubsection{Nevýhody nástroja Ganglia}
 
-
+% TODO
 
 \subsection{Graphite vs Zabbix vs Ganglia}
 
@@ -542,6 +553,11 @@ Zabbix vie detekovať problémy a tie jednoduchšie aj vyriešiť (napríklad re
 	Ganglia zas dokáže monitorovať celé clustre a gridy a ponúka nám jednoduchú agregáciu grafov.
 Záleží od komplexnosti systému, ktorý nástroj si vyberieme.
 
+\subsection{Monitorovanie systému AIS2 v reálnom čase}
+
+\subsection{Dlhodobé monitorovanie AIS2}
+
+\subsection{Vlastná práca}
 
 \newpage
 
