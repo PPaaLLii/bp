@@ -20,7 +20,7 @@
 \podakovanie{Chcem sa poďakovať vedúcemu tejto práce Doc. RNDr. Gabrielovi Semanišinovi PhD., konzultantovi RNDr. Erikovi Bruothovi PhD. a Mgr. Slavomírovi Varchulovi za  cenné rady, odbornú pomoc a~konzultácie, ktoré mi poskytli pri vypracovaní tejto bakalárskej práce. \\ \\
 Osobitné poďakovanie patrí mojej rodine a priateľom za podporu a pochopenie.}
 
-\abstrakt{Hlavným cieľom našej bakalárskej práce je navrhnúť spôsob monitorovania informačného systému za účelom zbierania užitočných informácií ohľadom výkonu systému a používateľských preferenciách. Zaoberáme sa najmä otázkami aké informácie zbierať a akými nástrojmi ich zbierať. Existuje množstvo nástrojov z časti riešiacich našu problematiku. Zameriame sa na open-source nástroje. V práci si rozoberieme tie najpoužívanejšie, ich výhody a nevýhody a vybrané nástroje integrujeme do akademického informačného systému AIS2. Pomocou nich sa pokúsime zbierať a zobrazovať metriky, ktoré nám pomôžu identifikovať problémy a funkcie, ktoré je potreba vylepšiť.}
+\abstrakt{Hlavným cieľom našej bakalárskej práce je navrhnúť spôsob monitorovania informačného systému za účelom zbierania užitočných informácií ohľadom výkonu systému a používateľských preferenciách. Zaoberáme sa najmä otázkami aké informácie zbierať a akými nástrojmi ich zbierať. Existuje množstvo nástrojov z časti riešiacich našu problematiku. Zameriame sa na open-source nástroje. V práci si rozoberieme tie najpoužívanejšie, ich výhody a nevýhody a vybrané nástroje integrujeme do akademického informačného systému AiS2. Pomocou nich sa pokúsime zbierať a zobrazovať metriky, ktoré nám pomôžu identifikovať problémy a funkcie, ktoré je potreba vylepšiť.}
 
 \begin{document}
 \maketitle
@@ -111,11 +111,9 @@ Aby metrika plnila svoj cieľ, teda podala správnu informáciu o systéme, mala
 	\item okamžite ukončiteľná
 \end{itemize}
 
-% TODO preformulovat aktualne
-%AiS2
 Metrika by mala byť jednoduchá, aby bola ľahko interpretovateľná a pochopiteľná.
 Relevantná metrika je taká, ktorá pomôže splniť cieľ, dosiahnuť to, na~čo~bola určená.
-Neaktuálne metriky nám poskytnú možno už~nep\-ravdivé dáta a preto by metriky mali byť aktuálne. 
+Neaktuálne metriky nám poskytnú možno už~nep\-ravdivé dáta a preto by metriky mali byť čo najaktuálnejšie. 
 Len aktuálne dáta nám popíšu systém spoľahlivo.
 Od metriky požadujeme, aby bola okamžite ukončiteľná, aby hneď po jej získaní bola pripravená na spracovanie a tak viedla k novým poznatkom.
 %\cite{website:web-analytics.wikidot}
@@ -131,16 +129,17 @@ Medzi základné typy metrík patria údaje o počte (counting), údaje o čase 
 Niekedy je užitočné zbierať hodnotu, ktorá nezávisí od predchádzajúcich hodnôt napríklad počet objektov v rade, veľkosť dát odoslanej odpovede, alebo zaťaženie procesora. 
 Tieto hodnoty môžu byť číselné alebo nečíselné. Tieto hodnoty pravidelne zbierame a odosielame na spracovanie a zobrazenie.
 
-\subsection{Monitorovanie systému Ais2}
+\subsection{Monitorovanie systému AiS2}
 
-V našej bakalárskej práci chceme navrhnúť systém monitorovania akademického informačného systému AIS2.
-Problémom je to, že vývojári systému AIS2 nie sú správcami systému.
-% TODO su castou skreslenej virtualizacie, spomenut cloud - nie je len problem aisu
-Nemôžu preto získavať metriky ako napríklad zaťaženie serverov, voľná operačná pamäť, či iné systémové metriky.
-Aby zabezpečili hladký chod systému, musia sa spoľahnúť na aplikačné metriky.
-Tie nám daju informácie o aktuálnom stave aplikácie a o jej správaní.
+V našej bakalárskej práci chceme navrhnúť systém monitorovania akademického informačného systému AiS2.
+Problémom je to, že vývojári systému AiS2 nie sú správcami systému.
+Nemôžu preto získavať metriky ako napríklad zaťaženie serverov, voľná operačná pamäť, či iné systémové metriky, pretože tie sú skreslené virtualizáciou.
+Tento problém sa týka aj cloudových riešení, ktorých v dnešnej dobe rýchlo pribúda.
+Nemôžeme teda monitorovať priamo infraštruktúru aplikácie.
+Aby vývojári zabezpečili hladký chod systému, musia sa spoľahnúť na aplikačné metriky.
+Tie nám dajú informácie o aktuálnom stave aplikácie a o jej správaní.
 
-Keďže systém AIS2 beží vo viacerých inštaláciách, 
+Keďže systém AiS2 beží vo viacerých inštaláciách, 
 	je potrebné monitorovať viacero inštalácií tohto systému samostatne, aj ako celok.
 Chceme ich vedieť porovnať medzi sebou, 
 	aby sme vedeli odlíšiť problémy v konkrétnej inštalácii a globálne problémy týkajúce sa systému samotného.
@@ -148,7 +147,7 @@ Na porovnanie inštalácií potrebujeme získané metriky mať na jednom mieste,
 Potrebujeme zobrazovať agregované metriky zo všetkých inštalácií.
 Bude jednoduchšie inštalácie porovnať a analyzovať nazbierané metriky.
 
-Ďalším cieľom monitorovania AIS-u je optimalizácia interakcie systému s používateľom.
+Ďalším cieľom monitorovania AiS-u je optimalizácia interakcie systému s používateľom.
 Chceme detekovať zle navrhnuté dialógy, ich neprehľadné umiestnenie v systéme, a analyzovať interakciu s používateľmi, napríklad aj dynamickým upravovaním používateľského rozhrania.
 
 \subsection{Problémy}
@@ -164,7 +163,6 @@ Monitorovanie systému nesmie systém výrazne zaťažiť, lebo by monitorovanie
 
 \subsection{Ilustračný Príklad}
 
-% TODO dorobyt priklad na realtime
 Dobrým príkladom informačného systému je akademický informačný systém.
 Monitorovanie takéhoto systému môže výrazne pomôcť k jeho vylepšeniu a~rozví\-janiu.
 
@@ -173,26 +171,38 @@ Ak by mal vývojár informáciu o prehliadačoch, ktorými sa používatelia pri
 Zaujímavou metrikou je aj rozlíšenie obrazoviek klientov, lebo s takouto informáciou sa dá lepšie rozvrhnúť používateľské rozhranie a zabezpečiť, aby klienti našli informácie, ktoré potrebujú rýchlejšie.
 Ak by napríklad väčšina používateľov systému k nemu pristupovala s malou obrazovkou cez mobilný telefón, vývojár by investoval viac času a prostriedkov do prispôsobenia rozhrania pre mobilné telefóny.
 
+Ďalšou zaujímavou metrikou je čas odpovede na požiadavku od klienta.
+Ak zaznamenáme výrazne zvýšenie času odpovede vzhľadom na dlhodobý historický trend, vieme, že v systéme dochádza k problému a treba ho čo najskôr začať riešiť.
 
 \subsection{Prehľad Súčasného Stavu}
-
-% porovnat vzhladom na systemova metriky 
+ 
 V tomto čase je množstvo informačných systémov, ktoré sú neustále vylepšované a~zdokonaľované a~tak je potreba ich monitorovať, aby sa dali ešte viac zlepšiť a~prispôsobiť zákazníkom.
 Každý systém je špecifický, a tak aj jeho monitorovanie je jedinečné.
 Vývojári sa snažia upraviť monitorovanie ich systému a prispôsobiť ho tak, aby im poskytol čo najviac vedomostí o ich systéme.
 
-Existuje niekoľko nástrojov, ktoré ponúkajú riešenia načich problémov či už ide o zbieranie metrík alebo ich vizualizáciu.
+Existuje niekoľko nástrojov, ktoré čiastočne ponúkajú riešenia našich problémov či už ide o zbieranie metrík alebo ich vizualizáciu.
+Tieto nástroje sú však väčšinou zamerané na zbieranie systémových metrík a my potrebujeme zbierať hlavne aplikačné metriky.
 Patria tu jak platené (Datadog, Stackdriver, Librato), tak aj open-source nástroje (Statsd, Metrics, Cacti, Graphite, Zabbix, Ganglia, Naggios).
 My sa zaoberáme open-source nástrojmi.
 
+
 \subsection{Ciele Práce}
 
-% opysat 
-\begin{enumerate}
-	\item Navrhnúť spôsob monitorovania informačného systému v reálnom čase za~úče\-lom zhromažďovania informácií o výkonne systému a používateľských pre\-ferenciách.
-	\item Navrhnúť dátovú štruktúru pre uložené metriky z jednotlivých inštalácií a~vytvoriť jednoduché štatistické prehľady nad zozbieranými údajmi v závis\-losti od~charakteru údajov.
-	\item Analyzovať možnosti využitia monitorovania pre účely optimalizácie interakcie s používateľom.
-\end{enumerate}
+%\begin{enumerate}
+%	\item Navrhnúť spôsob monitorovania informačného systému v reálnom čase za~úče\-lom zhromažďovania informácií o výkonne systému a používateľských pre\-ferenciách.
+%	\item Navrhnúť dátovú štruktúru pre uložené metriky z jednotlivých inštalácií a~vytvoriť jednoduché štatistické prehľady nad zozbieranými údajmi v závis\-losti od~charakteru údajov.
+%	\item Analyzovať možnosti využitia monitorovania pre účely optimalizácie interakcie s používateľom.
+%\end{enumerate}
+
+Hlavným cieľom našej bakalárskej práce je navrhnúť spôsob monitorovania informačného systému v reálnom čase za~úče\-lom zhromažďovania informácií o výkonne systému a používateľských pre\-ferenciách. 
+Chceme tak navrhnúť systém monitorovania akademického informačného systému AiS2.
+
+Ďalším cieľom je navrhnúť dátovú štruktúru pre uložené metriky z jednotlivých inštalácií a~vytvoriť jednoduché štatistické prehľady nad zozbieranými údajmi v závis\-losti od~charakteru údajov.
+Potrebujeme určiť čo najvhodnejší spôsob ukladania metrík, ich agregácie z viacerých inštalácií na jedno miesto a vhodným spôsobom ich zobraziť.
+
+Chceme tiež analyzovať možnosti využitia monitorovania pre účely optimalizácie interakcie s používateľom, teda zistiť, ako sa monitorovaním dá dosiahnúť skvalitnenie informačného systému pre jeho používateľov.
+
+Keďže už existujú nástroje, ktoré čiastočne riešia naše problémy, naším cieľom bude aj porovnať tieto nástroje, popísať si ich výhody a nevýhody, a určiť nástroje, ktoré by boli najvhodnejšie pre monitorovanie informačného systému AiS2.
 
 \newpage
 
@@ -568,12 +578,12 @@ Zabbix vie detekovať problémy a tie jednoduchšie aj vyriešiť (napríklad re
 	Ganglia zas dokáže monitorovať celé clustre a gridy a ponúka nám jednoduchú agregáciu grafov.
 Záleží od komplexnosti systému, ktorý nástroj si vyberieme.
 
-\subsection{Monitorovanie systému AIS2 v reálnom čase}
+\subsection{Monitorovanie systému AiS2 v reálnom čase}
 % momentalne chceme gangliu, tak sme testovali zabbix, ze bude zly, aktualne zabbix, metrics, vyuzitie aj dlhodobe 2 v 1? asi ani jedno..., zbieranie metrik
 % ciel 18 instalacii porovnavat - Ganglia metrics, gmond gmetric, kniznica, 
 % konfiguracia, grafy, ...
 % zabbix experimenty datamining
-\subsection{Dlhodobé monitorovanie AIS2}
+\subsection{Dlhodobé monitorovanie AiS2}
 %logstash, logy obe problemy nejdu jednym nastrojom...uz su logy, session
 
 \subsection{Vlastná práca}
