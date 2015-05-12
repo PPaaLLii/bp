@@ -328,11 +328,6 @@ Nad množstvom vyzbieraných metrík sa dá robiť hĺbková analýza v podobe d
 No na hĺbkovú analýzu budeme potrebovať väčšinou odlišné dáta od tých, ktoré pre nás majú zmysel pri monitorovaní v reálnom čase.
 Budú nás zaujímať iné metriky a aj ciele takejto analýzy budeme mať odlišné.
 
-\subsection{Dlhodobé monitorovanie systému s použitím logovania}
-% TODO zrusit logstash, session, rrd, 
-
-
-
 \newpage
 
 \section{Nástroje na Zber Metrík}
@@ -347,7 +342,8 @@ Každý systém je jedinečný a teda aj jeho monitorovanie je odlišné.
 To si však žiada odlišné metriky a tie sa zbierajú na odlišných miestach v kóde systému.
 
 % rovnake nastroje, len ine riesenie zbieranie - "definovanie", cache, 
-Oba nástroje sú odlišné z hľadiska integrácie a architektúry.
+Oba nástroje sú funkcionalitou podobné, no odlišné z hľadiska integrácie a architektúry.
+Riešia ten istý problém - definujú metriky v kóde systému a fungujú ako cache pre metriky, a po nastavenom časovom intervale ich posielajú ďalším nástrojom.
 Naším čiastočným cieľom je porovnať ich.
 V nasledujúcich odstavcoch si popíšeme ich výhody a nevýhody.
 
@@ -370,8 +366,8 @@ Asi najväčšou konkurenciou k Metrics je nástroj Statsd.
 Open-source nástroj Statsd je určený na zber metrík a následné preposlanie do nástrojov na spracovanie a zobrazenie.
 Má kientov pre množstvo programovacích jazykov ako napríklad node.js, java, python, ruby, perl, php, c, cpp, .net, či dokonca plugin pre wordpress. 
 
-% TODO cez siet
-Statsd klient na rozdiel od Metrics posiela získane metriky cez sieťovú komunikáciu na otvorený UDP port na oddelený statsd server, ktorý ich prijíma, akumuluje a v nastavených časových intervaloch odosiela do ďalších nástrojov. 
+% cez siet
+Statsd klient na rozdiel od Metrics posiela získane metriky cez sieťovú komunikáciu na otvorený UDP port na oddelený Statsd server, ktorý ich prijíma, akumuluje a odosiela do ďalších nástrojov. 
 Slúži ako rýchla cache pre metriky. 
 Umožňuje posielať dáta do nástrojov ako napríklad Graphite, Ganglia, Librato, Zabbix, či Mongo, Mysql, Datadog a mnoho ďalších.
 
@@ -383,7 +379,7 @@ Architektúra tohto nástroja je trochu zložitejšia.
 Obe nástroje slúžia na zbieranie metrík, majú však rozdielnú architektúru. 
 Ponúkajú rôzne možnosti integrácie s ďalšími nástrojmi. 
 Kvôli prehľadnosti sú základné rozdiely popísané v tabuľke 1.
-% TODO k datumu commity
+Nasledovné údaje sú aktuálne vzhľadom k času písania bakalárskej práce.
 
 \begin{table}
 	\caption{Porovnanie nástrojov Metrics a Statsd}
@@ -428,8 +424,7 @@ Medzi často používané open-source nástroje patria nástroje Graphite, Zabbi
 Tieto nástroje vedia prijať dáta z iných nástrojov, uložiť ich v databáze a~vhodným spôsobom ich zobraziť, aby sa dali ľahšie interpretovať.
 
 Rôzne nástroje na zbieranie metrík majú rôznu architektúru a ponúkajú rozličnú funkcionalitu.
-% TODO preformulovat
-Záleží od veľkosti, komplexnosti systému a od požadovanej funkcionality, ktorý nástroj si vyberieme.
+Záleží od veľkosti a komplexnosti systému a aj od požadovanej funkcionality, ktorý nástroj si vyberieme.
 
 Metriky sa najčastejšie zobrazujú v podobe histogramov alebo čiarových diagramov cez používateľské rozhranie vo forme webovej aplikácie.
 
@@ -466,8 +461,9 @@ Graphite je zameraný na monitorovanie systémov v reálnom čase.
 \subsection{Nevýhody nástroja Graphite}
 
 Nástroj Graphite je zameraný len na vykresľovanie metrík a neponúka žiadnú dodatočnú funkcionalitu.
-Jeho nevýhodou je, že sa má komplikovanú inštaláciu.
-% TODO dopisat komplikacie
+Jeho nevýhodou je, že má komplikovanú inštaláciu.
+Počas jeho inštalácie treba nainštalovať a nakonfigurovať všetky potrebné moduly, čiže Carbon, Whisper, Graphite web, Pycairo a Apache.
+% dopisat komplikacie
 
 \subsection{Nástroj Zabbix}
 
@@ -584,7 +580,7 @@ Záleží od komplexnosti systému, ktorý nástroj si vyberieme.
 % konfiguracia, grafy, ...
 % zabbix experimenty datamining
 \subsection{Dlhodobé monitorovanie AiS2}
-%logstash, logy obe problemy nejdu jednym nastrojom...uz su logy, session
+%logstash, logy obe problemy nejdu jednym nastrojom...uz su logy, session, rrd, mysql
 
 \subsection{Vlastná práca}
 % demo
