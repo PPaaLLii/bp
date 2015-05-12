@@ -147,7 +147,7 @@ Na porovnanie inštalácií potrebujeme získané metriky mať na jednom mieste,
 Potrebujeme zobrazovať agregované metriky zo všetkých inštalácií.
 Bude jednoduchšie inštalácie porovnať a analyzovať nazbierané metriky.
 
-Ďalším cieľom monitorovania AiS-u je optimalizácia interakcie systému s používateľom.
+Ďalším cieľom monitorovania systému AiS2 je optimalizácia interakcie systému s používateľom.
 Chceme detekovať zle navrhnuté dialógy, ich neprehľadné umiestnenie v systéme, a analyzovať interakciu s používateľmi, napríklad aj dynamickým upravovaním používateľského rozhrania.
 
 \subsection{Problémy}
@@ -470,14 +470,14 @@ Počas jeho inštalácie treba nainštalovať a nakonfigurovať všetky potrebn�
 Ďalším používaným nástrojom je Zabbix.
 Jeho kód je napísaný v jazyku C a~používateľské rozhranie v podobe webovej aplikácie je napísaný v jazyku PHP.
 Na ukladanie metrík používa Mysql databázu.
-Na obrázku 3 môžete vidieť používateľské rozhranie nástroja Zabbix.
+Na obrázku 3 môžete vidieť graf operačných systémov a prehliadačov používateľov systému AiS2 v Zabbixe.
 
 % TODO obrazok biely
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=0.41]{zabbix.png}
+		\includegraphics[scale=0.41]{zabbix1.png}
 	\end{center}
-	\caption{Používateľské rozhranie nástroja Zabbix}
+	\caption{Graf prehliadačov používateľov systému AiS2 v Zabbixe}
 \end{figure}
 
 Zabbix je komplexný nástroj určený aj pre väčšie systémy.
@@ -596,9 +596,11 @@ Rozobrali sme si open-source nástroje na zbieranie a vizualizáciu metrík a to
 \bibliography{bakalarka}
 
 \renewcommand{\bibname}{Zoznam pou�itej literat�ry}
-%\begin{thebibliography}{9}
+\begin{thebibliography}{9}
 %\bibitem{1} Ipsum, L.: Lorem ipsum dolor sit amet.
-%\end{thebibliography}
+	\bibitem{1} MATT MASSIE, Bernard Li. Monitoring with Ganglia. 1. ed. Sebastopol, CA: O'Reilly, 2013. ISBN 9781449329709.
+	\bibitem{2}ALLSPAW, John a Jesse ROBBINS. Web operations. 1st ed. Sebastopol, CA: O'Reilly, c2010, xvii, 315 p. ISBN 1449377440.
+\end{thebibliography}
 %
 
 \end{document}
