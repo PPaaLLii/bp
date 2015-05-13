@@ -1,11 +1,11 @@
-\documentclass[a4paper, usesections, upjsfrontpage, thesismargins, thesislinespacing, twoside]{rnthesissvk}
+\documentclass[a4paper, usesections, upjsfrontpage, thesismargins, thesislinespacing, twoside]{rnthesis}
 \usepackage[slovak]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{caption}
 \captionsetup[table]{name=Tab.}
-% disablespecwarning
+% disablespecwarning, {rnthesissvk}
 \setcounter{secnumdepth}{4}
 
 \title{Monitorovanie Informačných Systémov}
@@ -608,10 +608,34 @@ Zabbix vie detekovať problémy a tie jednoduchšie aj vyriešiť (napríklad re
 Záleží od komplexnosti systému, ktorý nástroj si vyberieme.
 
 \subsection{Monitorovanie systému AiS2 v reálnom čase}
-% momentalne chceme gangliu, tak sme testovali zabbix, ze bude zly, aktualne zabbix, metrics, vyuzitie aj dlhodobe 2 v 1? asi ani jedno..., zbieranie metrik
-% ciel 18 instalacii porovnavat - Ganglia metrics, gmond gmetric, kniznica, 
-% konfiguracia, grafy, ...
-% zabbix experimenty datamining
+
+Pre monitorovanie systému AiS2 v reálnom čase sme sa rozhodli použiť nástroj Metrics v kombinácii s nástrojom Ganglia.
+
+Metrics sme si vybrali aj preto, lebo komunikácia medzi Statsd klientom a Statsd serverom po sieti môže spôsobyť zbytočné zaťaženie siete.
+Metrics nepotrebuje oddeleného klienta od servera.
+Ďalším dôvodom pre výber Metrics bol ten, že je to java knižnica a vzhľadom k tomu, že systém AiS2 je v jave, integrácia nástroja do systému nebola zložitá.
+Keby AiS2 nebol v jave, najpravdepodobnejšie by sme sa rozhodli pre nástroj Statsd.
+
+Gangliu sme si vybrali preto, že ponúka riešenie pre agregáciu metrík z viacerých inštalácií systému AiS2 na jedno miesto.
+Metriky zo všetkých inštalácií potom môžeme zobraziť prehľadne v jednom grafe a porovnať jednotlivé inštalácie medzi sebou.
+
+Gangliu sa nám však nepodarilo nasadiť na najnovšiu verziu CentOS distribúcie, pretože Ganglia ešte nie je pre túto verziu dostupná.
+Vybrali sme si teda nástroj Zabbix, ktorý má vďaka používaniu MySQL databázy veľký potenciál okrem zbierania metrík v reálnom čase zbierať aj metriky dlhodobo za účelom hĺbkovej analýzy. 
+
+Zabbix sme teda nasadili na testovacie, vývojové a ostré prostredie do akademického informačného systému AiS2.
+Určili sme si, že budeme zbierať metriky ohľadom funkcionality systému - počet spustení dialógov a metriky ohľadom operačnom systéme a prehliadači používateľov systému, za časový interval 3 sekundy.
+Každú metriku (142) trebalo najprv nakonfigurovať.
+
+V konfigurácii metriky trebalo nastaviť jej meno, 
+	jednoznačný kľúč vzhľadom na všetky metriky, 
+	spôsob prijatia metriky (v našom prípade to bol Zabbix trapper čo je modul na prijatie metriky z iného nástroja) a jej typ (celé číslo, desatinné číslo, \ldots).
+
+
+
+% TODO momentalne chceme gangliu, tak sme testovali zabbix, ze bude zly, aktualne zabbix, metrics, vyuzitie aj dlhodobe 2 v 1? asi ani jedno..., zbieranie metrik
+% TODO ciel 18 instalacii porovnavat - Ganglia metrics, gmond gmetric, kniznica, 
+% TODO konfiguracia, grafy, ...
+% TODO zabbix experimenty datamining
 \subsection{Dlhodobé monitorovanie AiS2}
 %logstash, logy obe problemy nejdu jednym nastrojom...uz su logy, session, rrd, mysql
 
