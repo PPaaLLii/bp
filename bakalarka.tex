@@ -472,7 +472,7 @@ Jeho kód je napísaný v jazyku C a~používateľské rozhranie v podobe webove
 Na ukladanie metrík používa Mysql databázu.
 Na obrázku 3 môžete vidieť graf operačných systémov a prehliadačov používateľov systému AiS2 v Zabbixe.
 
-% TODO obrazok biely
+% obrazok biely
 \begin{figure}
 	\begin{center}
 		\includegraphics[scale=0.41]{zabbix1.png}
@@ -505,15 +505,18 @@ Okrem notifikačnej správy Zabbix vie po detekcii problému vykonať napríklad
 
 Veľkou výhodou nástroja Zabbix je to, že na ukladanie metrík používa Mysql databázu.
 Dáta tak máme uložené v relačnej databáze a vieme sa na ne jednoducho dopytovať.
-% TODO potencial na riesenie 
+To má potenciál na zber dlhodobých metrík za účelom hĺbkovej analýzy a dolovanie dát z týchto údajov.
+% potencial na riesenie 
 
 
 \subsubsection{Neýhody nástroja Zabbix}
 
 Hlavná nevýhoda Zabbixu je to, že každá metrika, ktorú chceme monitorovať musí byť dopredu nakonfigurovaná.
 Ak máme metrík veľa, úvodná konfigurácia je pracná.
+Síce sa v Zabbixe dajú použiť šablóny, ktoré trochu zjednodušia konfiguráciu ale stále musíme všetky metriky nakonfigurovať ručne.
+V systéme AiS2 sme tieto šablóny použili na definovanie rovnakých metrík pre rôzne servery.
 Pri každej novej funkcionalite informačného systému s predpokladom, že ju chceme monitorovať, je potrebné nakonfigurovať nové metriky aj v Zabbixe.
-%TODO aj ked existuju templates pouzitie v AiŚe
+% aj ked existuju templates pouzitie v AiSe
 
 \subsection{Nástroj Ganglia}
 
@@ -532,13 +535,24 @@ Gmetad v rámci gridu ťahá dáta z jedného gmond démona v rámci gridu.
 Gmond moduly so sebou komunikujú cez UDP, do Gmetad posielajú XML cez TCP.
 Gmetad si medzi sebou posielajú metriky cez TCP vo forme XML.
 Gmond medzi sebou kominikujú buď unicastom alebo multicastom.
-Architektúra pomocou unicastu je popísaná na obrázku 4.
+Architektúra s použitím unicastu je popísaná na obrázku 4.
+
+
+Architektúra s použitím multicastu je popísaná na obrázku 5.
+
 
 \begin{figure}
 	\begin{center}
 		\includegraphics[scale=0.55]{ganglia-architecture.png}
 	\end{center}
-	\caption{Posielanie metrík do Ganglie použitím unicastu}
+	\caption{Architektúra Ganglie s použitím unicastu}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[scale=0.55]{ganglia-architecture-multicast.png}
+	\end{center}
+	\caption{Architektúra Ganglie s použitím multicastu}
 \end{figure}
 
 \begin{figure}
@@ -548,7 +562,7 @@ Architektúra pomocou unicastu je popísaná na obrázku 4.
 	\caption{Používateľské rozhranie nástroja Ganglia}
 \end{figure}
 
-%TODO pridat multicast obrazok
+% pridat multicast obrazok
 
 Ganglia priamo nepodporuje detekciu problémov so systémom.
 Umožňuje však prepojenie s nástrojom Naggios, ktorý je na to určený.
@@ -599,7 +613,7 @@ Rozobrali sme si open-source nástroje na zbieranie a vizualizáciu metrík a to
 \begin{thebibliography}{9}
 %\bibitem{1} Ipsum, L.: Lorem ipsum dolor sit amet.
 	\bibitem{1} MATT MASSIE, Bernard Li. Monitoring with Ganglia. 1. ed. Sebastopol, CA: O'Reilly, 2013. ISBN 9781449329709.
-	\bibitem{2}ALLSPAW, John a Jesse ROBBINS. Web operations. 1st ed. Sebastopol, CA: O'Reilly, c2010, xvii, 315 p. ISBN 1449377440.
+	\bibitem{2} ALLSPAW, John a Jesse ROBBINS. Web operations. 1st ed. Sebastopol, CA: O'Reilly, c2010, xvii, 315 p. ISBN 1449377440.
 \end{thebibliography}
 %
 
