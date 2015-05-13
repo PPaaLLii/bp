@@ -1,11 +1,11 @@
-\documentclass[a4paper, usesections, upjsfrontpage, disablespecwarning, thesismargins, thesislinespacing]{rnthesissvk}
+\documentclass[a4paper, usesections, upjsfrontpage, thesismargins, thesislinespacing, twoside]{rnthesissvk}
 \usepackage[slovak]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{caption}
 \captionsetup[table]{name=Tab.}
-
+% disablespecwarning
 \setcounter{secnumdepth}{4}
 
 \title{Monitorovanie Informačných Systémov}
@@ -529,17 +529,21 @@ Ak posielame metriky do Ganglie, nemusíme ich mať dopredu nakonfiguroavné.
 Gmetad vytvorí nový RRD súbor pre každú novú metriku, čo značne uľahčí konfiguráciu, ak metrík máme veľa.
 Web používaťeľské rozhranie potom zobrazí základný graf pre každú metriku.
 
-Ganglia na posielanie metrík na centrálny server používa dvoch démonov a to Gmond a Gmetad.
+Ganglia na posielanie metrík na centrálny server používa dvoch démonov a to Ganglia Monitoring Daemon (gmond) a Ganglia Meta Daemon (gmetad).
 Gmond môže posielať alebo prijímať metriky, ktoré si drží v pamäti.
-Gmetad v rámci gridu ťahá dáta z jedného gmond démona v rámci gridu.
-Gmond moduly so sebou komunikujú cez UDP, do Gmetad posielajú XML cez TCP.
+Gmetad v rámci gridu ťahá dáta z jedného gmond démona z každého clustra.
+Gmond moduly so sebou komunikujú cez UDP protokol a do gmetad posielajú dáta v štruktúre XML cez TCP protokol.
 Gmetad si medzi sebou posielajú metriky cez TCP vo forme XML.
-Gmond medzi sebou kominikujú buď unicastom alebo multicastom.
+Gmond medzi sebou kominikujú buď prostredníctvom unicastu alebo multicastu.
+
+Ak použijeme unicast, komunikácia zo všetkých gmondov smeruje do jedného centrálneho gmond modulu v rámci clustera.
+Gmetad potom zbiera dáta zo všetkých centrálnych gmond modulov.
+Táto konfigurácia je výhodná, ak máme veľmi veľa uzlov (1000).
 Architektúra s použitím unicastu je popísaná na obrázku 4.
 
-
+Ak máme menší počet uzlov v gride, viac sa nám oplatí použiť multicast.
+Po pridaní nových uzlov do clustra nie je potrebná dodatočná konfigurácia.
 Architektúra s použitím multicastu je popísaná na obrázku 5.
-
 
 \begin{figure}
 	\begin{center}
@@ -555,6 +559,11 @@ Architektúra s použitím multicastu je popísaná na obrázku 5.
 	\caption{Architektúra Ganglie s použitím multicastu}
 \end{figure}
 
+% pridat multicast obrazok
+
+Ganglia priamo nepodporuje detekciu problémov v systéme.
+Umožňuje však prepojenie s nástrojom Naggios, ktorý je na to určený.
+
 \begin{figure}
 	\begin{center}
 		\includegraphics[scale=0.41]{ganglia.png}
@@ -562,22 +571,32 @@ Architektúra s použitím multicastu je popísaná na obrázku 5.
 	\caption{Používateľské rozhranie nástroja Ganglia}
 \end{figure}
 
-% pridat multicast obrazok
-
-Ganglia priamo nepodporuje detekciu problémov so systémom.
-Umožňuje však prepojenie s nástrojom Naggios, ktorý je na to určený.
-
 \subsubsection{Výhody nástroja Ganglia}
 
 Asi najväčšou výhodou nástroja Ganglia je to, že dokáže monitorovať celé clustre a gridy.
 Je určená na agregáciu metrík z viacerých serverov a z komplexných informačných systémov.
-Na ukladanie metrík používa RRD databázu, takže metriky nemusíme v Ganglii konfigurovať.
+To nám výrazne zjednoduší porovnávanie metrík získaných z viacerých inštalácií.
+
+Na ukladanie metrík Ganglia používa RRD databázu, takže metriky nemusíme v Ganglii konfigurovať.
 Výhodné je aj jednoduché prepojenie s nástrojom Naggios.
-% TODO multicast, 44 web operations poznamka pod ciarov
+
+Ďalším plusom je možnosť použitia multicastu.
+Ak náhodou niektorý monitorovaný uzol vypadne, gmetad si vyžiada údaje od ďalšieho gmond modulu.
+Keďže každý gmond má informáciu o metrikách všetkých ostatných gmond modulov v tom istom clusteri,
+metriky sa nestratia ale odošlú sa prostredníctvom iného gmond modulu. 
+Dokonca pridanie nových uzlov do clustera je jednoduché a bez ďalšej konfigurácie.
+% multicast
 
 \subsubsection{Nevýhody nástroja Ganglia}
 
-% TODO nevyuzitie pre dlhodobe,  redhat nevieme deploynut, alert s naggios
+V istom zmysle je nevýhodou Ganglie to, že nevie alertovať problémy v systéme.
+To sa dá docieliť prepojením Ganglie s nástrojom Naggios.
+Musíme teda integrovať do systému až dva nástroje.
+
+Pôvodne sme si vybrali nástroj na ukladanie a zobrazovanie metrík pre systém AiS2 Gangliu.
+Narazili sme však na problém, že v čase písania tejto práce ešte nebola Ganglia dostupná pre najnovší CentOS.
+
+% nevyuzitie pre dlhodobe,  redhat nevieme deploynut
 
 \subsection{Graphite vs Zabbix vs Ganglia}
 
