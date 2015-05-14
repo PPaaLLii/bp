@@ -4,13 +4,21 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{caption}
+\usepackage{titlesec}
+
+\titleformat{name=\section,numberless}
+  {\normalfont\Large\bfseries}
+  {}
+  {0pt}
+  {}
+
 \captionsetup[table]{name=Tab.}
 % disablespecwarning, {rnthesissvk}
 \setcounter{secnumdepth}{4}
 
 \title{Monitorovanie Informačných Systémov}
 \author{Pavol Kozák}
-\typprace{Bakalárska práca}
+\typprace{Bakalárska}
 \pracovisko{Ústav informatiky}
 \miesto{Košice}
 \veduci{Doc. RNDr. Gabriel Semanišin PhD.}
@@ -30,7 +38,9 @@ Osobitné poďakovanie patrí mojej rodine a priateľom za podporu a pochopenie.
 \tableofcontents
 
 \newpage
-\section{Úvod}
+\section*{Úvod}
+
+\section{Základné pojmy}
 
 \subsection{Motivácia}
 
@@ -594,7 +604,7 @@ To sa dá docieliť prepojením Ganglie s nástrojom Naggios.
 Musíme teda integrovať do systému až dva nástroje.
 
 Pôvodne sme si vybrali nástroj na ukladanie a zobrazovanie metrík pre systém AiS2 Gangliu.
-Narazili sme však na problém, že v čase písania tejto práce ešte nebola Ganglia dostupná pre najnovší CentOS.
+Narazili sme však na problém, že v čase písania tejto práce ešte nebola Ganglia dostupná pre najnovší Red Hat.
 
 % nevyuzitie pre dlhodobe,  redhat nevieme deploynut
 
@@ -619,7 +629,7 @@ Keby AiS2 nebol v jave, najpravdepodobnejšie by sme sa rozhodli pre nástroj St
 Gangliu sme si vybrali preto, že ponúka riešenie pre agregáciu metrík z viacerých inštalácií systému AiS2 na jedno miesto.
 Metriky zo všetkých inštalácií potom môžeme zobraziť prehľadne v jednom grafe a porovnať jednotlivé inštalácie medzi sebou.
 
-Gangliu sa nám však nepodarilo nasadiť na najnovšiu verziu CentOS distribúcie, pretože Ganglia ešte nie je pre túto verziu dostupná.
+Gangliu sa nám však nepodarilo nasadiť na najnovšiu verziu Red Hat distribúcie, pretože Ganglia ešte nie je pre túto verziu dostupná.
 Vybrali sme si teda nástroj Zabbix, ktorý má vďaka používaniu MySQL databázy potenciál okrem zbierania metrík v reálnom čase zbierať aj metriky dlhodobo za účelom hĺbkovej analýzy. 
 
 Zabbix sme teda nasadili na testovacie, vývojové a ostré prostredie do akademického informačného systému AiS2.
@@ -652,6 +662,13 @@ Potvrdila sa nám teda naša hypotéza, že Zabbix nie je vhodný nástroj pre m
 \subsection{Dlhodobé monitorovanie systému AiS2}
 %logstash, logy obe problemy nejdu jednym nastrojom...uz su logy, session, rrd, mysql
 
+Monitorovanie systému AiS2 v reálnom čase nám dá dôležité informácie o tom, čo sa deje so systémom práve teraz.
+Ak zbierame takéto dáta dostatočne dlho, vieme zistiť trendy, ako sa metriky menili v minulosti.
+Zistíme tak, kedy sa systém najviac využíva, kedy najmenej a tomu môžeme prispôsobiť napríklad plánované odstávky systému.
+Nás však zaujímajú aj komplexnejšie informácie o systéme a jeho používateľoch, ktoré sa jednoduchou metrikou pokryť nedajú.
+
+
+
 
 
 \subsection{Vlastná práca}
@@ -659,10 +676,25 @@ Potvrdila sa nám teda naša hypotéza, že Zabbix nie je vhodný nástroj pre m
 
 \newpage
 
-\section{Záver}
+\section*{Záver}
 
-V tejto práci sme sa zaoberali monitorovaním informačných systémov, prečo je monitorovanie výhodné a ako nám môže pomôcť pri jeho rozvíjaní.
-Rozobrali sme si open-source nástroje na zbieranie a vizualizáciu metrík a to Statsd, Metrics, Graphite, Zabbix a Ganglia.
+V tejto bakalárskej práci sme sa zaoberali monitorovaním informačných systémov, prečo je monitorovanie výhodné pre vývoj systému a ako nám môže pomôcť pri jeho rozvíjaní.
+
+Popísali sme si tri prístupy k monitorovaniu a to monitorovanie informačného systému v reálnom čase, dlhodobé monitorovanie systému a monitorovanie systému za účelom hĺbkovej analýzy.
+
+Navrhli sme algoritmus na monitorovanie informačných systémov od určenia cieľov monitorovania až po analýzu a vyvodenie dôsledkov monitorovania.
+
+Porovnali sme open-source nástroje na zbieranie a vizualizáciu metrík, konkrétne sú to nástroje Statsd, Metrics, Graphite, Zabbix a Ganglia.
+Povedali sme si o ich výhodách a nevýhodách vzhľadom na monitorovanie akademického informačného systému AiS2.
+Vybrali sme si nástroje Metrics a Zabbix, a integrovali sme ich do systému AiS2.
+
+Vytvorili sme jednoduchú web aplikáciu na demonštráciu nástrojov na zbieranie a zobrazovanie metrík.
+
+Zistili sme, že by naše problémy ohľadom agregácie metrík z viacerých inštalácií a prehľadné porovnanie týchto inštalácií vyriešil omnoho lepšie nástroj Ganglia.
+Takisto by nám to uľahčilo konfiguráciu oproti nástroju Zabbix
+
+
+
 % otvorene problemy, ktore chceme riesit dalej 
 %vyhody, nevyhody, aj napriek infrastruktury aj na aplikacne a pouzivatelske ale hlavne realtime pre rozsiahle cloudy Ganglia, ale naggios j riesenie komplexne nieje, nevyriesia ani jednu ulohu komplexne. Zabbix nie, lebo potencial databazy nevyvazi komplikovanu konfiguraciu, ani templates nepomozu. Dlhodobe relacna db je dobra, zabbix nie je plnohodnotny, metrics lepsi gmondy, metrics aj pise do logov, co bude pouzitelne pri dlhodobom monitorovani. Java, tak statsd, keby ne tak statsd...
 \bibliography{bakalarka}
@@ -675,6 +707,6 @@ Rozobrali sme si open-source nástroje na zbieranie a vizualizáciu metrík a to
 \end{thebibliography}
 %
 \newpage
-\section{Prílohy}
+\section*{Prílohy}
 
 \end{document}
