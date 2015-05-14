@@ -620,24 +620,39 @@ Gangliu sme si vybrali preto, že ponúka riešenie pre agregáciu metrík z via
 Metriky zo všetkých inštalácií potom môžeme zobraziť prehľadne v jednom grafe a porovnať jednotlivé inštalácie medzi sebou.
 
 Gangliu sa nám však nepodarilo nasadiť na najnovšiu verziu CentOS distribúcie, pretože Ganglia ešte nie je pre túto verziu dostupná.
-Vybrali sme si teda nástroj Zabbix, ktorý má vďaka používaniu MySQL databázy veľký potenciál okrem zbierania metrík v reálnom čase zbierať aj metriky dlhodobo za účelom hĺbkovej analýzy. 
+Vybrali sme si teda nástroj Zabbix, ktorý má vďaka používaniu MySQL databázy potenciál okrem zbierania metrík v reálnom čase zbierať aj metriky dlhodobo za účelom hĺbkovej analýzy. 
 
 Zabbix sme teda nasadili na testovacie, vývojové a ostré prostredie do akademického informačného systému AiS2.
-Určili sme si, že budeme zbierať metriky ohľadom funkcionality systému - počet spustení dialógov a metriky ohľadom operačnom systéme a prehliadači používateľov systému, za časový interval 3 sekundy.
-Každú metriku (142) trebalo najprv nakonfigurovať.
+Určili sme si, že budeme zbierať metriky ohľadom funkcionality systému - počet spustení dialógov a metriky ohľadom operačného systému a prehliadača používateľov systému, za časový interval 3 sekundy.
+Po nasadení zberu metrík na ostrý server sme v špičke zaznamenali výrazné zaťaženie siete kvôli trojsekundovému intervalu odosielania metrík.
+Rozhodli sme sa preto tento interval zmeniť na tridsať sekúnd.
+
+Ešte skôr ako sa nám podarilo zbierať prvé metriky zo systému Ais2, 
+	museli sme upraviť názvy metrík, ktoré produkoval nástroj Metrics a to tak, aby ich bol Zabbix schopný akceptovať.
+Každú metriku však v Zabbixe trebalo najprv nakonfigurovať.
 
 V konfigurácii metriky trebalo nastaviť jej meno, 
 	jednoznačný kľúč vzhľadom na všetky metriky, 
 	spôsob prijatia metriky (v našom prípade to bol Zabbix trapper čo je modul na prijatie metriky z iného nástroja) a jej typ (celé číslo, desatinné číslo, \ldots).
 
+Konfigurácia v zabbixe bola pri 142 metrikách veľmi komplikovaná a náročná na čas.
+Ak by sme potrebovali v budúcnosti pridať ďalšie metriky pre novú funkcionalitu, museli by sme dodatočne Zabbix konfigurovať.
+To je dosť nevýhodné.
+Ostatné nástroje, ktoré používajú RRD databázu sú tak oveľa flexibilnejšie a nepotrebujú konfiguráciu metrík.
+Ak zaznamenajú novú metriku, jednoducho v strome metrík si vtvoria nový adresár podľa názvu a prefixu metriky.
+Konfigurácia nových metrík je teda nulová.
 
+Zabbix navyše nepodporuje jednoduché zlievanie metrík z viacerých inštalácií na jedno miesto s možnosťou porovnávania inštalácií.
+Potvrdila sa nám teda naša hypotéza, že Zabbix nie je vhodný nástroj pre monitorovanie systému AiS2 v reálnom čase.
 
-% TODO momentalne chceme gangliu, tak sme testovali zabbix, ze bude zly, aktualne zabbix, metrics, vyuzitie aj dlhodobe 2 v 1? asi ani jedno..., zbieranie metrik
-% TODO ciel 18 instalacii porovnavat - Ganglia metrics, gmond gmetric, kniznica, 
-% TODO konfiguracia, grafy, ...
-% TODO zabbix experimenty datamining
-\subsection{Dlhodobé monitorovanie AiS2}
+% momentalne chceme gangliu, tak sme testovali zabbix, ze bude zly, aktualne zabbix, metrics, vyuzitie aj dlhodobe 2 v 1? asi ani jedno..., zbieranie metrik
+% ciel 18 instalacii porovnavat - Ganglia metrics, gmond gmetric, kniznica, 
+% konfiguracia, grafy, ...
+% zabbix experimenty datamining
+\subsection{Dlhodobé monitorovanie systému AiS2}
 %logstash, logy obe problemy nejdu jednym nastrojom...uz su logy, session, rrd, mysql
+
+
 
 \subsection{Vlastná práca}
 % demo
