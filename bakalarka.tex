@@ -1,4 +1,4 @@
-\documentclass[a4paper, usesections, upjsfrontpage, thesismargins, thesislinespacing]{rnthesis}
+\documentclass[a4paper, upjsfrontpage, thesismargins, thesislinespacing]{rnthesis}
 \usepackage[slovak]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -6,14 +6,14 @@
 \usepackage{caption}
 \usepackage{titlesec}
 
-\titleformat{name=\section,numberless}
+\titleformat{name=\chapter,numberless}
   {\normalfont\Large\bfseries}
   {}
   {0pt}
   {}
 
 \captionsetup[table]{name=Tab.}
-% disablespecwarning, {rnthesissvk}
+% disablespecwarning, usesections, {rnthesissvk}
 \setcounter{secnumdepth}{4}
 
 \title{Monitorovanie Informačných Systémov}
@@ -38,11 +38,8 @@ Osobitné poďakovanie patrí mojej rodine a priateľom za podporu a pochopenie.
 \tableofcontents
 
 \newpage
-\section*{Úvod}
-
-\section{Základné pojmy}
-
-\subsection{Motivácia}
+\chapter*{Úvod}
+\addcontentsline{toc}{chapter}{Úvod}
 
 S informačnými systémami sa stretávame v dnešnej dobe čoraz častejšie. 
 Mnohé systémy sa presúvajú z papierovej formy do elektronickej.
@@ -59,7 +56,16 @@ Dávajú nám komplexnú informáciu o~systéme, o jeho nedostatkoch, o tom, čo
 Pri zlepšovaní systému sú metriky veľmi užitočné.
 Odhalia slabé miesta systému, ktoré by sme pri bežnom testovaní nespozorovali.
 
-\subsection{Informačný Systém}
+%\section{Základné pojmy}
+\chapter{Základné pojmy}
+
+%\subsection{Motivácia}
+%\section{Motivácia}
+
+
+
+%\subsection{Informačný Systém}
+\section{Informačný Systém}
 
 Informačný systém je zostavený z ľudí a počítačov, ktorí spracúvajú a interpretujú informácie.
 Niekedy sa tento termín používa na označenie softvéru, ktorý využíva počítačovú databázu alebo len počítačového systému.
@@ -68,7 +74,8 @@ Niekedy sa tento termín používa na označenie softvéru, ktorý využíva po�
 V tejto práci sa budeme zameriavať na informačné systémy, ktoré sú vo forme webovej aplikácie.
 
 
-\subsection{Web Aplikácia}
+%\subsection{Web Aplikácia}
+\section{Web Aplikácia}
 
 Webová aplikácia je aplikácia typu klient-server vytvorená pre prostredie internetu alebo intranetu.
 V softvérovom inžinierstve je aplikácia poskytovaná užívateľom z~webového servera cez počítačovú sieť Internet, 
@@ -80,7 +87,9 @@ Veľkou výhodou pre užívateľa ale aj pre prevádzkovateľa aplikácie je~jed
 Tá sa vykonáva len na~jednom mieste - na serveri, na~ktorom webová aplikácia beží. Nevýhodou je nutnosť internetového pripojenia.
 %\cite{website:wikipedia-webaplikacia}
 
-\subsection{Metrika}
+%\subsection{Metrika}
+\section{Metrika}
+
 %http://epodnikanie.euin.org/node/126
 Slovo metrika je často používaný pojem v oblasti monitorovania systémov.
 Metri\-ky v oblasti monitorovania sú spôsoby a nástroje merania, vyjadrujú stav určitého systému, 
@@ -91,8 +100,8 @@ Používajú sa tiež špecializované pojmy Performance indicator alebo Key per
 Metriky nám pomáhajú ‘‘odmerať’’ systém a tým nám dávajú komplexnú informáciu o systéme a pomáhajú odhaliť jeho slabé miesta.
 Vhodne zvolené metriky dokážu nasmerovať vývojárov správnym smerom a poukázať na možné problémy a tým v konečnom dôsledku pomôžu zlepšiť monitorovaný systém.
 
-\subsubsection{Rozdelenie Metrík}
-
+%\subsubsection{Rozdelenie Metrík}
+\subsection{Rozdelenie Metrík}
 
 Medzi základné delenia metrík patrí delenie na kvalitatívne a kvantitatívne metriky.
 Kvantitatívne metriky udávajú číselnú hodnotu, zatiaľ čo kvalitatívne metriky nečíselnú hodnotu.  
@@ -111,7 +120,8 @@ Metriky môžeme rozdeliť podľa druhu na:
 
 V tejto práci nás budú zaujímať aplikačné, systémové a používateľské metriky.
 
-\subsubsection{Aká je Dobrá Metrika?}
+%\subsubsection{Aká je Dobrá Metrika?}
+\subsection{Aká je Dobrá Metrika?}
 
 Aby metrika plnila svoj cieľ, teda podala správnu informáciu o systéme, mala by byť:
 \begin{itemize}
@@ -128,7 +138,8 @@ Len aktuálne dáta nám popíšu systém spoľahlivo.
 Od metriky požadujeme, aby bola okamžite ukončiteľná, aby hneď po jej získaní bola pripravená na spracovanie a tak viedla k novým poznatkom.
 %\cite{website:web-analytics.wikidot}
 
-\subsubsection{Typy Metrík}
+%\subsubsection{Typy Metrík}
+\subsection{Typy Metrík}
 
 Medzi základné typy metrík patria údaje o počte (counting), údaje o čase (timing), iné číselné hodnoty (celočíselné alebo desatinné), alebo niekedy aj nečíselné hodnoty (gauges). 
 
@@ -139,7 +150,8 @@ Medzi základné typy metrík patria údaje o počte (counting), údaje o čase 
 Niekedy je užitočné zbierať hodnotu, ktorá nezávisí od predchádzajúcich hodnôt napríklad počet objektov v rade, veľkosť dát odoslanej odpovede, alebo zaťaženie procesora. 
 Tieto hodnoty môžu byť číselné alebo nečíselné. Tieto hodnoty pravidelne zbierame a odosielame na spracovanie a zobrazenie.
 
-\subsection{Monitorovanie systému AiS2}
+%\subsection{Monitorovanie systému AiS2}
+\section{Monitorovanie systému AiS2}
 
 V našej bakalárskej práci chceme navrhnúť systém monitorovania akademického informačného systému AiS2.
 Problémom je to, že vývojári systému AiS2 nie sú správcami systému.
@@ -160,7 +172,8 @@ Bude jednoduchšie inštalácie porovnať a analyzovať nazbierané metriky.
 Ďalším cieľom monitorovania systému AiS2 je optimalizácia interakcie systému s používateľom.
 Chceme detekovať zle navrhnuté dialógy, ich neprehľadné umiestnenie v systéme, a analyzovať interakciu s používateľmi, napríklad aj dynamickým upravovaním používateľského rozhrania.
 
-\subsection{Problémy}
+%\subsection{Problémy}
+\section{Problémy}
 
 Hlavným cieľom monitorovania informačného systému je identifikovať problémy skôr ako používateľ.
 Ak zbadá problém používateľ, už je neskoro.
@@ -171,7 +184,8 @@ Ak by sme problém zaznamenali hneď ako nastane, mali by sme viac času na jeho
 Problém môže nastať, ak máme metrík veľa.
 Monitorovanie systému nesmie systém výrazne zaťažiť, lebo by monitorovanie nebolo efektívne.
 
-\subsection{Ilustračný Príklad}
+%\subsection{Ilustračný Príklad}
+\section{Ilustračný Príklad}
 
 Dobrým príkladom informačného systému je akademický informačný systém.
 Monitorovanie takéhoto systému môže výrazne pomôcť k jeho vylepšeniu a~rozví\-janiu.
@@ -184,8 +198,9 @@ Ak by napríklad väčšina používateľov systému k nemu pristupovala s malou
 Ďalšou zaujímavou metrikou je čas odpovede na požiadavku od klienta.
 Ak zaznamenáme výrazne zvýšenie času odpovede vzhľadom na dlhodobý historický trend, vieme, že v systéme dochádza k problému a treba ho čo najskôr začať riešiť.
 
-\subsection{Prehľad Súčasného Stavu}
- 
+%\subsection{Prehľad Súčasného Stavu}
+ \section{Prehľad Súčasného Stavu}
+
 V tomto čase je množstvo informačných systémov, ktoré sú neustále vylepšované a~zdokonaľované a~tak je potreba ich monitorovať, aby sa dali ešte viac zlepšiť a~prispôsobiť zákazníkom.
 Každý systém je špecifický, a tak aj jeho monitorovanie je jedinečné.
 Vývojári sa snažia upraviť monitorovanie ich systému a prispôsobiť ho tak, aby im poskytol čo najviac vedomostí o ich systéme.
@@ -196,7 +211,8 @@ Patria tu jak platené (Datadog, Stackdriver, Librato), tak aj open-source nást
 My sa zaoberáme open-source nástrojmi.
 
 
-\subsection{Ciele Práce}
+%\subsection{Ciele Práce}
+\section{Ciele Práce}
 
 %\begin{enumerate}
 %	\item Navrhnúť spôsob monitorovania informačného systému v reálnom čase za~úče\-lom zhromažďovania informácií o výkonne systému a používateľských pre\-ferenciách.
@@ -220,7 +236,8 @@ Keďže už existujú nástroje, ktoré čiastočne riešia naše problémy, na�
 
 %\subsection{Úvod k zberu metrík}
 
-\section{Algoritmus monitorovania informačného systému}
+%\section{Algoritmus monitorovania informačného systému}
+\chapter{Algoritmus monitorovania informačného systému}
 
 Ak chceme získať užitočné dáta o systéme aby sme ich mohli analyzovať, musíme ich najprv zozbierať.
 Pred zbieraním metrík si treba najprv dobre premyslieť, čo chceme zbierať, 
@@ -297,16 +314,19 @@ Na obrázku 1. môžete vidieť diagram algoritmu pre monitorovanie informačné
 
 \newpage
 
-\section{Typy monitorovania}
+%\section{Typy monitorovania}
+\chapter{Typy monitorovania}
 
-\subsection{Monitorovanie systému v reálnom čase}
+%\subsection{Monitorovanie systému v reálnom čase}
+\section{Monitorovanie systému v reálnom čase}
 
 Monitorovanie systému v reálnom čase nám pomôže detekovať problém skôr, ako ho zbadá používateľ.
 Prehľadné grafy zobrazujúce nazbierané metriky nám ukážu dôležité informácie o stave systému.
 Niektoré nástroje nás dokonca upozornia, ak v systéme nastane problém.
 Po vyriešení problému zas z grafov vyčítame, či sme detekovaný problém vyriešili a ako dobre sme ho vyriešili.
 
-\subsection{Dlhodobé monitorovanie systému}
+%\subsection{Dlhodobé monitorovanie systému}
+\section{Dlhodobé monitorovanie systému}
 
 Krátkodobé merania systému nám podajú užitočnú informáciu o aktuálnom stave systému a o jeho používateľoch.
 Nás však zaujímajú aj dlhodobé merania.
@@ -316,7 +336,8 @@ To sa nám pomôže pripraviť na najväčšiu záťaž.
 Po vylepšení niektorej funkcionality v systéme vieme porovnať nové hodnoty metrík s historickými hodnotami metrík pre danú funkcionalitu.
 Dozvieme sa tak, či sme funkcionalitu naopak nezhoršili a či bude schopná vydržať záťaž.
 
-\subsection{Monitorovanie systému za účelom hĺbkovej analýzy}
+%\subsection{Monitorovanie systému za účelom hĺbkovej analýzy}
+\section{Monitorovanie systému za účelom hĺbkovej analýzy}
 
 Dlhodobými meraniami vieme zaznamenávať vzory správania používateľov v našom informačnom systéme.
 Takýmto vzorom môže byť v akademickom informačnom systéme napríklad:
@@ -340,7 +361,8 @@ Budú nás zaujímať iné metriky a aj ciele takejto analýzy budeme mať odli�
 
 \newpage
 
-\section{Nástroje na Zber Metrík}
+%\section{Nástroje na Zber Metrík}
+\chapter{Nástroje na Zber Metrík}
 
 Ak už máme jasne definované metriky, môžeme ich začať zbierať.
 Zber metrík je~často riešený problém, v zbere metrík nám môžu pomôcť rôzne nástroje.
@@ -357,7 +379,8 @@ Riešia ten istý problém - definujú metriky v kóde systému a fungujú ako c
 Naším čiastočným cieľom je porovnať ich.
 V nasledujúcich odstavcoch si popíšeme ich výhody a nevýhody.
 
-\subsection{Nástroj Metrics}
+%\subsection{Nástroj Metrics}
+\section{Nástroj Metrics}
 
 Metrics je open-source java knižnica na zber metrík.
 Získané metriky posiela do nástrojov na zobrazovanie metrík ako napríklad Graphite alebo Ganglia, alebo ukladá do databázy prostredníctvom logovacích nástrojov.
@@ -371,7 +394,8 @@ Nástroj Metrics nám pomôže dostať namerané metriky do~ďalších nástrojo
 Asi najväčšou konkurenciou k Metrics je nástroj Statsd.
 
 
-\subsection{Nástroj Statsd}
+%\subsection{Nástroj Statsd}
+\section{Nástroj Statsd}
 
 Open-source nástroj Statsd je určený na zber metrík a následné preposlanie do nástrojov na spracovanie a zobrazenie.
 Má kientov pre množstvo programovacích jazykov ako napríklad node.js, java, python, ruby, perl, php, c, cpp, .net, či dokonca plugin pre wordpress. 
@@ -384,7 +408,8 @@ Umožňuje posielať dáta do nástrojov ako napríklad Graphite, Ganglia, Libra
 Architektúra tohto nástroja je trochu zložitejšia.
 
 
-\subsection{Metrics vs Statsd}
+%\subsection{Metrics vs Statsd}
+\section{Metrics vs Statsd}
 
 Obe nástroje slúžia na zbieranie metrík, majú však rozdielnú architektúru. 
 Ponúkajú rôzne možnosti integrácie s ďalšími nástrojmi. 
@@ -425,7 +450,8 @@ Nasledovné údaje sú aktuálne vzhľadom k času písania bakalárskej práce.
 
 \newpage
 
-\section{Nástroje na Ukladanie a Zobrazenie Metrík}
+%\section{Nástroje na Ukladanie a Zobrazenie Metrík}
+\chapter{Nástroje na Ukladanie a Zobrazenie Metrík}
 
 Nástroje na zbieranie metrík majú často za úlohu agregovať metriky a preposielať ich do ďalších nástrojov.
 Existujú rôzne nástroje na~ukladanie a zobrazenie metrík.
@@ -438,7 +464,8 @@ Záleží od veľkosti a komplexnosti systému a aj od požadovanej funkcionalit
 
 Metriky sa najčastejšie zobrazujú v podobe histogramov alebo čiarových diagramov cez používateľské rozhranie vo forme webovej aplikácie.
 
-\subsection{Nástroj Graphite}
+%\subsection{Nástroj Graphite}
+\section{Nástroj Graphite}
 
 Nástroj Graphite je veľmi obľúbeným nástrojom v oblasti zobrazovania metrík.
 Nástroje ako napríklad Statsd alebo Metrics pošlú získané metriky do Graphitu a ten ich uloží pomocou integrovaného nástroja Carbon do Whisper databázy. 
@@ -461,13 +488,15 @@ Na vykresľovanie grafov využíva python knižnicu PyCairo.
 V praxi sa používa pri jednoduchých projektoch, ak nám postačuje získané metriky zobrazovať.
 Pri monitorovaní komplexnejších systémov sa používajú zložitejšie nástroje ako napríklad Zabbix alebo Ganglia.
 
-\subsubsection{Výhody nástroja Graphite}
+%\subsubsection{Výhody nástroja Graphite}
+\subsection{Výhody nástroja Graphite}
 
 Graphite je jednoduchý nástroj určený pre monitorovanie malých jednoduchších systémov.
 Hlavnou výhodou je, že po inštalácii nástroja sa nevyžaduje žiadna konfigurácia metrík.
 Ďalšou výhodou je jednoduché zobrazenie viacerých metrík v jednom grafe.
 Graphite je zameraný na monitorovanie systémov v reálnom čase.
 
+%\subsection{Nevýhody nástroja Graphite}
 \subsection{Nevýhody nástroja Graphite}
 
 Nástroj Graphite je zameraný len na vykresľovanie metrík a neponúka žiadnú dodatočnú funkcionalitu.
@@ -475,7 +504,8 @@ Jeho nevýhodou je, že má komplikovanú inštaláciu.
 Počas jeho inštalácie treba nainštalovať a nakonfigurovať všetky potrebné moduly, čiže Carbon, Whisper, Graphite web, Pycairo a Apache.
 % dopisat komplikacie
 
-\subsection{Nástroj Zabbix}
+%\subsection{Nástroj Zabbix}
+\section{Nástroj Zabbix}
 
 Ďalším používaným nástrojom je Zabbix.
 Jeho kód je napísaný v jazyku C a~používateľské rozhranie v podobe webovej aplikácie je napísaný v jazyku PHP.
@@ -511,7 +541,8 @@ Môže nás notifikovať prostredníctvom e-mailu, SMS správy alebo správy cez
 Môžeme si tiež nastaviť, aké dáta sa nám v notifikácii zobrazia.
 Okrem notifikačnej správy Zabbix vie po detekcii problému vykonať napríklad shell príkaz cez~ssh.
 
-\subsubsection{Výhody nástroja Zabbix}
+%\subsubsection{Výhody nástroja Zabbix}
+\subsection{Výhody nástroja Zabbix}
 
 Veľkou výhodou nástroja Zabbix je to, že na ukladanie metrík používa Mysql databázu.
 Dáta tak máme uložené v relačnej databáze a vieme sa na ne jednoducho dopytovať.
@@ -519,7 +550,8 @@ To má potenciál na zber dlhodobých metrík za účelom hĺbkovej analýzy a d
 % potencial na riesenie 
 
 
-\subsubsection{Neýhody nástroja Zabbix}
+%\subsubsection{Neýhody nástroja Zabbix}
+\subsection{Neýhody nástroja Zabbix}
 
 Hlavná nevýhoda Zabbixu je to, že každá metrika, ktorú chceme monitorovať musí byť dopredu nakonfigurovaná.
 Ak máme metrík veľa, úvodná konfigurácia je pracná.
@@ -528,7 +560,8 @@ V systéme AiS2 sme tieto šablóny použili na definovanie rovnakých metrík p
 Pri každej novej funkcionalite informačného systému s predpokladom, že ju chceme monitorovať, je potrebné nakonfigurovať nové metriky aj v Zabbixe.
 % aj ked existuju templates pouzitie v AiSe
 
-\subsection{Nástroj Ganglia}
+%\subsection{Nástroj Ganglia}
+\section{Nástroj Ganglia}
 
 Dalším obľúbeným nástrojom je Ganglia.
 Ganglia je open-source nástroj zameraný na~distribuované monitorovanie celých clustrov či gridov.
@@ -597,7 +630,8 @@ metriky sa nestratia ale odošlú sa prostredníctvom iného gmond modulu.
 Dokonca pridanie nových uzlov do clustera je jednoduché a bez ďalšej konfigurácie.
 % multicast
 
-\subsubsection{Nevýhody nástroja Ganglia}
+%\subsubsection{Nevýhody nástroja Ganglia}
+\subsection{Nevýhody nástroja Ganglia}
 
 V istom zmysle je nevýhodou Ganglie to, že nevie alertovať problémy v systéme.
 To sa dá docieliť prepojením Ganglie s nástrojom Naggios.
@@ -608,7 +642,8 @@ Narazili sme však na problém, že v čase písania tejto práce ešte nebola G
 
 % nevyuzitie pre dlhodobe,  redhat nevieme deploynut
 
-\subsection{Graphite vs Zabbix vs Ganglia}
+%\subsection{Graphite vs Zabbix vs Ganglia}
+\section{Graphite vs Zabbix vs Ganglia}
 
 Ako sme už písali, nástroj Graphite je vhodný na monitorovanie menších systémov.
 Pre väčšie informačné systémy je lepšie použiť komplexnejší nástroj, ako napríklad Zabbix alebo Gangliu.
@@ -617,7 +652,8 @@ Zabbix vie detekovať problémy a tie jednoduchšie aj vyriešiť (napríklad re
 	Ganglia zas dokáže monitorovať celé clustre a gridy a ponúka nám jednoduchú agregáciu grafov.
 Záleží od komplexnosti systému, ktorý nástroj si vyberieme.
 
-\subsection{Monitorovanie systému AiS2 v reálnom čase}
+%\subsection{Monitorovanie systému AiS2 v reálnom čase}
+\section{Monitorovanie systému AiS2 v reálnom čase}
 
 Pre monitorovanie systému AiS2 v reálnom čase sme sa rozhodli použiť nástroj Metrics v kombinácii s nástrojom Ganglia.
 
@@ -659,7 +695,8 @@ Potvrdila sa nám teda naša hypotéza, že Zabbix nie je vhodný nástroj pre m
 % ciel 18 instalacii porovnavat - Ganglia metrics, gmond gmetric, kniznica, 
 % konfiguracia, grafy, ...
 % zabbix experimenty datamining
-\subsection{Dlhodobé monitorovanie systému AiS2}
+%\subsection{Dlhodobé monitorovanie systému AiS2}
+\section{Dlhodobé monitorovanie systému AiS2}
 %logstash, logy obe problemy nejdu jednym nastrojom...uz su logy, session, rrd, mysql
 
 Monitorovanie systému AiS2 v reálnom čase nám dá dôležité informácie o tom, čo sa deje so systémom práve teraz.
@@ -667,16 +704,37 @@ Ak zbierame takéto dáta dostatočne dlho, vieme zistiť trendy, ako sa metriky
 Zistíme tak, kedy sa systém najviac využíva, kedy najmenej a tomu môžeme prispôsobiť napríklad plánované odstávky systému.
 Nás však zaujímajú aj komplexnejšie informácie o systéme a jeho používateľoch, ktoré sa jednoduchou metrikou pokryť nedajú.
 
+Radi by sme zistili vzory používania jednotlivých dialógov v systéme AiS2, hlavne čo sa týka vhodnosti ich návrhu.
+Potrebovali by sme identifikovať zle navrhnuté dialógy v systéme, aby sa dali sprehľadniť a zjednodušiť, aby neboli pre používateľov informačného systému metúce.
+Táto informácia by sa dala získať monitorovaním používateľa v systéme a to tak, že by sme zaznamenávali spustené dialógy, čas na nich strávený a následne zatváranie týchto dialógov v rámci jednej session.
+Ak by sa stalo, že používateľ by otvoril dialóg, o chvýľu by ho zavrel, pootváral by ďalšie, možno podobné dialógy, a nakoniec by sa vrátil k prvému, vyplnil by ho a odoslal, je pravdepodobné že správny dialóg hľadal, ale hneď ho nenašiel.
+Ak sa tento scénar opakuje často u rôznych používateľoch systému, pravdepodobne nie je dialóg, či ľubovoľná iná informácia v systéme vhodne navrhnutá alebo je v systéme zle umiestnená.
+Detekcia takýchto dialógov by výrazne prispela k zlepšeniu a skvalitneniu informačného systému.
+Používatelia by sa tak v ňom vedeli lepšie orientovať a našli by hľadanú informáciu rýchlejšie.
+Má pre nás preto detekcia takýchto dialógov zmysel.
+
+Informácia z takéhoto monitorovania je už dosť komplexná.
+Musí obsahovať minimálne informáciu o identifikátore aktuálnej session, čísla dialógu a čase medzi otvorením a zatvorením dialógu.
+Tieto údaje už nevieme zakódovať do jednoduchej metriky.
+Údaje spolu úzko súvisia, z toho dôvodu ich nemôžeme rozdeliť do viacerých metrík, 
+	pretože by sme ich nevedeli interpretovať, analyzovať a porovnávať medzi sebou.
+Na uloženie tejto informácie nevieme použiť RRD databázu.
+Vhodnejšia je relačná databáza.
+
+Mysleli sme si, že Zabbix bude vhodný nástroj na ukladanie takýchto štruktúrovaných dát, keďže metriky ukladá v relačnej databáze MySQL.
+Neskôr sme si ale uvedomili, že síce Zabbix na ukladanie metrík používa relačnú databázu, ale takúto komplexnú metriku mu nevieme poslať z žiadného nástroja na zbieranie metrík, ktoré sme vyššie opisovali, keďže podporujú iba zbieranie jednoduchých metrík.
 
 
+% TODO session, cloud, grid...
 
-
-\subsection{Vlastná práca}
+%\subsection{Vlastná práca}
+\section{Vlastná práca}
 % demo
 
 \newpage
 
-\section*{Záver}
+\chapter*{Záver}
+\addcontentsline{toc}{chapter}{Záver}
 
 V tejto bakalárskej práci sme sa zaoberali monitorovaním informačných systémov, prečo je monitorovanie výhodné pre vývoj systému a ako nám môže pomôcť pri jeho rozvíjaní.
 
@@ -700,13 +758,13 @@ Takisto by nám to uľahčilo konfiguráciu oproti nástroju Zabbix
 \bibliography{bakalarka}
 
 \renewcommand{\bibname}{Zoznam pou�itej literat�ry}
-\begin{thebibliography}{9}
+\begin{thebibliography}{42}
 %\bibitem{1} Ipsum, L.: Lorem ipsum dolor sit amet.
 	\bibitem{1} MATT MASSIE, Bernard Li. Monitoring with Ganglia. 1. ed. Sebastopol, CA: O'Reilly, 2013. ISBN 9781449329709.
 	\bibitem{2} ALLSPAW, John a Jesse ROBBINS. Web operations. 1st ed. Sebastopol, CA: O'Reilly, c2010, xvii, 315 p. ISBN 1449377440.
 \end{thebibliography}
 %
 \newpage
-\section*{Prílohy}
+\chapter*{Prílohy}
 
 \end{document}
