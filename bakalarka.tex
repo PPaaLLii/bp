@@ -276,10 +276,12 @@ Monitorovanie informačného systému od prípravy na monitorovanie až po anal�
 	\item Výber vhodných metrík.
 	\item Výber nástrojov na monitorovanie a zobrazovanie metrík.
 	\item Integrácia nástrojov a metrík do informačného systému.
-	\item Samotný zber metrík.
+	\item Zber metrík.
 	\item Analýza získaných metrík.
 	\item Vyvodenie dôsledkov monitorovania.
 \end{enumerate}
+
+\subsection*{Určenie cieľov monitorovania informačného systému}
 
 Určenie cieľov monitorovania informačného systému je dôležité.
 Musíme si dobre premyslieť, na čo chceme monitorovanie zamerať, čo chceme zlepšiť, čo potrebujeme odmerať.
@@ -287,24 +289,34 @@ Taktiež je dôležité premyslieť si, čo urobíme s výsledkom monitorovania 
 To závisí aj od metrík, ktoré si zvolíme, od času a obdobia, v ktorom systém budeme monitorovať.
 Treba si ujasniť problémy, ktoré chceme vyriešiť pomocou monitorovania.
 
+\subsection*{Výber vhodných metrík}
+
 Na to, aby sme monitorovaním dosiahli stanovené ciele, musíme si zvoliť vhodné metriky, 
 	ktoré nám poskytnú odpovede na naše otázky.
 Každý systém je odlišný a tak neexistuje univerzálny návod, aké metriky si zvoliť.
+
 Treba sa zamyslieť nad tým, aké údaje by nám pomohli, keby sme ich mali k dispozícii.
 Ak potrebujeme získať informácie o používateľoch a o ich správaní v systéme, pomohli by nám používateľské metriky.
 Ak potrebujeme získavať údaje o stave aplikácie, potom je pre nás vhodné zbierať aplikačné metriky.
 Keď chceme zistiť, aký je výkon systému a ako sa správa systém pri zaťažení a pod akou záťažou je v konkrétnych obdobiach, potom by sme sa mali zamerať na systémové metriky.
 
+\subsection*{Výber nástrojov na monitorovanie a zobrazovanie metrík}
+
 Ak už máme definované metriky, ktoré chceme zbierať, v ďalšej časti prípravy na monitorovanie si zvolíme vhodné nástroje na zber 	metrík a na ukladanie a zobrazovanie metrík.
 Môžeme si zbieranie, ukladanie a zobrazovanie metrík navrhnúť a implementovať aj po svojom, ale keďže je monitorovanie informačných systémov rozšírené, existujú už špecializované nástroje, ktoré nám pomôžu s monitorovaním a zabezpečia nám kompatibilitu s ďalšími nástrojmi.
+
 Nástrojov, ktoré máme k dispozícii, je niekoľko.
 V tejto práci si rozoberieme open-source nástroje na zbieranie metrík Statsd a Metrics a nástroje na zobrazovanie metrík Graphite, Zabbix a Ganglia.
 Všetky nástroje sú odlišné a majú svoje výhody a nevýhody, ktoré si podrobnejšie popíšeme.
 Nástroje si vyberieme podľa funkcionality, náročnosti integrácie a podľa veľkosti informačného systému.
 
+\subsection*{Integrácia nástrojov a metrík do informačného systému}
+
 Po výbere nástrojov na monitorovanie nasleduje integrácia vybraných nástrojov a metrík do systému.
 Zložitosť integrácie a konfigurácie závisí od nástrojov, ktoré sme si zvolili a od komplexnosti monitorovaného systému.
 Metriky zbierame v podobe counterov, timerov a gauges, prípadne im podobným alebo inak pomenovaným alternatívnym spôsobom podľa vybraných nástrojov.
+
+\subsection*{Zber metrík}
 
 Ak máme nakonfigurované nástroje na zber metrík a funkčné prepojenie nástroja na zber metrík s nástrojom na ukladanie a zobrazovanie metrík, nasleduje fáza samotného zbierania metrík a monitorovania informačného systému.
 V tejto fáze sledujeme metriky, ktoré nám nástroj na zobrazovanie metrík vykresľuje v prehľadných grafoch.
@@ -315,23 +327,28 @@ Môžeme tak byť notifikovaný napríklad o priveľkej záťaži na systém, o 
 To nám pomôže identifikovať aktuálne nastávajúci problém, ktorý je potrebné čo najskôr vyriešiť.
 Takisto nám to pomôže odhaliť problém skôr, ako ho odhalý používateľ nášho systému.
 
+\subsection*{Analýza získaných metrík}
+
 Ak už zbierame metriky dlhšiu dobu, máme dostatok údajov na ich analýzu a ďalšie spracovanie.
 Môžeme analyzovať, ako sa systém správa v určitých obdobiach, ako sa správajú používatelia v systéme a ako sa správa systém, keď je pod záťažou. To nám pomôže pripraviť sa na ďalšiu záťaž, alebo zistíme, že potrebujeme zbierať ďalšie metriky, na ktoré sme na začiatku nemysleli, alebo sa nám zdali irelevantné.
+
+\subsection*{Vyvodenie dôsledkov monitorovania}
 
 V ďalšej fáze vyvodíme dôsledky monitorovania.
 Zamyslíme sa, či nám monitorovanie pomohlo splniť ciele, ktoré sme si na začiatky stanovili a ako nám to pomohlo zlepšiť systém.
 Porozmýšľame, čo nám ešte treba zlepšiť, aké závery nám plynú z monitorovania a určíme ďalšie kroky k ešte lepšiemu monitorovaniu.
+
 Monitorovanie informačného systému je dlhodobý proces, a počas monitorovania sa môže meniť a upravovať s meniacím sa systémom a už získanými poznatkami z monitorovania.
 Môžeme pridávať nové metriky aj s novou funkcionalitou alebo tie nepodstatné metriky zmazať.
 V tejto fáze upravíme systém podľa výsledkov, ktoré sme získali monitorovaním.
 Napríklad ak sme zistili, že náš systém potrebuje optimalizáciu dopytov do databázy, optimalizujeme ich a sledujeme, aký to ma dopad na systém a na rýchlosť odpovede na požiadavky od klientov.
 
-Na obrázku 2.1 môžete vidieť diagram algoritmu pre monitorovanie informačného systému.
+Na obrázku 2.1 môžete vidieť životný cyklus monitorovania informačného systému.
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.41]{ais_algorithm.png}
-\caption{Diagram algoritmu pre monitorovanie informačného systému}
+\includegraphics[scale=0.6]{ais_algorithm.png}
+\caption{Životný cyklus monitorovania informačného systému}
 \end{center}
 \end{figure}
 
