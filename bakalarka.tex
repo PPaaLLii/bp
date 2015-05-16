@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{titlesec}
+\usepackage{listings}
 
 \titleformat{name=\chapter,numberless}
   {\normalfont\Large\bfseries}
@@ -347,7 +348,7 @@ Na obrázku 2.1 môžete vidieť životný cyklus monitorovania informačného s
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.6]{ais_algorithm.png}
+\includegraphics[scale=0.7]{ais_algorithm.png}
 \caption{Životný cyklus monitorovania informačného systému}
 \end{center}
 \end{figure}
@@ -717,6 +718,26 @@ Zabbix vie detekovať problémy a tie jednoduchšie aj vyriešiť (napríklad re
 	Ganglia zas dokáže monitorovať celé clustre a gridy a ponúka nám jednoduchú agregáciu grafov.
 Záleží od komplexnosti systému, ktorý nástroj si vyberieme.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Monitorovanie systému AiS2}
+
+%------------------------------------------------------------------------------------------------------------------------------
+
+%\subsection{Vlastná práca}
+\section{Testovanie nástrojov}
+% demo
+
+Aby sme vedeli vyššie spomenuté nástroje porovnať a vybrať si vhodné nástroje na zbieranie a zobrazovanie metrík kvôli monitorovaniu systému AiS2, nástroje sme si najskôr vyskúšali.
+
+Pre testovacie účeli sme si vytvorili jednoduchú webovú aplikáciu.
+Keďže je systém AiS2 napísaný prevažne v programovacom jazyku java, za formu webovej aplikácie sme si zvolili JSP (Java Server Pages) stránky.
+Vytvorené JSP stránky môžete vidieť v prílohách A - F.
+
+Vo virtuálnom stroji sme si nainštalovali nástroj Statsd server, Graphite, Zabbix a Gangliu.
+Po kliknutí na tlačidlo „Special Feature“ sa zavolá príslušná JSP stránka s názvom „sender“, ktorá má inštanciu Statsd klienta (príloha B a D), alebo integrovanú knižnicu Metrics (príloha F), ktoré odošlú metriku o spustení tlačidla a rozlíšenia obrazovky používateľa do príslušného nástroja na uloženie a zobrazenie metriky.
+
+
 %------------------------------------------------------------------------------------------------------------------------------
 
 %\subsection{Monitorovanie systému AiS2 v reálnom čase}
@@ -766,19 +787,21 @@ Potvrdila sa nám teda naša hypotéza, že Zabbix nie je vhodný nástroj pre m
 %------------------------------------------------------------------------------------------------------------------------------
 
 %\subsection{Dlhodobé monitorovanie systému AiS2}
-\section{Dlhodobé monitorovanie systému AiS2}
+\section{Monitorovanie systému AiS2 za účelom hĺbkovej analýzy}
 %logstash, logy obe problemy nejdu jednym nastrojom...uz su logy, session, rrd, mysql
 
 Monitorovanie systému AiS2 v reálnom čase nám dá dôležité informácie o tom, čo sa deje so systémom práve teraz.
 Ak zbierame takéto dáta dostatočne dlho, vieme zistiť trendy, ako sa metriky menili v minulosti.
 Zistíme tak, kedy sa systém najviac využíva, kedy najmenej a tomu môžeme prispôsobiť napríklad plánované odstávky systému.
-Nás však zaujímajú aj komplexnejšie informácie o systéme a jeho používateľoch, ktoré sa jednoduchou metrikou pokryť nedajú.
 
+Nás však zaujímajú aj komplexnejšie informácie o systéme a jeho používateľoch, ktoré sa jednoduchou metrikou pokryť nedajú.
 Radi by sme zistili vzory používania jednotlivých dialógov v systéme AiS2, hlavne čo sa týka vhodnosti ich návrhu.
 Potrebovali by sme identifikovať zle navrhnuté dialógy v systéme, aby sa dali sprehľadniť a zjednodušiť, aby neboli pre používateľov informačného systému metúce.
+
 Táto informácia by sa dala získať monitorovaním používateľa v systéme a to tak, že by sme zaznamenávali spustené dialógy, čas na nich strávený a následne zatváranie týchto dialógov v rámci jednej session.
 Ak by sa stalo, že používateľ by otvoril dialóg, o chvýľu by ho zavrel, pootváral by ďalšie, možno podobné dialógy, a nakoniec by sa vrátil k prvému, vyplnil by ho a odoslal, je pravdepodobné že správny dialóg hľadal, ale hneď ho nenašiel.
 Ak sa tento scénar opakuje často u rôznych používateľoch systému, pravdepodobne nie je dialóg, či ľubovoľná iná informácia v systéme vhodne navrhnutá alebo je v systéme zle umiestnená.
+
 Detekcia takýchto dialógov by výrazne prispela k zlepšeniu a skvalitneniu informačného systému.
 Používatelia by sa tak v ňom vedeli lepšie orientovať a našli by hľadanú informáciu rýchlejšie.
 Má pre nás preto detekcia takýchto dialógov zmysel.
@@ -796,12 +819,6 @@ Neskôr sme si ale uvedomili, že síce Zabbix na ukladanie metrík používa re
 
 
 % TODO session, cloud, grid...
-
-%------------------------------------------------------------------------------------------------------------------------------
-
-%\subsection{Vlastná práca}
-\section{Vlastná práca}
-% demo
 
 \newpage
 
@@ -847,5 +864,10 @@ Takisto by nám to uľahčilo konfiguráciu oproti nástroju Zabbix
 
 \chapter*{Prílohy}
 \addcontentsline{toc}{chapter}{Prílohy}
+
+
+%\lstinputlisting{statsd-graphite.jsp}
+
+
 
 \end{document}
