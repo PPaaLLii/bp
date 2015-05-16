@@ -16,6 +16,8 @@
 % disablespecwarning, usesections, {rnthesissvk}
 \setcounter{secnumdepth}{4}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \title{Monitorovanie Informačných Systémov}
 \author{Pavol Kozák}
 \typprace{Bakalárska}
@@ -30,14 +32,19 @@ Osobitné poďakovanie patrí mojej rodine a priateľom za podporu a pochopenie.
 
 \abstrakt{Hlavným cieľom našej bakalárskej práce je navrhnúť spôsob monitorovania informačného systému za účelom zbierania užitočných informácií ohľadom výkonu systému a používateľských preferenciách. Zaoberáme sa najmä otázkami aké informácie zbierať a akými nástrojmi ich zbierať. Existuje množstvo nástrojov z časti riešiacich našu problematiku. Zameriame sa na open-source nástroje. V práci si rozoberieme tie najpoužívanejšie, ich výhody a nevýhody a vybrané nástroje integrujeme do akademického informačného systému AiS2. Pomocou nich sa pokúsime zbierať a zobrazovať metriky, ktoré nám pomôžu identifikovať problémy a funkcie, ktoré je potreba vylepšiť.}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
 \maketitle
 \newpage
 
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
 \tableofcontents
 
 \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \chapter*{Úvod}
 \addcontentsline{toc}{chapter}{Úvod}
 
@@ -65,7 +72,7 @@ Odhalia slabé miesta systému, ktoré by sme pri bežnom testovaní nespozorova
 
 
 %\subsection{Informačný Systém}
-\section{Informačný Systém}
+\section{Informačný systém}
 
 Informačný systém je zostavený z ľudí a počítačov, ktorí spracúvajú a interpretujú informácie.
 Niekedy sa tento termín používa na označenie softvéru, ktorý využíva počítačovú databázu alebo len počítačového systému.
@@ -74,8 +81,8 @@ Niekedy sa tento termín používa na označenie softvéru, ktorý využíva po�
 V tejto práci sa budeme zameriavať na informačné systémy, ktoré sú vo forme webovej aplikácie.
 
 
-%\subsection{Web Aplikácia}
-\section{Web Aplikácia}
+%\subsection{Webová Aplikácia}
+\section{Webová aplikácia}
 
 Webová aplikácia je aplikácia typu klient-server vytvorená pre prostredie internetu alebo intranetu.
 V softvérovom inžinierstve je aplikácia poskytovaná užívateľom z~webového servera cez počítačovú sieť Internet, 
@@ -101,7 +108,7 @@ Metriky nám pomáhajú ‘‘odmerať’’ systém a tým nám dávajú komple
 Vhodne zvolené metriky dokážu nasmerovať vývojárov správnym smerom a poukázať na možné problémy a tým v konečnom dôsledku pomôžu zlepšiť monitorovaný systém.
 
 %\subsubsection{Rozdelenie Metrík}
-\subsection{Rozdelenie Metrík}
+\subsection{Rozdelenie metrík}
 
 Medzi základné delenia metrík patrí delenie na kvalitatívne a kvantitatívne metriky.
 Kvantitatívne metriky udávajú číselnú hodnotu, zatiaľ čo kvalitatívne metriky nečíselnú hodnotu.  
@@ -121,7 +128,7 @@ Metriky môžeme rozdeliť podľa druhu na:
 V tejto práci nás budú zaujímať aplikačné, systémové a používateľské metriky.
 
 %\subsubsection{Aká je Dobrá Metrika?}
-\subsection{Aká je Dobrá Metrika?}
+\subsection{Aká je dobrá metrika?}
 
 Aby metrika plnila svoj cieľ, teda podala správnu informáciu o systéme, mala by byť:
 \begin{itemize}
@@ -139,7 +146,7 @@ Od metriky požadujeme, aby bola okamžite ukončiteľná, aby hneď po jej zís
 %\cite{website:web-analytics.wikidot}
 
 %\subsubsection{Typy Metrík}
-\subsection{Typy Metrík}
+\subsection{Typy metrík}
 
 Medzi základné typy metrík patria údaje o počte (counting), údaje o čase (timing), iné číselné hodnoty (celočíselné alebo desatinné), alebo niekedy aj nečíselné hodnoty (gauges). 
 
@@ -185,7 +192,7 @@ Problém môže nastať, ak máme metrík veľa.
 Monitorovanie systému nesmie systém výrazne zaťažiť, lebo by monitorovanie nebolo efektívne.
 
 %\subsection{Ilustračný Príklad}
-\section{Ilustračný Príklad}
+\section{Ilustračný príklad}
 
 Dobrým príkladom informačného systému je akademický informačný systém.
 Monitorovanie takéhoto systému môže výrazne pomôcť k jeho vylepšeniu a~rozví\-janiu.
@@ -199,7 +206,7 @@ Ak by napríklad väčšina používateľov systému k nemu pristupovala s malou
 Ak zaznamenáme výrazne zvýšenie času odpovede vzhľadom na dlhodobý historický trend, vieme, že v systéme dochádza k problému a treba ho čo najskôr začať riešiť.
 
 %\subsection{Prehľad Súčasného Stavu}
- \section{Prehľad Súčasného Stavu}
+ \section{Prehľad súčasného stavu}
 
 V tomto čase je množstvo informačných systémov, ktoré sú neustále vylepšované a~zdokonaľované a~tak je potreba ich monitorovať, aby sa dali ešte viac zlepšiť a~prispôsobiť zákazníkom.
 Každý systém je špecifický, a tak aj jeho monitorovanie je jedinečné.
@@ -212,7 +219,7 @@ My sa zaoberáme open-source nástrojmi.
 
 
 %\subsection{Ciele Práce}
-\section{Ciele Práce}
+\section{Ciele práce}
 
 %\begin{enumerate}
 %	\item Navrhnúť spôsob monitorovania informačného systému v reálnom čase za~úče\-lom zhromažďovania informácií o výkonne systému a používateľských pre\-ferenciách.
@@ -235,6 +242,8 @@ Keďže už existujú nástroje, ktoré čiastočne riešia naše problémy, na�
 %\section{Návrh Riešenia}
 
 %\subsection{Úvod k zberu metrík}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\section{Algoritmus monitorovania informačného systému}
 \chapter{Algoritmus monitorovania informačného systému}
@@ -361,8 +370,10 @@ Budú nás zaujímať iné metriky a aj ciele takejto analýzy budeme mať odli�
 
 \newpage
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %\section{Nástroje na Zber Metrík}
-\chapter{Nástroje na Zber Metrík}
+\chapter{Nástroje na zber metrík}
 
 Ak už máme jasne definované metriky, môžeme ich začať zbierať.
 Zber metrík je~často riešený problém, v zbere metrík nám môžu pomôcť rôzne nástroje.
@@ -434,7 +445,7 @@ Nasledovné údaje sú aktuálne vzhľadom k času písania bakalárskej práce.
 
 		Licencia & Apache 2 & MIT \\ \hline
 
-		Zložitosť integrácie do java web aplikácie & Import knižnice, definovanie metrík, nastavenie reportovania & Inštalácia Node.js, Statsd servera, import Statsd klientskej knižnice, definovanie metrík, inštalácia reportovacích backendov, konfigurácia Statsd servera \\ \hline
+		Zložitosť integrácie do java webovej aplikácie & Import knižnice, definovanie metrík, nastavenie reportovania & Inštalácia Node.js, Statsd servera, import Statsd klientskej knižnice, definovanie metrík, inštalácia reportovacích backendov, konfigurácia Statsd servera \\ \hline
 
 		Počet prispievateľov & 127 & 154 \\ \hline
 
@@ -450,8 +461,10 @@ Nasledovné údaje sú aktuálne vzhľadom k času písania bakalárskej práce.
 
 \newpage
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %\section{Nástroje na Ukladanie a Zobrazenie Metrík}
-\chapter{Nástroje na Ukladanie a Zobrazenie Metrík}
+\chapter{Nástroje na ukladanie a zobrazenie metrík}
 
 Nástroje na zbieranie metrík majú často za úlohu agregovať metriky a preposielať ich do ďalších nástrojov.
 Existujú rôzne nástroje na~ukladanie a zobrazenie metrík.
@@ -570,7 +583,7 @@ Je naozaj rozšírený, používajú ho napríklad známe spoločnosti ako Twitt
 Metriky do Ganglie môžeme poslať pomocou Gmond modulov, Gmetric modulu alebo inými nástrojmi, ako napríklad statsd.
 Ak posielame metriky do Ganglie, nemusíme ich mať dopredu nakonfiguroavné.
 Gmetad vytvorí nový RRD súbor pre každú novú metriku, čo značne uľahčí konfiguráciu, ak metrík máme veľa.
-Web používaťeľské rozhranie potom zobrazí základný graf pre každú metriku.
+Webové používaťeľské rozhranie potom zobrazí základný graf pre každú metriku.
 
 Ganglia na posielanie metrík na centrálny server používa dvoch démonov a to Ganglia Monitoring Daemon (gmond) a Ganglia Meta Daemon (gmetad).
 Gmond môže posielať alebo prijímať metriky, ktoré si drží v pamäti.
@@ -614,7 +627,7 @@ Umožňuje však prepojenie s nástrojom Naggios, ktorý je na to určený.
 	\caption{Používateľské rozhranie nástroja Ganglia}
 \end{figure}
 
-\subsubsection{Výhody nástroja Ganglia}
+\subsection{Výhody nástroja Ganglia}
 
 Asi najväčšou výhodou nástroja Ganglia je to, že dokáže monitorovať celé clustre a gridy.
 Je určená na agregáciu metrík z viacerých serverov a z komplexných informačných systémov.
@@ -733,6 +746,8 @@ Neskôr sme si ale uvedomili, že síce Zabbix na ukladanie metrík používa re
 
 \newpage
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \chapter*{Záver}
 \addcontentsline{toc}{chapter}{Záver}
 
@@ -746,7 +761,7 @@ Porovnali sme open-source nástroje na zbieranie a vizualizáciu metrík, konkr�
 Povedali sme si o ich výhodách a nevýhodách vzhľadom na monitorovanie akademického informačného systému AiS2.
 Vybrali sme si nástroje Metrics a Zabbix, a integrovali sme ich do systému AiS2.
 
-Vytvorili sme jednoduchú web aplikáciu na demonštráciu nástrojov na zbieranie a zobrazovanie metrík.
+Vytvorili sme jednoduchú webovú aplikáciu na demonštráciu nástrojov na zbieranie a zobrazovanie metrík.
 
 Zistili sme, že by naše problémy ohľadom agregácie metrík z viacerých inštalácií a prehľadné porovnanie týchto inštalácií vyriešil omnoho lepšie nástroj Ganglia.
 Takisto by nám to uľahčilo konfiguráciu oproti nástroju Zabbix
@@ -757,7 +772,7 @@ Takisto by nám to uľahčilo konfiguráciu oproti nástroju Zabbix
 %vyhody, nevyhody, aj napriek infrastruktury aj na aplikacne a pouzivatelske ale hlavne realtime pre rozsiahle cloudy Ganglia, ale naggios j riesenie komplexne nieje, nevyriesia ani jednu ulohu komplexne. Zabbix nie, lebo potencial databazy nevyvazi komplikovanu konfiguraciu, ani templates nepomozu. Dlhodobe relacna db je dobra, zabbix nie je plnohodnotny, metrics lepsi gmondy, metrics aj pise do logov, co bude pouzitelne pri dlhodobom monitorovani. Java, tak statsd, keby ne tak statsd...
 \bibliography{bakalarka}
 
-\renewcommand{\bibname}{Zoznam pou�itej literat�ry}
+\renewcommand{\bibname}{Zoznam použitej literatúry}
 \begin{thebibliography}{42}
 %\bibitem{1} Ipsum, L.: Lorem ipsum dolor sit amet.
 	\bibitem{1} MATT MASSIE, Bernard Li. Monitoring with Ganglia. 1. ed. Sebastopol, CA: O'Reilly, 2013. ISBN 9781449329709.
@@ -765,6 +780,10 @@ Takisto by nám to uľahčilo konfiguráciu oproti nástroju Zabbix
 \end{thebibliography}
 %
 \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \chapter*{Prílohy}
+\addcontentsline{toc}{chapter}{Prílohy}
 
 \end{document}
