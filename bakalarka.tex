@@ -63,13 +63,15 @@ Dávajú nám komplexnú informáciu o~systéme, o jeho nedostatkoch, o tom, čo
 Pri zlepšovaní systému sú metriky veľmi užitočné.
 Odhalia slabé miesta systému, ktoré by sme pri bežnom testovaní nespozorovali.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %\section{Základné pojmy}
 \chapter{Základné pojmy}
 
 %\subsection{Motivácia}
 %\section{Motivácia}
 
-
+%------------------------------------------------------------------------------------------------------------------------------
 
 %\subsection{Informačný Systém}
 \section{Informačný systém}
@@ -80,6 +82,7 @@ Niekedy sa tento termín používa na označenie softvéru, ktorý využíva po�
 
 V tejto práci sa budeme zameriavať na informačné systémy, ktoré sú vo forme webovej aplikácie.
 
+%------------------------------------------------------------------------------------------------------------------------------
 
 %\subsection{Webová Aplikácia}
 \section{Webová aplikácia}
@@ -93,6 +96,8 @@ Výhodou webových aplikácií je rovnaké užívateľské rozhranie kdekoľvek 
 Veľkou výhodou pre užívateľa ale aj pre prevádzkovateľa aplikácie je~jednoduchá aktualizácia. 
 Tá sa vykonáva len na~jednom mieste - na serveri, na~ktorom webová aplikácia beží. Nevýhodou je nutnosť internetového pripojenia.
 %\cite{website:wikipedia-webaplikacia}
+
+%------------------------------------------------------------------------------------------------------------------------------
 
 %\subsection{Metrika}
 \section{Metrika}
@@ -157,6 +162,8 @@ Medzi základné typy metrík patria údaje o počte (counting), údaje o čase 
 Niekedy je užitočné zbierať hodnotu, ktorá nezávisí od predchádzajúcich hodnôt napríklad počet objektov v rade, veľkosť dát odoslanej odpovede, alebo zaťaženie procesora. 
 Tieto hodnoty môžu byť číselné alebo nečíselné. Tieto hodnoty pravidelne zbierame a odosielame na spracovanie a zobrazenie.
 
+%------------------------------------------------------------------------------------------------------------------------------
+
 %\subsection{Monitorovanie systému AiS2}
 \section{Monitorovanie systému AiS2}
 
@@ -179,6 +186,8 @@ Bude jednoduchšie inštalácie porovnať a analyzovať nazbierané metriky.
 Ďalším cieľom monitorovania systému AiS2 je optimalizácia interakcie systému s používateľom.
 Chceme detekovať zle navrhnuté dialógy, ich neprehľadné umiestnenie v systéme, a analyzovať interakciu s používateľmi, napríklad aj dynamickým upravovaním používateľského rozhrania.
 
+%------------------------------------------------------------------------------------------------------------------------------
+
 %\subsection{Problémy}
 \section{Problémy}
 
@@ -190,6 +199,8 @@ Ak by sme problém zaznamenali hneď ako nastane, mali by sme viac času na jeho
 
 Problém môže nastať, ak máme metrík veľa.
 Monitorovanie systému nesmie systém výrazne zaťažiť, lebo by monitorovanie nebolo efektívne.
+
+%------------------------------------------------------------------------------------------------------------------------------
 
 %\subsection{Ilustračný Príklad}
 \section{Ilustračný príklad}
@@ -205,6 +216,8 @@ Ak by napríklad väčšina používateľov systému k nemu pristupovala s malou
 Ďalšou zaujímavou metrikou je čas odpovede na požiadavku od klienta.
 Ak zaznamenáme výrazne zvýšenie času odpovede vzhľadom na dlhodobý historický trend, vieme, že v systéme dochádza k problému a treba ho čo najskôr začať riešiť.
 
+%------------------------------------------------------------------------------------------------------------------------------
+
 %\subsection{Prehľad Súčasného Stavu}
  \section{Prehľad súčasného stavu}
 
@@ -217,6 +230,7 @@ Tieto nástroje sú však väčšinou zamerané na zbieranie systémových metr�
 Patria tu jak platené (Datadog, Stackdriver, Librato), tak aj open-source nástroje (Statsd, Metrics, Cacti, Graphite, Zabbix, Ganglia, Naggios).
 My sa zaoberáme open-source nástrojmi.
 
+%------------------------------------------------------------------------------------------------------------------------------
 
 %\subsection{Ciele Práce}
 \section{Ciele práce}
@@ -312,7 +326,7 @@ Môžeme pridávať nové metriky aj s novou funkcionalitou alebo tie nepodstatn
 V tejto fáze upravíme systém podľa výsledkov, ktoré sme získali monitorovaním.
 Napríklad ak sme zistili, že náš systém potrebuje optimalizáciu dopytov do databázy, optimalizujeme ich a sledujeme, aký to ma dopad na systém a na rýchlosť odpovede na požiadavky od klientov.
 
-Na obrázku 1. môžete vidieť diagram algoritmu pre monitorovanie informačného systému.
+Na obrázku 2.1 môžete vidieť diagram algoritmu pre monitorovanie informačného systému.
 
 \begin{figure}
 \begin{center}
@@ -323,8 +337,12 @@ Na obrázku 1. môžete vidieť diagram algoritmu pre monitorovanie informačné
 
 \newpage
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %\section{Typy monitorovania}
 \chapter{Typy monitorovania}
+
+%------------------------------------------------------------------------------------------------------------------------------
 
 %\subsection{Monitorovanie systému v reálnom čase}
 \section{Monitorovanie systému v reálnom čase}
@@ -333,6 +351,8 @@ Monitorovanie systému v reálnom čase nám pomôže detekovať problém skôr,
 Prehľadné grafy zobrazujúce nazbierané metriky nám ukážu dôležité informácie o stave systému.
 Niektoré nástroje nás dokonca upozornia, ak v systéme nastane problém.
 Po vyriešení problému zas z grafov vyčítame, či sme detekovaný problém vyriešili a ako dobre sme ho vyriešili.
+
+%------------------------------------------------------------------------------------------------------------------------------
 
 %\subsection{Dlhodobé monitorovanie systému}
 \section{Dlhodobé monitorovanie systému}
@@ -344,6 +364,8 @@ To sa nám pomôže pripraviť na najväčšiu záťaž.
 
 Po vylepšení niektorej funkcionality v systéme vieme porovnať nové hodnoty metrík s historickými hodnotami metrík pre danú funkcionalitu.
 Dozvieme sa tak, či sme funkcionalitu naopak nezhoršili a či bude schopná vydržať záťaž.
+
+%------------------------------------------------------------------------------------------------------------------------------
 
 %\subsection{Monitorovanie systému za účelom hĺbkovej analýzy}
 \section{Monitorovanie systému za účelom hĺbkovej analýzy}
@@ -390,6 +412,8 @@ Riešia ten istý problém - definujú metriky v kóde systému a fungujú ako c
 Naším čiastočným cieľom je porovnať ich.
 V nasledujúcich odstavcoch si popíšeme ich výhody a nevýhody.
 
+%------------------------------------------------------------------------------------------------------------------------------
+
 %\subsection{Nástroj Metrics}
 \section{Nástroj Metrics}
 
@@ -404,6 +428,7 @@ Nástroj Metrics nám pomôže dostať namerané metriky do~ďalších nástrojo
 
 Asi najväčšou konkurenciou k Metrics je nástroj Statsd.
 
+%------------------------------------------------------------------------------------------------------------------------------
 
 %\subsection{Nástroj Statsd}
 \section{Nástroj Statsd}
@@ -418,14 +443,15 @@ Umožňuje posielať dáta do nástrojov ako napríklad Graphite, Ganglia, Libra
 
 Architektúra tohto nástroja je trochu zložitejšia.
 
+%------------------------------------------------------------------------------------------------------------------------------
 
 %\subsection{Metrics vs Statsd}
 \section{Metrics vs Statsd}
 
 Obe nástroje slúžia na zbieranie metrík, majú však rozdielnú architektúru. 
 Ponúkajú rôzne možnosti integrácie s ďalšími nástrojmi. 
-Kvôli prehľadnosti sú základné rozdiely popísané v tabuľke 1.
-Nasledovné údaje sú aktuálne vzhľadom k času písania bakalárskej práce.
+Kvôli prehľadnosti sú základné rozdiely popísané v tabuľke 4.1.
+Údaje v tabuľke 4.1 sú aktuálne vzhľadom k času písania bakalárskej práce.
 
 \begin{table}
 	\caption{Porovnanie nástrojov Metrics a Statsd}
@@ -449,11 +475,11 @@ Nasledovné údaje sú aktuálne vzhľadom k času písania bakalárskej práce.
 
 		Počet prispievateľov & 127 & 154 \\ \hline
 
-		Počet releasov & 51 & 11 \\ \hline
+		Počet verzií & 51 & 11 \\ \hline
 
-		Prvý commit do repozitára & 27.4.2011 & 30.12.2010 \\ \hline
+		Prvý príspevok do repozitára & 27.4.2011 & 30.12.2010 \\ \hline
 		
-		Počet commitov do repozitára & 1958 & 823 \\ \hline
+		Počet príspevkov do repozitára & 1958 & 823 \\ \hline
 
 		%Dokumentácia & Dostatočná & Dostatočná \\ \hline
 	\end{tabular}
@@ -477,6 +503,8 @@ Záleží od veľkosti a komplexnosti systému a aj od požadovanej funkcionalit
 
 Metriky sa najčastejšie zobrazujú v podobe histogramov alebo čiarových diagramov cez používateľské rozhranie vo forme webovej aplikácie.
 
+%------------------------------------------------------------------------------------------------------------------------------
+
 %\subsection{Nástroj Graphite}
 \section{Nástroj Graphite}
 
@@ -487,7 +515,7 @@ Kód graphitu je napísaný v programovacom jazyku python.
 Metriky stačí poslať do nástroja Graphite a on ich sám zaradí do stromu metrík podľa prefixu.
 Po inštalácii sa nevyžaduje žiadna dodatočná konfigurácia.
 
-Na obrázku 2 môžete vidieť používaťeľské rozhranie nástroja graphite a čiarový diagram pre metriku zaťaženie procesora.
+Na obrázku 5.2 môžete vidieť používaťeľské rozhranie nástroja Graphite a čiarový diagram pre metriku zaťaženie procesora.
 
 \begin{figure}
 \begin{center}
@@ -517,13 +545,15 @@ Jeho nevýhodou je, že má komplikovanú inštaláciu.
 Počas jeho inštalácie treba nainštalovať a nakonfigurovať všetky potrebné moduly, čiže Carbon, Whisper, Graphite web, Pycairo a Apache.
 % dopisat komplikacie
 
+%------------------------------------------------------------------------------------------------------------------------------
+
 %\subsection{Nástroj Zabbix}
 \section{Nástroj Zabbix}
 
 Ďalším používaným nástrojom je Zabbix.
 Jeho kód je napísaný v jazyku C a~používateľské rozhranie v podobe webovej aplikácie je napísaný v jazyku PHP.
 Na ukladanie metrík používa Mysql databázu.
-Na obrázku 3 môžete vidieť graf operačných systémov a prehliadačov používateľov systému AiS2 v Zabbixe.
+Na obrázku 5.3 môžete vidieť graf operačných systémov a prehliadačov používateľov systému AiS2 v Zabbixe.
 
 % obrazok biely
 \begin{figure}
@@ -573,6 +603,8 @@ V systéme AiS2 sme tieto šablóny použili na definovanie rovnakých metrík p
 Pri každej novej funkcionalite informačného systému s predpokladom, že ju chceme monitorovať, je potrebné nakonfigurovať nové metriky aj v Zabbixe.
 % aj ked existuju templates pouzitie v AiSe
 
+%------------------------------------------------------------------------------------------------------------------------------
+
 %\subsection{Nástroj Ganglia}
 \section{Nástroj Ganglia}
 
@@ -595,11 +627,11 @@ Gmond medzi sebou kominikujú buď prostredníctvom unicastu alebo multicastu.
 Ak použijeme unicast, komunikácia zo všetkých gmondov smeruje do jedného centrálneho gmond modulu v rámci clustera.
 Gmetad potom zbiera dáta zo všetkých centrálnych gmond modulov.
 Táto konfigurácia je výhodná, ak máme veľmi veľa uzlov (1000).
-Architektúra s použitím unicastu je popísaná na obrázku 4.
+Architektúra s použitím unicastu je popísaná na obrázku 5.4.
 
 Ak máme menší počet uzlov v gride, viac sa nám oplatí použiť multicast.
 Po pridaní nových uzlov do clustra nie je potrebná dodatočná konfigurácia.
-Architektúra s použitím multicastu je popísaná na obrázku 5.
+Architektúra s použitím multicastu je popísaná na obrázku 5.5.
 
 \begin{figure}
 	\begin{center}
@@ -619,6 +651,7 @@ Architektúra s použitím multicastu je popísaná na obrázku 5.
 
 Ganglia priamo nepodporuje detekciu problémov v systéme.
 Umožňuje však prepojenie s nástrojom Naggios, ktorý je na to určený.
+Na obrázku 5.6 môžete vidieť používaťeľské rozhranie nástroja Ganglia.
 
 \begin{figure}
 	\begin{center}
@@ -655,6 +688,8 @@ Narazili sme však na problém, že v čase písania tejto práce ešte nebola G
 
 % nevyuzitie pre dlhodobe,  redhat nevieme deploynut
 
+%------------------------------------------------------------------------------------------------------------------------------
+
 %\subsection{Graphite vs Zabbix vs Ganglia}
 \section{Graphite vs Zabbix vs Ganglia}
 
@@ -664,6 +699,8 @@ Tie nám ponúkajú viac užitočných funkcií, ktoré môžeme využiť.
 Zabbix vie detekovať problémy a tie jednoduchšie aj vyriešiť (napríklad reštartom zlyhanej služby), 
 	Ganglia zas dokáže monitorovať celé clustre a gridy a ponúka nám jednoduchú agregáciu grafov.
 Záleží od komplexnosti systému, ktorý nástroj si vyberieme.
+
+%------------------------------------------------------------------------------------------------------------------------------
 
 %\subsection{Monitorovanie systému AiS2 v reálnom čase}
 \section{Monitorovanie systému AiS2 v reálnom čase}
@@ -708,6 +745,9 @@ Potvrdila sa nám teda naša hypotéza, že Zabbix nie je vhodný nástroj pre m
 % ciel 18 instalacii porovnavat - Ganglia metrics, gmond gmetric, kniznica, 
 % konfiguracia, grafy, ...
 % zabbix experimenty datamining
+
+%------------------------------------------------------------------------------------------------------------------------------
+
 %\subsection{Dlhodobé monitorovanie systému AiS2}
 \section{Dlhodobé monitorovanie systému AiS2}
 %logstash, logy obe problemy nejdu jednym nastrojom...uz su logy, session, rrd, mysql
@@ -740,6 +780,8 @@ Neskôr sme si ale uvedomili, že síce Zabbix na ukladanie metrík používa re
 
 % TODO session, cloud, grid...
 
+%------------------------------------------------------------------------------------------------------------------------------
+
 %\subsection{Vlastná práca}
 \section{Vlastná práca}
 % demo
@@ -770,6 +812,9 @@ Takisto by nám to uľahčilo konfiguráciu oproti nástroju Zabbix
 
 % otvorene problemy, ktore chceme riesit dalej 
 %vyhody, nevyhody, aj napriek infrastruktury aj na aplikacne a pouzivatelske ale hlavne realtime pre rozsiahle cloudy Ganglia, ale naggios j riesenie komplexne nieje, nevyriesia ani jednu ulohu komplexne. Zabbix nie, lebo potencial databazy nevyvazi komplikovanu konfiguraciu, ani templates nepomozu. Dlhodobe relacna db je dobra, zabbix nie je plnohodnotny, metrics lepsi gmondy, metrics aj pise do logov, co bude pouzitelne pri dlhodobom monitorovani. Java, tak statsd, keby ne tak statsd...
+
+%------------------------------------------------------------------------------------------------------------------------------
+
 \bibliography{bakalarka}
 
 \renewcommand{\bibname}{Zoznam použitej literatúry}
