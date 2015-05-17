@@ -13,10 +13,12 @@ public void jspInit() {
     Graphite graphite 
         = new Graphite(new InetSocketAddress("192.168.0.10", 2003));
     final GraphiteReporter reporter = GraphiteReporter
-                .forRegistry(metricsRegistry).prefixedWith("jsp.metrics")
+                .forRegistry(metricsRegistry)
+                .prefixedWith("jsp.metrics")
                 .convertRatesTo(TimeUnit.SECONDS)
                 .convertDurationsTo(TimeUnit.MILLISECONDS)
-                .filter(MetricFilter.ALL).build(graphite);
+                .filter(MetricFilter.ALL)
+                .build(graphite);
     reporter.start(10, TimeUnit.SECONDS);
     specialFeature = metricsRegistry.counter("Special_Feature");
     specialFeature.inc();

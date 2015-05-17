@@ -8,8 +8,8 @@
 <%
     String width = request.getParameter("width");
     String height = request.getParameter("height");
-    StatsDClient statsd 
-    	= new NonBlockingStatsDClient("jsp.statsd", "192.168.0.10", 8125);
+    StatsDClient statsd = new NonBlockingStatsDClient
+    	("jsp.statsd", "192.168.0.10", 8125);
     statsd.incrementCounter("Special_Feature");
     statsd.incrementCounter(width + "/" + height);
     statsd.recordGaugeValue("width", Long.parseLong(width));
