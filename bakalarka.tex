@@ -737,7 +737,7 @@ Vytvorené JSP stránky môžete vidieť v prílohách A - C.
 Vo virtuálnom stroji sme si nainštalovali nástroj Statsd server, Graphite, Zabbix a Gangliu.
 Po kliknutí na tlačidlo „Special Feature“ v prílohe A sa zavolá príslušná JSP stránka s názvom „sender“, ktorá má inštanciu Statsd klienta (príloha B), alebo integrovanú knižnicu Metrics (príloha C), ktoré odošlú metriku o stlačení tlačidla do príslušného nástroja na uloženie a zobrazenie metriky.
 
-Týmto sme si spomínané nástroje vyskúšali aby sme ich vedeli detailnejšie porovnať.
+Týmto sme si spomínané nástroje vyskúšali a nabrali sme skúsenosti pre integráciu vybraných nástrojov do systému AiS2.
 
 
 %------------------------------------------------------------------------------------------------------------------------------
@@ -798,10 +798,10 @@ Zistíme tak, kedy sa systém najviac využíva, kedy najmenej a tomu môžeme p
 
 Nás však zaujímajú aj komplexnejšie informácie o systéme a jeho používateľoch, ktoré sa jednoduchou metrikou pokryť nedajú.
 Radi by sme zistili vzory používania jednotlivých dialógov v systéme AiS2, hlavne čo sa týka vhodnosti ich návrhu.
-Potrebovali by sme identifikovať zle navrhnuté dialógy v systéme, aby sa dali sprehľadniť a zjednodušiť, aby neboli pre používateľov informačného systému metúce.
+Potrebovali by sme identifikovať zle navrhnuté dialógy v systéme, aby sa dali sprehľadniť a zjednodušiť, aby neboli pre používateľov informačného systému mätúce.
 
 Táto informácia by sa dala získať monitorovaním používateľa v systéme a to tak, že by sme zaznamenávali spustené dialógy, čas na nich strávený a následne zatváranie týchto dialógov v rámci jednej session.
-Ak by sa stalo, že používateľ by otvoril dialóg, o chvýľu by ho zavrel, pootváral by ďalšie, možno podobné dialógy, a nakoniec by sa vrátil k prvému, vyplnil by ho a odoslal, je pravdepodobné že správny dialóg hľadal, ale hneď ho nenašiel.
+Ak by sa stalo, že používateľ by otvoril dialóg, o chvýľu by ho zavrel, pootváral by ďalšie, možno podobné dialógy, a nakoniec by sa vrátil k prvému, vyplnil by ho a odoslal, je pravdepodobné že správny dialóg hľadal, ale nenašiel ho hneď.
 Ak sa tento scénar opakuje často u rôznych používateľoch systému, pravdepodobne nie je dialóg, či ľubovoľná iná informácia v systéme vhodne navrhnutá alebo je v systéme zle umiestnená.
 
 Detekcia takýchto dialógov by výrazne prispela k zlepšeniu a skvalitneniu informačného systému.
@@ -816,9 +816,21 @@ Tieto údaje už nevieme zakódovať do jednoduchej metriky.
 Na uloženie tejto informácie nevieme použiť RRD databázu.
 Vhodnejšia je relačná databáza.
 
-Mysleli sme si, že Zabbix bude vhodný nástroj na ukladanie takýchto štruktúrovaných dát, keďže metriky ukladá v relačnej databáze MySQL.
-Neskôr sme si ale uvedomili, že síce Zabbix na ukladanie metrík používa relačnú databázu, ale takúto komplexnú metriku mu nevieme poslať z žiadného nástroja na zbieranie metrík, ktoré sme vyššie opisovali, keďže podporujú iba zbieranie jednoduchých metrík.
+Mysleli sme si, že Zabbix bude vhodný nástroj na ukladanie takýchto štruktúrovaných dát, 
+	keďže metriky ukladá v relačnej databáze MySQL.
+Neskôr sme si ale uvedomili, že síce Zabbix na ukladanie metrík používa relačnú databázu, ale takúto komplexnú metriku mu nevieme poslať zo žiadného nástroja na zbieranie metrík, ktoré sme vyššie opisovali, keďže podporujú iba zbieranie jednoduchých metrík.
 
+Potrebujeme teda zaznamenať komplexné metriky iným spôsobom.
+Výhodné môže byť zaznamenávanie týchto dát do logov.
+Dáta z logov potom môžeme vyhľadať, spracovať a uložiť do databázy nástrojom na spracovanie logov, napríklad open-source nástrojom Logstash.
+
+Dáta z logu by sme v pravidelných časových intervaloch (napríklad raz za mesiac) spracovali pomocou nástroja Logstash a uložili do databázy.
+Potom by sme už spracované dáta z logu vymazali, aby zbytočne nezaberali miesto na disku ale uvoľnili ho pre nové metriky.
+
+Ak by sme potom chceli robiť hĺbkovú analýzu metrík, mali by sme ich uločené v štruktúrovanej databáze a vedeli by sme sa na nich jednoducho dopytovať.
+
+Hĺbkovú analýzu získaných dát by sme robili pomocou niektorej z techník dolovania dát.
+Mali by sme tak užitočné informácie, ktorí by nám pomohli zlepšiť interakciu systému s používateľom informačného systému.
 
 % TODO session, cloud, grid...
 
