@@ -842,20 +842,25 @@ Mali by sme tak užitočné informácie, ktorí by nám pomohli zlepšiť intera
 \addcontentsline{toc}{chapter}{Záver}
 
 V tejto bakalárskej práci sme sa zaoberali monitorovaním informačných systémov, prečo je monitorovanie výhodné pre vývoj systému a ako nám môže pomôcť pri jeho rozvíjaní.
+Analyzovali sme možnosti monitorovania za účelom optimalizácie interakcie s používateľom systému.
 
 Popísali sme si tri prístupy k monitorovaniu a to monitorovanie informačného systému v reálnom čase, dlhodobé monitorovanie systému a monitorovanie systému za účelom hĺbkovej analýzy.
 
 Navrhli sme algoritmus na monitorovanie informačných systémov od určenia cieľov monitorovania až po analýzu a vyvodenie dôsledkov monitorovania.
 
-Porovnali sme open-source nástroje na zbieranie a vizualizáciu metrík, konkrétne sú to nástroje Statsd, Metrics, Graphite, Zabbix a Ganglia.
-Povedali sme si o ich výhodách a nevýhodách vzhľadom na monitorovanie akademického informačného systému AiS2.
-Vybrali sme si nástroje Metrics a Zabbix, a integrovali sme ich do systému AiS2.
+Vytvorili sme jednoduchú webovú aplikáciu na demonštráciu nástrojov na zbieranie a zobrazovanie metrík, na ktorej sme si vyskúšali vyššie spomenuté nástroje.
 
-Vytvorili sme jednoduchú webovú aplikáciu na demonštráciu nástrojov na zbieranie a zobrazovanie metrík.
+V práci sme navrhli spôsob monitorovania akademického informačného systému AiS2.
+Porovnali sme open-source nástroje na zbieranie, ukladanie a vizualizáciu metrík, konkrétne sú to nástroje Statsd, Metrics, Graphite, Zabbix a Ganglia.
+Povedali sme si o ich výhodách a nevýhodách vzhľadom na monitorovanie akademického informačného systému AiS2.
+Vybrali sme si nástroje Metrics a Zabbix a integrovali sme ich do systému AiS2.
 
 Zistili sme, že by naše problémy ohľadom agregácie metrík z viacerých inštalácií a prehľadné porovnanie týchto inštalácií vyriešil omnoho lepšie nástroj Ganglia.
-Takisto by nám to uľahčilo konfiguráciu oproti nástroju Zabbix
+Takisto by nám to uľahčilo konfiguráciu oproti nástroju Zabbix.
 
+Tiež sme zistili, že nástroj Zabbix nebude vhodný ani na dlhodobé monitorovanie systému AiS2 za účelom hĺbkovej analýzy.
+Namiesto Zabbixu použijeme zápis komplexných metrík do logov a priebežne ich budeme ukladať do štruktúrovanej databázy napríklad nástrojom Logstash.
+Hĺbkovú analýzu potom môžeme robiť s použitím techník dolovania dát.
 
 
 % otvorene problemy, ktore chceme riesit dalej 
@@ -882,7 +887,7 @@ Takisto by nám to uľahčilo konfiguráciu oproti nástroju Zabbix
 \newcommand{\tab}[1]{\hspace{.05\textwidth}\rlap{#1}}
 
 Príloha A: \tab{JSP stránka simulujúca webovú aplikáciu} \\
-Príloha B: \tab{JSP stránka so Statsd klientom} \\
+Príloha B: \tab{JSP stránka s integrovaným Statsd klientom} \\
 Príloha C: \tab{JSP stránka s integrovanou knižnicou Metrics} \\
 
 
