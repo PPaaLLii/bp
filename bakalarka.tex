@@ -198,6 +198,25 @@ Tieto hodnoty môžu byť číselné alebo nečíselné. Tieto hodnoty pravideln
 
 %------------------------------------------------------------------------------------------------------------------------------
 
+%\subsection{Ilustračný Príklad}
+\section{Ilustračný príklad}
+
+Dobrým príkladom informačného systému je akademický informačný systém.
+Monitorovanie takéhoto systému môže výrazne pomôcť k jeho vylepšeniu a~rozví\-janiu.
+
+Ak by mal vývojár informáciu o prehliadačoch, ktorými sa používatelia pripojili do~systému, vedel by sa lepšie rozhodnúť, ktoré prehliadače má podporovať, aby pokryl čo najväčšiu skupinu používateľov.
+
+Zaujímavou metrikou je aj rozlíšenie obrazoviek klientov, lebo s takouto informáciou sa dá lepšie rozvrhnúť používateľské rozhranie a zabezpečiť, aby klienti našli informácie, ktoré potrebujú rýchlejšie.
+Ak by napríklad väčšina používateľov systému k nemu pristupovala s malou obrazovkou cez mobilný telefón, vývojár by investoval viac času a prostriedkov do prispôsobenia rozhrania pre mobilné telefóny.
+
+Ďalšou zaujímavou metrikou je čas odpovede na požiadavku od klienta.
+Ak zaznamenáme výrazne zvýšenie času odpovede vzhľadom na dlhodobý historický trend, vieme, že v systéme dochádza k problému a treba ho čo najskôr začať riešiť.
+
+%------------------------------------------------------------------------------------------------------------------------------
+
+
+\chapter{Monitorovanie informačných systémov}
+
 %\subsection{Monitorovanie systému AiS2}
 \section{Monitorovanie systému AiS2}
 
@@ -236,22 +255,6 @@ Monitorovanie systému nesmie systém výrazne zaťažiť, lebo by monitorovanie
 
 %------------------------------------------------------------------------------------------------------------------------------
 
-%\subsection{Ilustračný Príklad}
-\section{Ilustračný príklad}
-
-Dobrým príkladom informačného systému je akademický informačný systém.
-Monitorovanie takéhoto systému môže výrazne pomôcť k jeho vylepšeniu a~rozví\-janiu.
-
-Ak by mal vývojár informáciu o prehliadačoch, ktorými sa používatelia pripojili do~systému, vedel by sa lepšie rozhodnúť, ktoré prehliadače má podporovať, aby pokryl čo najväčšiu skupinu používateľov.
-
-Zaujímavou metrikou je aj rozlíšenie obrazoviek klientov, lebo s takouto informáciou sa dá lepšie rozvrhnúť používateľské rozhranie a zabezpečiť, aby klienti našli informácie, ktoré potrebujú rýchlejšie.
-Ak by napríklad väčšina používateľov systému k nemu pristupovala s malou obrazovkou cez mobilný telefón, vývojár by investoval viac času a prostriedkov do prispôsobenia rozhrania pre mobilné telefóny.
-
-Ďalšou zaujímavou metrikou je čas odpovede na požiadavku od klienta.
-Ak zaznamenáme výrazne zvýšenie času odpovede vzhľadom na dlhodobý historický trend, vieme, že v systéme dochádza k problému a treba ho čo najskôr začať riešiť.
-
-%------------------------------------------------------------------------------------------------------------------------------
-
 %\subsection{Prehľad Súčasného Stavu}
  \section{Prehľad súčasného stavu}
 
@@ -276,7 +279,7 @@ My sa zaoberáme open-source nástrojmi.
 %\end{enumerate}
 
 Hlavným cieľom našej bakalárskej práce je navrhnúť spôsob monitorovania informačného systému v reálnom čase za~úče\-lom zhromažďovania informácií o výkonne systému a používateľských pre\-ferenciách. 
-Chceme tak navrhnúť systém monitorovania akademického informačného systému AiS2.
+Chceme navrhnúť systém monitorovania akademického informačného systému AiS2.
 
 Ďalším cieľom je navrhnúť dátovú štruktúru pre uložené metriky z jednotlivých inštalácií a~vytvoriť jednoduché štatistické prehľady nad zozbieranými údajmi v závis\-losti od~charakteru údajov.
 Potrebujeme určiť čo najvhodnejší spôsob ukladania metrík, ich agregácie z viacerých inštalácií na jedno miesto a vhodným spôsobom ich zobraziť.
@@ -662,6 +665,7 @@ Pri každej novej funkcionalite informačného systému s predpokladom, že ju c
 Dalším obľúbeným nástrojom je Ganglia.
 Ganglia je open-source nástroj zameraný na~distribuované monitorovanie celých clustrov či gridov.
 Je naozaj rozšírený, používajú ho napríklad známe spoločnosti ako Twitter, flickr, National Aeronautics and Space Administration (NASA), Wikipedia, CERN, Cisco, HP, Microsoft, Dell, nVidia, U.S. Air Force.
+Viac v \cite{5}.
 
 Metriky do Ganglie môžeme poslať pomocou Gmond modulov, Gmetric modulu alebo inými nástrojmi, ako napríklad statsd.
 Ak posielame metriky do Ganglie, nemusíme ich mať dopredu nakonfiguroavné.
@@ -737,6 +741,8 @@ Musíme teda integrovať do systému až dva nástroje.
 Pôvodne sme si vybrali nástroj na ukladanie a zobrazovanie metrík pre systém AiS2 Gangliu.
 Narazili sme však na problém, že v čase písania tejto práce ešte nebola Ganglia dostupná pre najnovší Red Hat.
 
+Ďalšia nevýhoda Ganglie je že nemá cache pre metriky \cite{6}, ale takáto cache je obsiahnutá v oboch nástrojoch na zbieranie metrík. Ich intrgrácia je ale cez Gmetric, čo ale obchádza infraštruktúru s použitím Gmond modulov, čo je jedným zo základných benefitov návrhu nástroja Ganglia.
+
 % nevyuzitie pre dlhodobe,  redhat nevieme deploynut
 
 %------------------------------------------------------------------------------------------------------------------------------
@@ -770,7 +776,7 @@ Vytvorené JSP stránky môžete vidieť v prílohách A - C.
 Vo virtuálnom stroji sme si nainštalovali nástroj Statsd server, Graphite, Zabbix a Gangliu.
 Po kliknutí na tlačidlo „Special Feature“ v prílohe A sa zavolá príslušná JSP stránka s názvom „sender“, ktorá má inštanciu Statsd klienta (príloha B), alebo integrovanú knižnicu Metrics (príloha C), ktoré odošlú metriku o stlačení tlačidla do príslušného nástroja na uloženie a zobrazenie metriky.
 
-Týmto sme si spomínané nástroje vyskúšali a nabrali sme skúsenosti pre integráciu vybraných nástrojov do systému AiS2.
+Týmto sme si spomínané nástroje vyskúšali a nabrali sme skúsenosti s intaláciou, komfortom používania a overili si možnosti integrácie vybraných nástrojov do systému AiS2.
 
 
 %------------------------------------------------------------------------------------------------------------------------------
@@ -833,8 +839,8 @@ Nás však zaujímajú aj komplexnejšie informácie o systéme a jeho používa
 Radi by sme zistili vzory používania jednotlivých dialógov v systéme AiS2, hlavne čo sa týka vhodnosti ich návrhu.
 Potrebovali by sme identifikovať zle navrhnuté dialógy v systéme, aby sa dali sprehľadniť a zjednodušiť, aby neboli pre používateľov informačného systému mätúce.
 
-Táto informácia by sa dala získať monitorovaním používateľa v systéme a to tak, že by sme zaznamenávali spustené dialógy, čas na nich strávený a následne zatváranie týchto dialógov v rámci jednej session.
-Ak by sa stalo, že používateľ by otvoril dialóg, o chvýľu by ho zavrel, pootváral by ďalšie, možno podobné dialógy, a nakoniec by sa vrátil k prvému, vyplnil by ho a odoslal, je pravdepodobné že správny dialóg hľadal, ale nenašiel ho hneď.
+Táto informácia by sa dala získať monitorovaním používateľa v systéme a to tak, že by sme zaznamenávali spustené dialógy, čas na nich strávený, jeho spôsobu práce s dialógmi a následne zatváranie týchto dialógov v rámci jednej session.
+Ak by sa napríklad stalo, že používateľ by otvoril dialóg, o chvýľu by ho zavrel, pootváral by ďalšie, možno podobné dialógy, a nakoniec by sa vrátil k prvému, vyplnil by ho a odoslal, je pravdepodobné že správny dialóg hľadal, ale nenašiel ho hneď.
 Ak sa tento scénar opakuje často u rôznych používateľoch systému, pravdepodobne nie je dialóg, či ľubovoľná iná informácia v systéme vhodne navrhnutá alebo je v systéme zle umiestnená.
 
 Detekcia takýchto dialógov by výrazne prispela k zlepšeniu a skvalitneniu informačného systému.
@@ -875,7 +881,7 @@ Mali by sme tak užitočné informácie, ktorí by nám pomohli zlepšiť intera
 \addcontentsline{toc}{chapter}{Záver}
 
 V tejto bakalárskej práci sme sa zaoberali monitorovaním informačných systémov, prečo je monitorovanie výhodné pre vývoj systému a ako nám môže pomôcť pri jeho rozvíjaní.
-Analyzovali sme možnosti monitorovania za účelom optimalizácie interakcie s používateľom systému.
+Analyzovali sme možnosti monitorovania za účelom optimalizácie interakcie s používateľom.
 
 Popísali sme si tri prístupy k monitorovaniu a to monitorovanie informačného systému v reálnom čase, dlhodobé monitorovanie systému a monitorovanie systému za účelom hĺbkovej analýzy.
 
@@ -907,7 +913,7 @@ Hĺbkovú analýzu potom môžeme robiť s použitím techník dolovania dát.
 \begin{thebibliography}{42}
 %\bibitem{1} Ipsum, L.: Lorem ipsum dolor sit amet.
 
-	\bibitem{1} Wikipedia: the free encyclopedia [online]. San Francisco (CA): Wikimedia Foundation, 2001- [cit. 2015-05-18]. Dostupné z: http://en.wikipedia.org/wiki/Information\_system
+	\bibitem{1} Information system. Wikipedia: the free encyclopedia [online]. San Francisco (CA): Wikimedia Foundation, 2001- [cit. 2015-05-18]. Dostupné z: http://en.wikipedia.org/wiki/Information\_system
 	\bibitem{2}  Webová aplikácia. Wikipedia: the free encyclopedia [online]. San Francisco (CA): Wikimedia Foundation, 2001- [cit. 2015-05-18]. Dostupné z: http://sk.wikipedia.org/wiki/Webov\%C3\%A1\_aplik\%C3\%A1cia
 	\bibitem{3} SMOLEN, Eduard. Metriky [online]. [cit. 2015-05-17]. Dostupné z: http://epodnikanie.euin.org/node/126
 	\bibitem{4} KAUSHIK, Avinash. Webová analytika 2.0: kompletní průvodce analýzami návštěvnosti. Vyd. 1. Brno: Computer Press, 2011. ISBN 978-80-251-2964-7.
