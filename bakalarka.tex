@@ -794,10 +794,10 @@ Metrics nepotrebuje oddeleného klienta od servera.
 Ďalším dôvodom pre výber Metrics bol ten, že je to java knižnica a vzhľadom k tomu, že systém AiS2 je v jave, integrácia nástroja do systému nebola zložitá.
 Keby AiS2 nebol v jave, najpravdepodobnejšie by sme sa rozhodli pre~nástroj Statsd.
 
-Gangliu sme si vybrali preto, že ponúka riešenie pre agregáciu metrík z viacerých inštalácií systému AiS2 na jedno miesto.
+Gangliu sme si vybrali hlavne preto, že ponúka riešenie pre agregáciu metrík z viacerých inštalácií systému AiS2 na jedno miesto.
 Metriky zo všetkých inštalácií potom môžeme zobraziť prehľadne v jednom grafe a porovnať jednotlivé inštalácie medzi sebou.
 
-Gangliu sa nám však nepodarilo nasadiť na najnovšiu verziu Red Hat distribúcie, pretože Ganglia ešte nie je pre túto verziu dostupná.
+Gangliu sa nám však nepodarilo nasadiť na najnovšiu verziu Red Hat distribúcie, pretože Ganglia v čase písania tejto práce ešte nebola pre túto verziu dostupná.
 Vybrali sme si teda nástroj Zab\-bix, ktorý má vďaka používaniu MySQL databázy potenciál okrem zbierania metrík v reálnom čase zbierať aj metriky dlhodobo za účelom hĺbkovej analýzy. 
 
 Zabbix sme teda nasadili na testovacie, vývojové a ostré prostredie do akademického informačného systému AiS2.
