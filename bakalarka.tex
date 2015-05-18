@@ -32,7 +32,7 @@
 Osobitné poďakovanie patrí mojej rodine a priateľom za podporu a pochopenie.}
 
 \abstrakt{
-\noindent Hlavným cieľom našej bakalárskej práce je navrhnúť spôsob monitorovania informačného systému za účelom zbierania užitočných informácií ohľadom výkonu systému a používateľských preferencií. Zaoberáme sa najmä otázkami, aké informácie zbierať a akými nástrojmi ich zbierať. Existuje viacero nástrojov z časti riešiacich našu problematiku. Zameriame sa na open-source nástroje. V\-práci si rozoberieme tie najpoužívanejšie, ich výhody, nevýhody a vybrané nástroje integrujeme do akademického informačného systému AiS2. Pomocou nich sa pokúsime zbierať a zobrazovať metriky, ktoré nám pomôžu identifikovať problémy a funkcie, ktoré je potrebné vylepšiť.
+\noindent Hlavným cieľom našej bakalárskej práce je navrhnúť spôsob monitorovania informačného systému za účelom zbierania užitočných informácií ohľadom výkonu systému a používateľských preferencií. Zaoberáme sa najmä otázkami, aké informácie zbierať a akými nástrojmi ich zbierať. Existuje viacero nástrojov sčasti riešiacich našu problematiku. Zameriame sa na open-source nástroje. V\-práci si rozoberieme tie najpoužívanejšie, ich výhody, nevýhody a vybrané nástroje integrujeme do akademického informačného systému AiS2. Pomocou nich sa pokúsime zbierať a zobrazovať metriky, ktoré nám pomôžu identifikovať problémy a funkcie, ktoré je potrebné vylepšiť.
 ~\\
 ~\\
 {\bf Kľúčové slová:} metrika, monitorovanie, informačný systém}
@@ -419,7 +419,7 @@ Tie nám povedia, kedy v priebehu roka je systém najviac zaťažený, kedy najm
 To sa nám pomôže pripraviť na najväčšiu záťaž.
 
 Po vylepšení niektorej funkcionality v systéme vieme porovnať nové hodnoty metrík s historickými hodnotami metrík pre danú funkcionalitu.
-Dozvieme sa tak, či sme funkcionalitu naopak nezhoršili a či bude schopná vydržať záťaž.
+Dozvieme sa tak, či sme funkcionalitu, naopak, nezhoršili a či bude schopná vydržať záťaž.
 
 %------------------------------------------------------------------------------------------------------------------------------
 
@@ -459,14 +459,14 @@ Medzi naj\-populár\-nejšie open-source nástroje na zber metrík patria Metric
 Sú to nástroje určené na odosielanie nameraných metrík do nástrojov na uloženie a zobrazenie metrík v podobe grafov.
 
 Integrácia oboch nástrojov si však vyžaduje určité zmeny v kóde systému.
-Každý systém je jedinečný a teda aj jeho monitorovanie je odlišné.
+Každý systém je jedinečný, a teda aj jeho monitorovanie je odlišné.
 To si však žiada odlišné metriky a tie sa zbierajú na odlišných miestach v kóde systému.
 
 % rovnake nastroje, len ine riesenie zbieranie - "definovanie", cache, 
 Oba nástroje sú funkcionalitou podobné, no odlišné z hľadiska integrácie a architektúry.
-Riešia ten istý problém - definujú metriky v kóde systému a fungujú ako cache pre metriky, a po nastavenom časovom intervale ich posielajú ďalším nástrojom.
+Riešia ten istý problém - definujú metriky v kóde systému a fungujú ako cache pre metriky a po nastavenom časovom intervale ich posielajú ďalším nástrojom.
 Naším čiastočným cieľom je porovnať ich.
-V nasledujúcich odstavcoch si popíšeme ich výhody a nevýhody.
+V nasledujúcich odsekoch si popíšeme ich výhody a nevýhody.
 
 %------------------------------------------------------------------------------------------------------------------------------
 
@@ -490,7 +490,7 @@ Asi najväčšou konkurenciou k Metrics je nástroj Statsd.
 \section{Nástroj Statsd}
 
 Open-source nástroj Statsd je určený na zber metrík a následné preposlanie do nástrojov na spracovanie a zobrazenie.
-Má kientov pre množstvo programovacích jazykov ako napríklad node.js, java, python, ruby, perl, php, c, cpp, .net, či dokonca plugin pre wordpress. 
+Má klientov pre množstvo programovacích jazykov ako napríklad node.js, java, python, ruby, perl, php, c, cpp, .net, či dokonca plugin pre wordpress. 
 
 % cez siet
 Statsd klient na rozdiel od Metrics posiela získane metriky cez sieťovú komunikáciu na otvorený UDP port na oddelený Statsd server, ktorý ich prijíma, akumuluje a~odosiela do ďalších nástrojov. 
@@ -504,9 +504,9 @@ Architektúra tohto nástroja je trochu zložitejšia.
 %\subsection{Metrics vs Statsd}
 \section{Metrics vs Statsd}
 
-Obe nástroje slúžia na zbieranie metrík, majú však rozdielnú architektúru. 
+Obe nástroje slúžia na zbieranie metrík, majú však rozdielnu architektúru. 
 Ponúkajú rôzne možnosti integrácie s ďalšími nástrojmi. 
-Kvôli prehľadnosti sú základné rozdiely popísané v tabuľke 4.1.
+Kvôli prehľadnosti sú základné rozdiely popísané v tabuľke 5.1.
 Údaje v tabuľke 5.1 sú aktuálne vzhľadom k času písania bakalárskej práce.
 
 \begin{table}
@@ -571,7 +571,7 @@ Kód graphitu je napísaný v programovacom jazyku python.
 Metriky stačí poslať do nástroja Graphite a on ich sám zaradí do stromu metrík podľa prefixu.
 Po inštalácii sa nevyžaduje žiadna dodatočná konfigurácia.
 
-Na obrázku 6.2 môžeme vidieť používaťeľské rozhranie nástroja Graphite a čiarový diagram pre metriku zaťaženie procesora.
+Na obrázku 6.2 môžeme vidieť používateľské rozhranie nástroja Graphite a čiarový diagram pre metriku zaťaženie procesora.
 
 \begin{figure}
 \begin{center}
@@ -596,7 +596,7 @@ Graphite je zameraný na monitorovanie systémov v reálnom čase.
 %\subsection{Nevýhody nástroja Graphite}
 \subsection{Nevýhody nástroja Graphite}
 
-Nástroj Graphite je zameraný len na vykresľovanie metrík a neponúka žiadnú dodatočnú funkcionalitu.
+Nástroj Graphite je zameraný len na vykresľovanie metrík a neponúka žiadnu dodatočnú funkcionalitu.
 Jeho nevýhodou je, že má komplikovanú inštaláciu.
 Počas jeho inštalácie treba nainštalovať a nakonfigurovať všetky potrebné moduly, čiže Carbon, Whisper, Graphite web, Pycairo a Apache.
 % dopisat komplikacie
@@ -607,7 +607,7 @@ Počas jeho inštalácie treba nainštalovať a nakonfigurovať všetky potrebn�
 \section{Nástroj Zabbix}
 
 Ďalším používaným nástrojom je Zabbix.
-Jeho kód je napísaný v jazyku C a~používateľské rozhranie v podobe webovej aplikácie je napísaný v jazyku PHP.
+Jeho kód je napísaný v jazyku C a~používateľské rozhranie v podobe webovej aplikácie je napísané v jazyku PHP.
 Na ukladanie metrík používa Mysql databázu.
 Na obrázku 6.3 môžeme vidieť graf operačných systémov a prehliadačov používateľov systému AiS2 v Zabbixe.
 
@@ -654,7 +654,7 @@ To má potenciál na zber dlhodobých metrík za účelom hĺbkovej analýzy a~d
 
 Hlavná nevýhoda Zabbixu je to, že každá metrika, ktorú chceme monitorovať musí byť dopredu nakonfigurovaná.
 Ak máme metrík veľa, úvodná konfigurácia je pracná.
-Síce sa v Zabbixe dajú použiť šablóny, ktoré trochu zjednodušia konfiguráciu ale stále musíme všetky metriky nakonfigurovať ručne.
+Síce sa v Zabbixe dajú použiť šablóny, ktoré trochu zjednodušia konfiguráciu, ale stále musíme všetky metriky nakonfigurovať ručne.
 V systéme AiS2 sme tieto šablóny použili na definovanie rovnakých metrík pre rôzne servery.
 Pri každej novej funkcionalite informačného systému s predpokladom, že ju chceme monitorovať, je potrebné nakonfigurovať nové metriky aj v Zabbixe.
 % aj ked existuju templates pouzitie v AiSe
@@ -664,7 +664,7 @@ Pri každej novej funkcionalite informačného systému s predpokladom, že ju c
 %\subsection{Nástroj Ganglia}
 \section{Nástroj Ganglia}
 
-Dalším obľúbeným nástrojom je Ganglia.
+Ďalším obľúbeným nástrojom je Ganglia.
 Ganglia je open-source nástroj zameraný na~distribuované monitorovanie celých clustrov či gridov.
 Je naozaj rozšírený, používajú ho napríklad známe spoločnosti ako Twitter, flickr, National Aeronautics and Space Administration (NASA), Wikipedia, CERN, Cisco, HP, Microsoft, Dell, nVidia, U.S. Air Force.
 Viac v \cite{5}.
@@ -672,14 +672,14 @@ Viac v \cite{5}.
 Metriky do Ganglie môžeme poslať pomocou Gmond modulov, Gmetric modulu alebo inými nástrojmi, ako napríklad Statsd.
 Ak posielame metriky do Ganglie, nemusíme ich mať dopredu nakonfiguroavné.
 Gmetad vytvorí nový RRD súbor pre každú novú metriku, čo značne uľahčí konfiguráciu, ak metrík máme veľa.
-Webové používaťeľské rozhranie potom zobrazí základný graf pre každú metriku.
+Webové používateľské rozhranie potom zobrazí základný graf pre každú metriku.
 
 Ganglia na posielanie metrík na centrálny server používa dvoch démonov a to Ganglia Monitoring Daemon (gmond) a Ganglia Meta Daemon (gmetad).
 Gmond môže posielať alebo prijímať metriky, ktoré si drží v pamäti.
 Gmetad v rámci gridu ťahá dáta z jedného gmond démona z každého clustra.
 Gmond moduly so sebou komunikujú cez UDP protokol a do gmetad posielajú dáta v štruktúre XML cez TCP protokol.
 Gmetad si medzi sebou posielajú metriky cez TCP vo forme XML.
-Gmond medzi sebou kominikujú buď prostredníctvom unicastu alebo multicastu.
+Gmond medzi sebou komunikujú buď prostredníctvom unicastu alebo multicastu.
 
 Ak použijeme unicast, komunikácia zo všetkých gmondov smeruje do jedného centrálneho gmond modulu v rámci clustera.
 Gmetad potom zbiera dáta zo všetkých centrálnych gmond modulov.
@@ -708,7 +708,7 @@ Architektúra s~použitím multicastu je popísaná na obrázku 6.5.
 
 Ganglia priamo nepodporuje detekciu problémov v systéme.
 Umožňuje však prepojenie s nástrojom Naggios, ktorý je na to určený.
-Na obrázku 6.6 môžeme vidieť používaťeľské rozhranie nástroja Ganglia.
+Na obrázku 6.6 môžeme vidieť používateľské rozhranie nástroja Ganglia.
 
 \begin{figure}
 	\begin{center}
@@ -729,7 +729,7 @@ Výhodné je aj jednoduché prepojenie s nástrojom Naggios.
 Ďalším plusom je možnosť použitia multicastu.
 Ak náhodou niektorý monitorovaný uzol vypadne, gmetad si vyžiada údaje od ďalšieho gmond modulu.
 Keďže každý gmond má informáciu o metrikách všetkých ostatných gmond modulov v tom istom clusteri,
-metriky sa nestratia ale odošlú sa prostredníctvom iného gmond modulu. 
+metriky sa nestratia, ale odošlú sa prostredníctvom iného gmond modulu. 
 Dokonca pridanie nových uzlov do clustera je jednoduché a bez ďalšej konfigurácie.
 % multicast
 
@@ -744,7 +744,7 @@ Pôvodne sme si vybrali nástroj na ukladanie a zobrazovanie metrík pre systém
 Narazili sme však na problém, že v čase písania tejto práce ešte nebola Ganglia dostupná pre najnovší Red Hat.
 
 Ďalšia nevýhoda Ganglie je že nemá cache pre metriky \cite{6}, ale takáto cache je~obsiahnutá v oboch nástrojoch na zbieranie metrík. 
-Ich intrgrácia je ale cez Gmetric, čo~ale obchádza infraštruktúru s použitím Gmond modulov, čo je jedným zo základných benefitov návrhu nástroja Ganglia.
+Ich integrácia je ale cez Gmetric, čo~ale obchádza infraštruktúru s použitím Gmond modulov, čo je jedným zo základných benefitov návrhu nástroja Ganglia.
 
 % nevyuzitie pre dlhodobe,  redhat nevieme deploynut
 
@@ -772,14 +772,14 @@ Záleží od komplexnosti systému, ktorý nástroj si~vyberieme.
 
 Aby sme vedeli vyššie spomenuté nástroje porovnať a vybrať si vhodné nástroje na~zbieranie a zobrazovanie metrík kvôli monitorovaniu systému AiS2, nástroje sme si najskôr vyskúšali.
 
-Pre testovacie účeli sme si vytvorili jednoduchú webovú aplikáciu.
+Pre testovacie účely sme si vytvorili jednoduchú webovú aplikáciu.
 Keďže je systém AiS2 napísaný prevažne v programovacom jazyku java, za formu webovej aplikácie sme si zvolili JSP (Java Server Pages) stránky.
 Vytvorené JSP stránky môžeme vidieť v~prílohách A - C.
 
 Vo virtuálnom stroji sme si nainštalovali nástroj Statsd server, Graphite, Zabbix a Gangliu.
 Po kliknutí na tlačidlo „Special Feature“ v prílohe A sa zavolá príslušná JSP stránka s názvom „sender“, ktorá má inštanciu Statsd klienta (príloha B), alebo integrovanú knižnicu Metrics (príloha C), ktoré odošlú metriku o stlačení tlačidla do~príslušného nástroja na uloženie a zobrazenie metriky.
 
-Týmto sme si spomínané nástroje vyskúšali a nabrali sme skúsenosti s intaláciou, komfortom používania a overili si možnosti integrácie vybraných nástrojov do systému AiS2.
+Týmto sme si spomínané nástroje vyskúšali a nabrali sme skúsenosti s inštaláciou, komfortom používania a overili si možnosti integrácie vybraných nástrojov do systému AiS2.
 
 
 %------------------------------------------------------------------------------------------------------------------------------
@@ -789,7 +789,7 @@ Týmto sme si spomínané nástroje vyskúšali a nabrali sme skúsenosti s inta
 
 Pre monitorovanie systému AiS2 v reálnom čase sme sa rozhodli použiť nástroj Metrics v kombinácii s nástrojom Ganglia.
 
-Metrics sme si vybrali aj preto, lebo komunikácia medzi Statsd klientom a Statsd serverom po sieti môže spôsobyť zbytočné zaťaženie siete.
+Metrics sme si vybrali aj preto, lebo komunikácia medzi Statsd klientom a Statsd serverom po sieti môže spôsobiť zbytočné zaťaženie siete.
 Metrics nepotrebuje oddeleného klienta od servera.
 Ďalším dôvodom pre výber Metrics bol ten, že je to java knižnica a vzhľadom k tomu, že systém AiS2 je v jave, integrácia nástroja do systému nebola zložitá.
 Keby AiS2 nebol v jave, najpravdepodobnejšie by sme sa rozhodli pre~nástroj Statsd.
@@ -805,19 +805,19 @@ Určili sme si, že budeme zbierať metriky ohľadom funkcionality systému - po
 Po nasadení zberu metrík na ostrý server sme v špičke zaznamenali výrazné zaťaženie siete kvôli trojsekundovému intervalu odosielania metrík.
 Rozhodli sme sa preto tento interval zmeniť na tridsať sekúnd.
 
-Ešte skôr ako sa nám podarilo zbierať prvé metriky zo systému Ais2, 
+Ešte skôr, ako sa nám podarilo zbierať prvé metriky zo systému Ais2, 
 	museli sme upraviť názvy metrík, ktoré produkoval nástroj Metrics a to tak, aby ich bol Zabbix schopný akceptovať.
-Každú metriku však v Zabbixe trebalo najprv nakonfigurovať.
+Každú metriku však v Zabbixe bolo potrebné najprv nakonfigurovať.
 
-V konfigurácii metriky trebalo nastaviť jej meno, 
+V konfigurácii metriky bolo treba nastaviť jej meno, 
 	jednoznačný kľúč vzhľadom na~všetky metriky, 
-	spôsob prijatia metriky (v našom prípade to bol Zabbix trapper čo je modul na prijatie metriky z iného nástroja) a jej typ (celé číslo, desatinné číslo, \ldots).
+	spôsob prijatia metriky (v našom prípade to bol Zabbix trapper, čo je modul na prijatie metriky z iného nástroja) a jej typ (celé číslo, desatinné číslo, \ldots).
 
 Konfigurácia Zabbixu bola pri 142 metrikách veľmi komplikovaná a náročná na~čas.
 Ak by sme potrebovali v budúcnosti pridať ďalšie metriky pre novú funkcionalitu, museli by sme dodatočne Zabbix konfigurovať.
 To je dosť nevýhodné.
 Ostatné nástroje, ktoré používajú RRD databázu sú tak oveľa flexibilnejšie a nepotrebujú konfiguráciu metrík.
-Ak zaznamenajú novú metriku, jednoducho v strome metrík si~vtvoria nový adresár podľa názvu a prefixu metriky.
+Ak zaznamenajú novú metriku, jednoducho v strome metrík si~vytvoria nový adresár podľa názvu a prefixu metriky.
 Konfigurácia nových metrík je teda nulová.
 
 Zabbix navyše nepodporuje jednoduché zlievanie metrík z viacerých inštalácií na~jedno miesto s možnosťou porovnávania inštalácií.
@@ -843,12 +843,12 @@ Radi by sme zistili vzory používania jednotlivých dialógov v systéme AiS2, 
 Potrebovali by sme identifikovať zle navrhnuté dialógy v systéme, aby sa dali sprehľadniť a zjednodušiť, aby neboli pre používateľov informačného systému mätúce.
 
 Táto informácia by sa dala získať monitorovaním používateľa v systéme a to tak, že by sme zaznamenávali spustené dialógy, čas na nich strávený, jeho spôsobu práce s~dialógmi a následne zatváranie týchto dialógov v rámci jednej session.
-Ak by sa~napríklad stalo, že používateľ by otvoril dialóg, o chvýľu by ho zavrel, pootváral by~ďalšie, možno podobné dialógy, a nakoniec by sa vrátil k prvému, vyplnil by ho a odoslal, je pravdepodobné že správny dialóg hľadal, ale nenašiel ho hneď.
-Ak sa tento scénar opakuje často u rôznych používateľoch systému, pravdepodobne nie je dialóg, či ľubovoľná iná informácia v systéme vhodne navrhnutá alebo je v systéme zle umiestnená.
+Ak by sa~napríklad stalo, že používateľ by otvoril dialóg, o chvíľu by ho zavrel, pootváral by~ďalšie, možno podobné dialógy, a nakoniec by sa vrátil k prvému, vyplnil by ho a odoslal, je pravdepodobné že správny dialóg hľadal, ale nenašiel ho hneď.
+Ak sa tento scenár opakuje často u rôznych používateľov systému, pravdepodobne nie je dialóg, či ľubovoľná iná informácia v systéme vhodne navrhnutá alebo je v systéme zle umiestnená.
 
 Detekcia takýchto dialógov by výrazne prispela k zlepšeniu a skvalitneniu informačného systému.
 Používatelia by~sa tak v ňom vedeli lepšie orientovať a našli by~hľadanú informáciu rýchlejšie.
-Má pre nás preto detekcia takýchto dialógov zmysel.
+Preto má pre nás detekcia takýchto dialógov zmysel.
 
 Informácia z takéhoto monitorovania je už dosť komplexná.
 Musí obsahovať minimálne informáciu o identifikátore aktuálnej session, čísla dialógu a čase medzi otvorením a zatvorením dialógu.
@@ -860,19 +860,19 @@ Vhodnejšia je relačná databáza.
 
 Mysleli sme si, že Zabbix bude vhodný nástroj na ukladanie takýchto štruktúrovaných dát, 
 	keďže metriky ukladá v relačnej databáze MySQL.
-Neskôr sme si ale~uvedomili, že síce Zabbix na ukladanie metrík používa relačnú databázu, ale takúto komplexnú metriku mu nevieme poslať zo žiadného nástroja na zbieranie metrík, ktoré sme vyššie opisovali, keďže podporujú iba zbieranie jednoduchých metrík.
+Neskôr sme si ale~uvedomili, že síce Zabbix na ukladanie metrík používa relačnú databázu, ale takúto komplexnú metriku mu nevieme poslať zo žiadneho nástroja na zbieranie metrík, ktoré sme vyššie opisovali, keďže podporujú iba zbieranie jednoduchých metrík.
 
 Potrebujeme teda zaznamenať komplexné metriky iným spôsobom.
 Výhodné môže byť zaznamenávanie týchto dát do logov.
 Dáta z logov potom môžeme vyhľadať, spracovať a uložiť do databázy nástrojom na spracovanie logov, napríklad open-source nástrojom Logstash.
 
 Dáta z logu by sme v pravidelných časových intervaloch (napríklad raz za mesiac) spracovali pomocou nástroja Logstash a uložili do databázy.
-Potom by sme už spracované dáta z logu vymazali, aby zbytočne nezaberali miesto na disku ale uvoľnili ho~pre nové metriky.
+Potom by sme už spracované dáta z logu vymazali, aby zbytočne nezaberali miesto na disku, ale uvoľnili ho~pre nové metriky.
 
 Ak by sme potom chceli robiť hĺbkovú analýzu metrík, mali by sme ich uločené v~štruktúrovanej databáze a vedeli by sme sa na nich jednoducho dopytovať.
 
 Hĺbkovú analýzu získaných dát by sme robili pomocou niektorej z techník dolovania dát.
-Mali by sme tak užitočné informácie, ktorí by nám pomohli zlepšiť interakciu systému s používateľom informačného systému.
+Mali by sme tak užitočné informácie, ktoré by nám pomohli zlepšiť interakciu systému s používateľom informačného systému.
 
 % TODO session, cloud, grid...
 
