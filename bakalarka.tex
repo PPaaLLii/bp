@@ -32,7 +32,7 @@
 Osobitné poďakovanie patrí mojej rodine a priateľom za podporu a pochopenie.}
 
 \abstrakt{
-\noindent Hlavným cieľom našej bakalárskej práce je navrhnúť spôsob monitorovania informačného systému za účelom zbierania užitočných informácií ohľadom výkonu systému a používateľských preferenciách. Zaoberáme sa najmä otázkami aké informácie zbierať a akými nástrojmi ich zbierať. Existuje viacero nástrojov z časti riešiacich našu problematiku. Zameriame sa na open-source nástroje. V práci si rozoberieme tie najpoužívanejšie, ich výhody, nevýhody a vybrané nástroje integrujeme do akademického informačného systému AiS2. Pomocou nich sa pokúsime zbierať a zobrazovať metriky, ktoré nám pomôžu identifikovať problémy a funkcie, ktoré je potreba vylepšiť.
+\noindent Hlavným cieľom našej bakalárskej práce je navrhnúť spôsob monitorovania informačného systému za účelom zbierania užitočných informácií ohľadom výkonu systému a používateľských preferencií. Zaoberáme sa najmä otázkami, aké informácie zbierať a akými nástrojmi ich zbierať. Existuje viacero nástrojov z časti riešiacich našu problematiku. Zameriame sa na open-source nástroje. V\-práci si rozoberieme tie najpoužívanejšie, ich výhody, nevýhody a vybrané nástroje integrujeme do akademického informačného systému AiS2. Pomocou nich sa pokúsime zbierať a zobrazovať metriky, ktoré nám pomôžu identifikovať problémy a funkcie, ktoré je potrebné vylepšiť.
 ~\\
 ~\\
 {\bf Kľúčové slová:} metrika, monitorovanie, informačný systém}
@@ -65,12 +65,12 @@ Osobitné poďakovanie patrí mojej rodine a priateľom za podporu a pochopenie.
 
 S informačnými systémami sa stretávame v dnešnej dobe čoraz častejšie. 
 Mnohé systémy sa presúvajú z papierovej formy do elektronickej.
-Môže to byť spôsobené mnohými výhodami tohto prechodu, ako napríklad jednoduchší prístup k informáciám, alebo len modernizáciou systému kvôli pokroku doby.
+Môže to byť spôsobené mnohými výhodami tohto prechodu, napríklad jednoduchším prístupom k informáciám, alebo len modernizáciou systému kvôli pokroku doby.
 
 V tejto informačnej spoločnosti každý túži po informáciách.
 S informačnými systémami sa stretávame na školách, na univerzitách, na pracoviskách, v zdravot\-níc\-tve a~v~rôznych iných oblastiach.
 
-Vývojári informačných systémov sa snažia poskytnúť svojím zákazníkom informácie, ktoré hľadajú, kvôli ktorým navštívili ich informačný systém.
+Vývojári informačných systémov sa snažia poskytnúť svojim zákazníkom informácie, ktoré hľadajú, kvôli ktorým navštívili ich informačný systém.
 Aby vedeli, či ich systém funguje spoľahlivo, potrebujú ho nejakým spôsobom odmerať.
 
 Na meranie systémov slúžia metriky.
@@ -92,7 +92,7 @@ Odhalia slabé miesta systému, ktoré by sme pri bežnom testovaní nespozorova
 \section{Informačný systém}
 
 Informačný systém je zostavený z ľudí a počítačov, ktorí spracúvajú a interpretujú informácie.
-Niekedy sa tento termín používa na označenie softvéru, ktorý využíva počítačovú databázu alebo len počítačového systému.
+Niekedy sa tento termín používa na označenie softvéru, ktorý využíva počítačovú databázu alebo len označenie počítačového systému.
 \cite{1}
 %http://en.wikipedia.org/wiki/Information\_system
 
@@ -109,8 +109,8 @@ alebo jej vnútropodni\-kovú obdobu (intranet).
 Webové aplikácie sú populárne predovšetkým pre všade\-prítomnosť webového prehliadača ako klienta. 
 Ten sa nazýva tenkým klientom, pretože sám o sebe logiku aplikácie nepozná.
 Výhodou webových aplikácií je rovnaké užívateľské rozhranie kdekoľvek bez nutnosti inštalácie špeciálneho softvéru. 
-Veľkou výhodou pre užívateľa ale aj pre prevádzkovateľa aplikácie je~jednoduchá aktualizácia. 
-Tá sa vykonáva len na~jednom mieste - na serveri, na~ktorom webová aplikácia beží. Nevýhodou je nutnosť internetového pripojenia.
+Veľkou výhodou pre užívateľa, ale aj pre prevádzkovateľa aplikácie, je~jednoduchá aktualizácia. 
+Tá sa vykonáva len~na~jednom mieste - na serveri, na~ktorom webová aplikácia beží. Nevýhodou je nutnosť internetového pripojenia.
 \cite{2}
 %{website:wikipedia-webaplikacia}
 
@@ -123,7 +123,7 @@ Tá sa vykonáva len na~jednom mieste - na serveri, na~ktorom webová aplikácia
 Slovo metrika je často používaný pojem v oblasti monitorovania systémov.
 Metri\-ky v oblasti monitorovania sú spôsoby a nástroje merania, vyjadrujú stav určitého systému, 
 napríklad jeho kvality, efektívnosti a nadobúdajú pri tom rôzne hodnoty. 
-Pri riadení sa používajú indikátory aj pre definíciu a dosahovanie cieľov prípadne ich žiaducich hodnôt. 
+Pri riadení sa používajú indikátory aj pre definíciu a dosahovanie cieľov, prípadne ich žiaducich hodnôt. 
 Používajú sa tiež špecializované pojmy Performance indicator alebo Key performance indicator.
 \cite{3}
 Metriky nám pomáhajú ‘‘odmerať’’ systém a tým nám dávajú komplexnú informáciu o systéme a pomáhajú odhaliť jeho slabé miesta.
@@ -162,7 +162,7 @@ Určujú stav, v ktorom sa systém nachádza.
 Príkladom systémovej metriky je zaťaženie procesora, počet voľného miesta na disku, či napríklad dostupnosť služby v systéme.
 
 Ak potrebujeme zistiť informácie o používateľoch systému, zameriame sa na používateľské metriky.
-používateľská metrika je napríklad čas od prihlásenia používateľa do systému po odhlásenie.
+Používateľská metrika je napríklad čas od prihlásenia používateľa do systému po odhlásenie.
 
 V tejto práci nás budú zaujímať aplikačné, systémové a používateľské metriky.
 
@@ -179,9 +179,9 @@ Aby metrika plnila svoj cieľ, teda podala správnu informáciu o systéme, mala
 
 Metrika by mala byť jednoduchá, aby bola ľahko interpretovateľná a pochopiteľná.
 Relevantná metrika je taká, ktorá pomôže splniť cieľ, dosiahnuť to, na~čo~bola určená.
-Neaktuálne metriky nám poskytnú možno už~nep\-ravdivé dáta a preto by metriky mali byť čo najaktuálnejšie. 
+Neaktuálne metriky nám poskytnú možno už~nep\-ravdivé dáta, a preto by metriky mali byť čo najaktuálnejšie. 
 Len aktuálne dáta nám popíšu systém spoľahlivo.
-Od metriky požadujeme, aby bola okamžite ukončiteľná, aby hneď po jej získaní bola pripravená na spracovanie a tak viedla k novým poznatkom.
+Od~metriky požadujeme, aby bola okamžite ukončiteľná, aby hneď po jej získaní bola pripravená na spracovanie a tak viedla k novým poznatkom.
 \cite{4}
 
 %\subsubsection{Typy Metrík}
@@ -236,8 +236,8 @@ Na porovnanie inštalácií potrebujeme získané metriky mať na jednom mieste,
 Potrebujeme zobrazovať agregované metriky zo všetkých inštalácií.
 Bude jednoduchšie inštalácie porovnať a analyzovať nazbierané metriky.
 
-Ďalším cieľom monitorovania systému AiS2 je optimalizácia interakcie systému s používateľom.
-Chceme detekovať zle navrhnuté dialógy, ich neprehľadné umiestnenie v systéme, a analyzovať interakciu s používateľmi, napríklad aj dynamickým upravovaním používateľského rozhrania.
+Ďalším cieľom monitorovania systému AiS2 je optimalizácia interakcie systému s~používateľom.
+Chceme detekovať zle navrhnuté dialógy, ich neprehľadné umiestnenie v systéme a analyzovať interakciu s používateľmi, napríklad aj dynamickým upravovaním používateľského rozhrania.
 
 %------------------------------------------------------------------------------------------------------------------------------
 
@@ -245,10 +245,11 @@ Chceme detekovať zle navrhnuté dialógy, ich neprehľadné umiestnenie v syst�
 \section{Problémy}
 
 Hlavným cieľom monitorovania informačného systému je identifikovať problémy skôr ako používateľ.
-Ak zbadá problém používateľ, už je neskoro.
+Keď zbadá problém používateľ, už je neskoro.
 Medzitým, ako nahlási problém vývojárom informačného systému, tento problém už mohlo zaznamenať množstvo ďalších používateľov.
-Vývojári potom musia rýchlo problém identifikovať a opraviť, čo môže byť netriviálna záležitosť.
+Vývojári potom musia rýchlo problém identifikovať a~opraviť, čo môže byť netriviálna záležitosť.
 Ak by sme problém zaznamenali hneď ako nastane, mali by sme viac času na jeho riešenie.
+% TODO ak?
 
 Problém môže nastať, ak máme metrík veľa.
 Monitorovanie systému nesmie systém výrazne zaťažiť, lebo by monitorovanie nebolo efektívne.
@@ -258,13 +259,13 @@ Monitorovanie systému nesmie systém výrazne zaťažiť, lebo by monitorovanie
 %\subsection{Prehľad Súčasného Stavu}
  \section{Prehľad súčasného stavu}
 
-V tomto čase je množstvo informačných systémov, ktoré sú neustále vylepšované a~zdokonaľované a~tak je potreba ich monitorovať, aby sa dali ešte viac zlepšiť a~prispôsobiť zákazníkom.
+V tomto čase je množstvo informačných systémov, ktoré sú neustále vylepšované a~zdokonaľované, a~tak je potrebné ich monitorovať, aby sa dali ešte viac zlepšiť a~prispôsobiť zákazníkom.
 Každý systém je špecifický, a tak aj jeho monitorovanie je jedinečné.
 Vývojári sa snažia upraviť monitorovanie ich systému a prispôsobiť ho tak, aby im poskytol čo najviac vedomostí o ich systéme.
 
 Existuje niekoľko nástrojov, ktoré čiastočne ponúkajú riešenia našich problémov či už ide o zbieranie metrík alebo ich vizualizáciu.
 Tieto nástroje sú však väčšinou zamerané na zbieranie systémových metrík a my potrebujeme zbierať hlavne aplikačné metriky.
-Patria tu jak platené (Datadog, Stackdriver, Librato), tak aj open-source nástroje (Statsd, Metrics, Cacti, Graphite, Zabbix, Ganglia, Naggios).
+Patria tu ako platené (Datadog, Stackdriver, Librato), tak aj open-source nástroje (Statsd, Metrics, Cacti, Graphite, Zabbix, Ganglia, Naggios).
 My sa zaoberáme open-source nástrojmi.
 
 %------------------------------------------------------------------------------------------------------------------------------
@@ -278,15 +279,15 @@ My sa zaoberáme open-source nástrojmi.
 %	\item Analyzovať možnosti využitia monitorovania pre účely optimalizácie interakcie s používateľom.
 %\end{enumerate}
 
-Hlavným cieľom našej bakalárskej práce je navrhnúť spôsob monitorovania informačného systému v reálnom čase za~úče\-lom zhromažďovania informácií o výkonne systému a používateľských pre\-ferenciách. 
+Hlavným cieľom našej bakalárskej práce je navrhnúť spôsob monitorovania informačného systému v reálnom čase za~úče\-lom zhromažďovania informácií o výkone systému a používateľských pre\-ferenciách. 
 Chceme navrhnúť systém monitorovania akademického informačného systému AiS2.
 
 Ďalším cieľom je navrhnúť dátovú štruktúru pre uložené metriky z jednotlivých inštalácií a~vytvoriť jednoduché štatistické prehľady nad zozbieranými údajmi v závis\-losti od~charakteru údajov.
-Potrebujeme určiť čo najvhodnejší spôsob ukladania metrík, ich agregácie z viacerých inštalácií na jedno miesto a vhodným spôsobom ich zobraziť.
+Potrebujeme určiť čo najvhodnejší spôsob ukladania metrík, ich agregácie z viacerých inštalácií na jedno miesto a vhodným spôsobom ich~zobraziť.
 
-Chceme tiež analyzovať možnosti využitia monitorovania pre účely optimalizácie interakcie s používateľom, teda zistiť, ako sa monitorovaním dá dosiahnúť skvalitnenie informačného systému pre jeho používateľov.
+Chceme tiež analyzovať možnosti využitia monitorovania pre účely optimalizácie interakcie s používateľom, teda zistiť, ako sa monitorovaním dá dosiahnuť skvalitnenie informačného systému pre jeho používateľov.
 
-Keďže už existujú nástroje, ktoré čiastočne riešia naše problémy, naším cieľom bude aj porovnať tieto nástroje, popísať si ich výhody a nevýhody, a určiť nástroje, ktoré by boli najvhodnejšie pre monitorovanie informačného systému AiS2.
+Keďže už existujú nástroje, ktoré čiastočne riešia naše problémy, naším cieľom bude aj porovnať tieto nástroje, popísať si ich výhody a nevýhody a určiť nástroje, ktoré by boli najvhodnejšie pre monitorovanie informačného systému AiS2.
 
 \newpage
 
@@ -299,7 +300,7 @@ Keďže už existujú nástroje, ktoré čiastočne riešia naše problémy, na�
 %\section{Algoritmus monitorovania informačného systému}
 \chapter{Algoritmus monitorovania informačného systému}
 
-Ak chceme získať užitočné dáta o systéme aby sme ich mohli analyzovať, musíme ich najprv zozbierať.
+Ak chceme získať užitočné dáta o systéme, aby sme ich mohli analyzovať, musíme ich najprv zozbierať.
 Pred zbieraním metrík si treba najprv dobre premyslieť, čo chceme zbierať, 
 aké metriky sú pre nás vhodné a aký cieľ chceme zberom metrík dosiahnuť.
 Treba si dobre a jasne definovať metriky, aby sme z~nich mali čo najväčší osoh.
@@ -322,7 +323,7 @@ Monitorovanie informačného systému od prípravy na monitorovanie až po anal�
 
 Určenie cieľov monitorovania informačného systému je dôležité.
 Musíme si dobre premyslieť, na čo chceme monitorovanie zamerať, čo chceme zlepšiť, čo potrebujeme odmerať.
-Taktiež je dôležité premyslieť si, čo urobíme s výsledkom monitorovania a nakoľko bude výsledok merania relevantný a pravdivý.
+Taktiež je dôležité premyslieť si, čo urobíme s výsledkom monitorovania a~nakoľko bude výsledok merania relevantný a pravdivý.
 To závisí aj od metrík, ktoré si zvolíme, od času a obdobia, v ktorom systém budeme monitorovať.
 Treba si ujasniť problémy, ktoré chceme vyriešiť pomocou monitorovania.
 
@@ -330,7 +331,7 @@ Treba si ujasniť problémy, ktoré chceme vyriešiť pomocou monitorovania.
 
 Na to, aby sme monitorovaním dosiahli stanovené ciele, musíme si zvoliť vhodné metriky, 
 	ktoré nám poskytnú odpovede na naše otázky.
-Každý systém je odlišný a tak neexistuje univerzálny návod, aké metriky si zvoliť.
+Každý systém je odlišný, a~tak~neexistuje univerzálny návod, aké metriky si zvoliť.
 
 Treba sa zamyslieť nad tým, aké údaje by nám pomohli, keby sme ich mali k dispozícii.
 Ak potrebujeme získať informácie o používateľoch a o ich správaní v systéme, pomohli by nám používateľské metriky.
@@ -349,38 +350,39 @@ Nástroje si vyberieme podľa funkcionality, náročnosti integrácie a podľa v
 
 \subsection*{Integrácia nástrojov a metrík do informačného systému}
 
-Po výbere nástrojov na monitorovanie nasleduje integrácia vybraných nástrojov a metrík do systému.
+Po výbere nástrojov na monitorovanie nasleduje integrácia vybraných nástrojov a~metrík do systému.
 Zložitosť integrácie a konfigurácie závisí od nástrojov, ktoré sme si zvolili a od komplexnosti monitorovaného systému.
 Metriky zbierame v podobe counterov, timerov a gauges, prípadne im podobným alebo inak pomenovaným alternatívnym spôsobom podľa vybraných nástrojov.
 
 \subsection*{Zber metrík}
 
-Ak máme nakonfigurované nástroje na zber metrík a funkčné prepojenie nástroja na zber metrík s nástrojom na ukladanie a zobrazovanie metrík, nasleduje fáza samotného zbierania metrík a monitorovania informačného systému.
+Ak máme nakonfigurované nástroje na zber metrík a funkčné prepojenie nástroja na~zber metrík s nástrojom na ukladanie a zobrazovanie metrík, nasleduje fáza samotného zbierania metrík a monitorovania informačného systému.
 V tejto fáze sledujeme metriky, ktoré nám nástroj na zobrazovanie metrík vykresľuje v prehľadných grafoch.
 Niektoré zobrazovacie nástroje umožňujú aj agregáciu grafov pre jednotlivé metriky, to znamená, že súvisiace metriky si zobrazíme v jednom spoločnom grafe. 
 
 Niektoré nástroje, alebo ich jednoduché prepojenie s ďalším nástrojom ponúkajú možnosť notifikácie administrátora o udalostiach, ktoré nastali v systéme.
-Môžeme tak byť notifikovaný napríklad o priveľkej záťaži na systém, o nedostatku voľnej operačnej pamäti alebo o pridlhom čase čakania klienta na odpoveď zo servera.
+Môžeme tak byť notifikovaný napríklad o priveľkej záťaži na systém, o nedostatku voľnej operačnej pamäte alebo o pridlhom čase čakania klienta na odpoveď zo servera.
 To nám pomôže identifikovať aktuálne nastávajúci problém, ktorý je potrebné čo najskôr vyriešiť.
-Takisto nám to pomôže odhaliť problém skôr, ako ho odhalý používateľ nášho systému.
+Takisto nám to pomôže odhaliť problém skôr, ako ho odhalí používateľ nášho systému.
 
 \subsection*{Analýza získaných metrík}
 
 Ak už zbierame metriky dlhšiu dobu, máme dostatok údajov na ich analýzu a ďalšie spracovanie.
-Môžeme analyzovať, ako sa systém správa v určitých obdobiach, ako sa správajú používatelia v systéme a ako sa správa systém, keď je pod záťažou. To nám pomôže pripraviť sa na ďalšiu záťaž, alebo zistíme, že potrebujeme zbierať ďalšie metriky, na ktoré sme na začiatku nemysleli, alebo sa nám zdali irelevantné.
+Môžeme analyzovať, ako sa systém správa v určitých obdobiach, ako sa~správajú používatelia v systéme a ako sa správa systém, keď je pod záťažou. 
+To~nám pomôže pripraviť sa na ďalšiu záťaž, alebo zistíme, že potrebujeme zbierať ďalšie metriky, na ktoré sme na začiatku nemysleli, alebo sa nám zdali irelevantné.
 
 \subsection*{Vyvodenie dôsledkov monitorovania}
 
 V ďalšej fáze vyvodíme dôsledky monitorovania.
 Zamyslíme sa, či nám monitorovanie pomohlo splniť ciele, ktoré sme si na začiatky stanovili a ako nám to pomohlo zlepšiť systém.
-Porozmýšľame, čo nám ešte treba zlepšiť, aké závery nám plynú z monitorovania a určíme ďalšie kroky k ešte lepšiemu monitorovaniu.
+Porozmýšľame, čo nám ešte treba zlepšiť, aké závery nám plynú z~monitorovania a určíme ďalšie kroky k ešte lepšiemu monitorovaniu.
 
-Monitorovanie informačného systému je dlhodobý proces, a počas monitorovania sa môže meniť a upravovať s meniacím sa systémom a už získanými poznatkami z monitorovania.
+Monitorovanie informačného systému je dlhodobý proces a počas monitorovania sa môže meniť a upravovať s meniacim sa systémom a už získanými poznatkami z~monitorovania.
 Môžeme pridávať nové metriky aj s novou funkcionalitou alebo tie nepodstatné metriky zmazať.
 V tejto fáze upravíme systém podľa výsledkov, ktoré sme získali monitorovaním.
-Napríklad ak sme zistili, že náš systém potrebuje optimalizáciu dopytov do databázy, optimalizujeme ich a sledujeme, aký to ma dopad na systém a na rýchlosť odpovede na požiadavky od klientov.
+Napríklad, ak sme zistili, že náš systém potrebuje optimalizáciu dopytov do databázy, optimalizujeme ich a sledujeme, aký to ma dopad na systém a na rýchlosť odpovede na požiadavky od klientov.
 
-Na obrázku 2.1 môžete vidieť životný cyklus monitorovania informačného systému.
+Na obrázku 3.1 môžeme vidieť životný cyklus monitorovania informačného systému.
 
 \begin{figure}
 \begin{center}
@@ -403,7 +405,7 @@ Na obrázku 2.1 môžete vidieť životný cyklus monitorovania informačného s
 
 Monitorovanie systému v reálnom čase nám pomôže detekovať problém skôr, ako ho zbadá používateľ.
 Prehľadné grafy zobrazujúce nazbierané metriky nám ukážu dôležité informácie o stave systému.
-Niektoré nástroje nás dokonca upozornia, ak v systéme nastane problém.
+Niektoré nástroje nás dokonca upozornia, ak v~systéme nastane problém.
 Po vyriešení problému zas z grafov vyčítame, či sme detekovaný problém vyriešili a ako dobre sme ho vyriešili.
 
 %------------------------------------------------------------------------------------------------------------------------------
@@ -442,7 +444,7 @@ Ak získame takéto vzory, môžeme napríklad dynamicky meniť používateľsk�
 Dlhodobými meraniami systému vieme získať aj ďalšie zaujímavé informácie.
 Nad množstvom vyzbieraných metrík sa dá robiť hĺbková analýza v podobe dolovania dát.
 No na hĺbkovú analýzu budeme potrebovať väčšinou odlišné dáta od tých, ktoré pre nás majú zmysel pri monitorovaní v reálnom čase.
-Budú nás zaujímať iné metriky a aj ciele takejto analýzy budeme mať odlišné.
+Budú nás zaujímať iné metriky a~aj ciele takejto analýzy budeme mať odlišné.
 
 \newpage
 
@@ -477,7 +479,7 @@ Získané metriky posiela do nástrojov na zobrazovanie metrík ako napríklad G
 Keďže Metrics je java knižnica, integrácia nástroja do java webovej aplikácie je~záležitosť pridania niekoľkých závislostí.
 Následne definujeme registre, v ktorých budú metriky uložené.
 Ďalej je potrebné nastaviť reportovanie do ďalších nástrojov.
-Potom na vhodných miestach v aplikácii získame metriky pomocou counterov, timerov a gauges, ktoré chceme zbierať.
+Potom na vhodných miestach v aplikácii získame metriky pomocou counterov, timerov a~gauges, ktoré chceme zbierať.
 Nástroj Metrics nám pomôže dostať namerané metriky do~ďalších nástrojov.
 
 Asi najväčšou konkurenciou k Metrics je nástroj Statsd.
@@ -491,7 +493,7 @@ Open-source nástroj Statsd je určený na zber metrík a následné preposlanie
 Má kientov pre množstvo programovacích jazykov ako napríklad node.js, java, python, ruby, perl, php, c, cpp, .net, či dokonca plugin pre wordpress. 
 
 % cez siet
-Statsd klient na rozdiel od Metrics posiela získane metriky cez sieťovú komunikáciu na otvorený UDP port na oddelený Statsd server, ktorý ich prijíma, akumuluje a odosiela do ďalších nástrojov. 
+Statsd klient na rozdiel od Metrics posiela získane metriky cez sieťovú komunikáciu na otvorený UDP port na oddelený Statsd server, ktorý ich prijíma, akumuluje a~odosiela do ďalších nástrojov. 
 Slúži ako rýchla cache pre metriky. 
 Umožňuje posielať dáta do nástrojov ako napríklad Graphite, Ganglia, Librato, Zabbix, či Mongo, Mysql, Datadog a mnoho ďalších.
 
@@ -505,7 +507,7 @@ Architektúra tohto nástroja je trochu zložitejšia.
 Obe nástroje slúžia na zbieranie metrík, majú však rozdielnú architektúru. 
 Ponúkajú rôzne možnosti integrácie s ďalšími nástrojmi. 
 Kvôli prehľadnosti sú základné rozdiely popísané v tabuľke 4.1.
-Údaje v tabuľke 4.1 sú aktuálne vzhľadom k času písania bakalárskej práce.
+Údaje v tabuľke 5.1 sú aktuálne vzhľadom k času písania bakalárskej práce.
 
 \begin{table}
 	\caption{Porovnanie nástrojov Metrics a Statsd}
@@ -550,7 +552,7 @@ Nástroje na zbieranie metrík majú často za úlohu agregovať metriky a prepo
 Existujú rôzne nástroje na~ukladanie a zobrazenie metrík.
 Niektoré z nich sú komerčné, iné open-source.
 Medzi často používané open-source nástroje patria nástroje Graphite, Zabbix a Ganglia.
-Tieto nástroje vedia prijať dáta z iných nástrojov, uložiť ich v databáze a~vhodným spôsobom ich zobraziť, aby sa dali ľahšie interpretovať.
+Tieto nástroje vedia prijať dáta z iných nástrojov, uložiť ich v databáze a~vhodným spôsobom ich zobraziť, aby sa~dali ľahšie interpretovať.
 
 Rôzne nástroje na zbieranie metrík majú rôznu architektúru a ponúkajú rozličnú funkcionalitu.
 Záleží od veľkosti a komplexnosti systému a aj od požadovanej funkcionality, ktorý nástroj si vyberieme.
@@ -569,7 +571,7 @@ Kód graphitu je napísaný v programovacom jazyku python.
 Metriky stačí poslať do nástroja Graphite a on ich sám zaradí do stromu metrík podľa prefixu.
 Po inštalácii sa nevyžaduje žiadna dodatočná konfigurácia.
 
-Na obrázku 5.2 môžete vidieť používaťeľské rozhranie nástroja Graphite a čiarový diagram pre metriku zaťaženie procesora.
+Na obrázku 6.2 môžeme vidieť používaťeľské rozhranie nástroja Graphite a čiarový diagram pre metriku zaťaženie procesora.
 
 \begin{figure}
 \begin{center}
@@ -607,7 +609,7 @@ Počas jeho inštalácie treba nainštalovať a nakonfigurovať všetky potrebn�
 Ďalším používaným nástrojom je Zabbix.
 Jeho kód je napísaný v jazyku C a~používateľské rozhranie v podobe webovej aplikácie je napísaný v jazyku PHP.
 Na ukladanie metrík používa Mysql databázu.
-Na obrázku 5.3 môžete vidieť graf operačných systémov a prehliadačov používateľov systému AiS2 v Zabbixe.
+Na obrázku 6.3 môžeme vidieť graf operačných systémov a prehliadačov používateľov systému AiS2 v Zabbixe.
 
 % obrazok biely
 \begin{figure}
@@ -623,10 +625,10 @@ Je to omnoho mohutnejší nástroj ako Graphite.
 
 K informačnému systému patrí aj hardvér, na ktorom systém beží.
 Informácie o hardvéri a rôzne iné systémové metriky môžeme zbierať pomocou modulu Zabbix agent.
-Zabbix agent pravidelne posiela získané udaje zo stroja, kde je nasadený na Zabbix server.
+Zabbix agent pravidelne posiela získané udaje zo stroja, kde je nasadený na~Zab\-bix server.
 Môžeme tak jednoducho monitorovať napríklad výkon systému, sieťové zariadenia, virtuálne stroje, databázy, Java virtual machine alebo Java aplikačné servery.
 
-Zabbix tiež umožňuje na zber dát použiť SNMP a IPMI agentov alebo Zabbix sender nástroj, ktorým do Zabbixu vieme poslať ľubovoľné metriky z nástrojov na zbieranie metrík.
+Zabbix tiež umožňuje na zber dát použiť SNMP a IPMI agentov alebo Zabbix sender nástroj, ktorým do Zabbixu vieme poslať ľubovoľné metriky z nástrojov na~zbieranie metrík.
 
 Zabbix môže slúžiť aj na detekciu problémov so systémom.
 Detekcia problémov v Zabbixe funguje pomocou definovania triggerov, ktoré odhalia, že niečo nefunguje.
@@ -643,12 +645,12 @@ Okrem notifikačnej správy Zabbix vie po detekcii problému vykonať napríklad
 
 Veľkou výhodou nástroja Zabbix je to, že na ukladanie metrík používa Mysql databázu.
 Dáta tak máme uložené v relačnej databáze a vieme sa na ne jednoducho dopytovať.
-To má potenciál na zber dlhodobých metrík za účelom hĺbkovej analýzy a dolovanie dát z týchto údajov.
+To má potenciál na zber dlhodobých metrík za účelom hĺbkovej analýzy a~dolovanie dát z týchto údajov.
 % potencial na riesenie 
 
 
 %\subsubsection{Neýhody nástroja Zabbix}
-\subsection{Neýhody nástroja Zabbix}
+\subsection{Nevýhody nástroja Zabbix}
 
 Hlavná nevýhoda Zabbixu je to, že každá metrika, ktorú chceme monitorovať musí byť dopredu nakonfigurovaná.
 Ak máme metrík veľa, úvodná konfigurácia je pracná.
@@ -682,11 +684,11 @@ Gmond medzi sebou kominikujú buď prostredníctvom unicastu alebo multicastu.
 Ak použijeme unicast, komunikácia zo všetkých gmondov smeruje do jedného centrálneho gmond modulu v rámci clustera.
 Gmetad potom zbiera dáta zo všetkých centrálnych gmond modulov.
 Táto konfigurácia je výhodná, ak máme veľmi veľa uzlov (1000).
-Architektúra s použitím unicastu je popísaná na obrázku 5.4.
+Architektúra s použitím unicastu je popísaná na obrázku 6.4.
 
 Ak máme menší počet uzlov v gride, viac sa nám oplatí použiť multicast.
-Po pridaní nových uzlov do clustra nie je potrebná dodatočná konfigurácia.
-Architektúra s použitím multicastu je popísaná na obrázku 5.5.
+Po~pridaní nových uzlov do clustra nie je potrebná dodatočná konfigurácia.
+Architektúra s~použitím multicastu je popísaná na obrázku 6.5.
 
 \begin{figure}
 	\begin{center}
@@ -706,7 +708,7 @@ Architektúra s použitím multicastu je popísaná na obrázku 5.5.
 
 Ganglia priamo nepodporuje detekciu problémov v systéme.
 Umožňuje však prepojenie s nástrojom Naggios, ktorý je na to určený.
-Na obrázku 5.6 môžete vidieť používaťeľské rozhranie nástroja Ganglia.
+Na obrázku 6.6 môžeme vidieť používaťeľské rozhranie nástroja Ganglia.
 
 \begin{figure}
 	\begin{center}
@@ -717,11 +719,11 @@ Na obrázku 5.6 môžete vidieť používaťeľské rozhranie nástroja Ganglia.
 
 \subsection{Výhody nástroja Ganglia}
 
-Asi najväčšou výhodou nástroja Ganglia je to, že dokáže monitorovať celé clustre a gridy.
+Asi najväčšou výhodou nástroja Ganglia je to, že dokáže monitorovať celé clustre a~gridy.
 Je určená na agregáciu metrík z viacerých serverov a z komplexných informačných systémov.
-To nám výrazne zjednoduší porovnávanie metrík získaných z viacerých inštalácií.
+To nám výrazne zjednoduší porovnávanie metrík získaných z~viacerých inštalácií.
 
-Na ukladanie metrík Ganglia používa RRD databázu, takže metriky nemusíme v Ganglii konfigurovať.
+Na ukladanie metrík Ganglia používa RRD databázu, takže metriky nemusíme v~Ganglii konfigurovať.
 Výhodné je aj jednoduché prepojenie s nástrojom Naggios.
 
 Ďalším plusom je možnosť použitia multicastu.
@@ -735,13 +737,14 @@ Dokonca pridanie nových uzlov do clustera je jednoduché a bez ďalšej konfigu
 \subsection{Nevýhody nástroja Ganglia}
 
 V istom zmysle je nevýhodou Ganglie to, že nevie alertovať problémy v systéme.
-To sa dá docieliť prepojením Ganglie s nástrojom Naggios.
+To~sa~dá docieliť prepojením Ganglie s nástrojom Naggios.
 Musíme teda integrovať do systému až dva nástroje.
 
 Pôvodne sme si vybrali nástroj na ukladanie a zobrazovanie metrík pre systém AiS2 Gangliu.
 Narazili sme však na problém, že v čase písania tejto práce ešte nebola Ganglia dostupná pre najnovší Red Hat.
 
-Ďalšia nevýhoda Ganglie je že nemá cache pre metriky \cite{6}, ale takáto cache je obsiahnutá v oboch nástrojoch na zbieranie metrík. Ich intrgrácia je ale cez Gmetric, čo ale obchádza infraštruktúru s použitím Gmond modulov, čo je jedným zo základných benefitov návrhu nástroja Ganglia.
+Ďalšia nevýhoda Ganglie je že nemá cache pre metriky \cite{6}, ale takáto cache je~obsiahnutá v oboch nástrojoch na zbieranie metrík. 
+Ich intrgrácia je ale cez Gmetric, čo~ale obchádza infraštruktúru s použitím Gmond modulov, čo je jedným zo základných benefitov návrhu nástroja Ganglia.
 
 % nevyuzitie pre dlhodobe,  redhat nevieme deploynut
 
@@ -751,11 +754,11 @@ Narazili sme však na problém, že v čase písania tejto práce ešte nebola G
 \section{Graphite vs Zabbix vs Ganglia}
 
 Ako sme už písali, nástroj Graphite je vhodný na monitorovanie menších systémov.
-Pre väčšie informačné systémy je lepšie použiť komplexnejší nástroj, ako napríklad Zabbix alebo Gangliu.
+Pre väčšie informačné systémy je lepšie použiť komplexnejší nástroj, ako napríklad Zab\-bix alebo Gangliu.
 Tie nám ponúkajú viac užitočných funkcií, ktoré môžeme využiť.
 Zabbix vie detekovať problémy a tie jednoduchšie aj vyriešiť (napríklad reštartom zlyhanej služby), 
 	Ganglia zas dokáže monitorovať celé clustre a gridy a ponúka nám jednoduchú agregáciu grafov.
-Záleží od komplexnosti systému, ktorý nástroj si vyberieme.
+Záleží od komplexnosti systému, ktorý nástroj si~vyberieme.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -767,14 +770,14 @@ Záleží od komplexnosti systému, ktorý nástroj si vyberieme.
 \section{Testovanie nástrojov}
 % demo
 
-Aby sme vedeli vyššie spomenuté nástroje porovnať a vybrať si vhodné nástroje na zbieranie a zobrazovanie metrík kvôli monitorovaniu systému AiS2, nástroje sme si najskôr vyskúšali.
+Aby sme vedeli vyššie spomenuté nástroje porovnať a vybrať si vhodné nástroje na~zbieranie a zobrazovanie metrík kvôli monitorovaniu systému AiS2, nástroje sme si najskôr vyskúšali.
 
 Pre testovacie účeli sme si vytvorili jednoduchú webovú aplikáciu.
 Keďže je systém AiS2 napísaný prevažne v programovacom jazyku java, za formu webovej aplikácie sme si zvolili JSP (Java Server Pages) stránky.
-Vytvorené JSP stránky môžete vidieť v prílohách A - C.
+Vytvorené JSP stránky môžeme vidieť v~prílohách A - C.
 
 Vo virtuálnom stroji sme si nainštalovali nástroj Statsd server, Graphite, Zabbix a Gangliu.
-Po kliknutí na tlačidlo „Special Feature“ v prílohe A sa zavolá príslušná JSP stránka s názvom „sender“, ktorá má inštanciu Statsd klienta (príloha B), alebo integrovanú knižnicu Metrics (príloha C), ktoré odošlú metriku o stlačení tlačidla do príslušného nástroja na uloženie a zobrazenie metriky.
+Po kliknutí na tlačidlo „Special Feature“ v prílohe A sa zavolá príslušná JSP stránka s názvom „sender“, ktorá má inštanciu Statsd klienta (príloha B), alebo integrovanú knižnicu Metrics (príloha C), ktoré odošlú metriku o stlačení tlačidla do~príslušného nástroja na uloženie a zobrazenie metriky.
 
 Týmto sme si spomínané nástroje vyskúšali a nabrali sme skúsenosti s intaláciou, komfortom používania a overili si možnosti integrácie vybraných nástrojov do systému AiS2.
 
@@ -789,13 +792,13 @@ Pre monitorovanie systému AiS2 v reálnom čase sme sa rozhodli použiť nástr
 Metrics sme si vybrali aj preto, lebo komunikácia medzi Statsd klientom a Statsd serverom po sieti môže spôsobyť zbytočné zaťaženie siete.
 Metrics nepotrebuje oddeleného klienta od servera.
 Ďalším dôvodom pre výber Metrics bol ten, že je to java knižnica a vzhľadom k tomu, že systém AiS2 je v jave, integrácia nástroja do systému nebola zložitá.
-Keby AiS2 nebol v jave, najpravdepodobnejšie by sme sa rozhodli pre nástroj Statsd.
+Keby AiS2 nebol v jave, najpravdepodobnejšie by sme sa rozhodli pre~nástroj Statsd.
 
 Gangliu sme si vybrali preto, že ponúka riešenie pre agregáciu metrík z viacerých inštalácií systému AiS2 na jedno miesto.
 Metriky zo všetkých inštalácií potom môžeme zobraziť prehľadne v jednom grafe a porovnať jednotlivé inštalácie medzi sebou.
 
 Gangliu sa nám však nepodarilo nasadiť na najnovšiu verziu Red Hat distribúcie, pretože Ganglia ešte nie je pre túto verziu dostupná.
-Vybrali sme si teda nástroj Zabbix, ktorý má vďaka používaniu MySQL databázy potenciál okrem zbierania metrík v reálnom čase zbierať aj metriky dlhodobo za účelom hĺbkovej analýzy. 
+Vybrali sme si teda nástroj Zab\-bix, ktorý má vďaka používaniu MySQL databázy potenciál okrem zbierania metrík v reálnom čase zbierať aj metriky dlhodobo za účelom hĺbkovej analýzy. 
 
 Zabbix sme teda nasadili na testovacie, vývojové a ostré prostredie do akademického informačného systému AiS2.
 Určili sme si, že budeme zbierať metriky ohľadom funkcionality systému - počet spustení dialógov a metriky ohľadom operačného systému a prehliadača používateľov systému, za časový interval 3 sekundy.
@@ -807,17 +810,17 @@ Ešte skôr ako sa nám podarilo zbierať prvé metriky zo systému Ais2,
 Každú metriku však v Zabbixe trebalo najprv nakonfigurovať.
 
 V konfigurácii metriky trebalo nastaviť jej meno, 
-	jednoznačný kľúč vzhľadom na všetky metriky, 
+	jednoznačný kľúč vzhľadom na~všetky metriky, 
 	spôsob prijatia metriky (v našom prípade to bol Zabbix trapper čo je modul na prijatie metriky z iného nástroja) a jej typ (celé číslo, desatinné číslo, \ldots).
 
-Konfigurácia v zabbixe bola pri 142 metrikách veľmi komplikovaná a náročná na čas.
+Konfigurácia Zabbixu bola pri 142 metrikách veľmi komplikovaná a náročná na~čas.
 Ak by sme potrebovali v budúcnosti pridať ďalšie metriky pre novú funkcionalitu, museli by sme dodatočne Zabbix konfigurovať.
 To je dosť nevýhodné.
 Ostatné nástroje, ktoré používajú RRD databázu sú tak oveľa flexibilnejšie a nepotrebujú konfiguráciu metrík.
-Ak zaznamenajú novú metriku, jednoducho v strome metrík si vtvoria nový adresár podľa názvu a prefixu metriky.
+Ak zaznamenajú novú metriku, jednoducho v strome metrík si~vtvoria nový adresár podľa názvu a prefixu metriky.
 Konfigurácia nových metrík je teda nulová.
 
-Zabbix navyše nepodporuje jednoduché zlievanie metrík z viacerých inštalácií na jedno miesto s možnosťou porovnávania inštalácií.
+Zabbix navyše nepodporuje jednoduché zlievanie metrík z viacerých inštalácií na~jedno miesto s možnosťou porovnávania inštalácií.
 Potvrdila sa nám teda naša hypotéza, že Zabbix nie je vhodný nástroj pre monitorovanie systému AiS2 v reálnom čase.
 
 % momentalne chceme gangliu, tak sme testovali zabbix, ze bude zly, aktualne zabbix, metrics, vyuzitie aj dlhodobe 2 v 1? asi ani jedno..., zbieranie metrik
@@ -839,12 +842,12 @@ Nás však zaujímajú aj komplexnejšie informácie o systéme a jeho používa
 Radi by sme zistili vzory používania jednotlivých dialógov v systéme AiS2, hlavne čo sa týka vhodnosti ich návrhu.
 Potrebovali by sme identifikovať zle navrhnuté dialógy v systéme, aby sa dali sprehľadniť a zjednodušiť, aby neboli pre používateľov informačného systému mätúce.
 
-Táto informácia by sa dala získať monitorovaním používateľa v systéme a to tak, že by sme zaznamenávali spustené dialógy, čas na nich strávený, jeho spôsobu práce s dialógmi a následne zatváranie týchto dialógov v rámci jednej session.
-Ak by sa napríklad stalo, že používateľ by otvoril dialóg, o chvýľu by ho zavrel, pootváral by ďalšie, možno podobné dialógy, a nakoniec by sa vrátil k prvému, vyplnil by ho a odoslal, je pravdepodobné že správny dialóg hľadal, ale nenašiel ho hneď.
+Táto informácia by sa dala získať monitorovaním používateľa v systéme a to tak, že by sme zaznamenávali spustené dialógy, čas na nich strávený, jeho spôsobu práce s~dialógmi a následne zatváranie týchto dialógov v rámci jednej session.
+Ak by sa~napríklad stalo, že používateľ by otvoril dialóg, o chvýľu by ho zavrel, pootváral by~ďalšie, možno podobné dialógy, a nakoniec by sa vrátil k prvému, vyplnil by ho a odoslal, je pravdepodobné že správny dialóg hľadal, ale nenašiel ho hneď.
 Ak sa tento scénar opakuje často u rôznych používateľoch systému, pravdepodobne nie je dialóg, či ľubovoľná iná informácia v systéme vhodne navrhnutá alebo je v systéme zle umiestnená.
 
 Detekcia takýchto dialógov by výrazne prispela k zlepšeniu a skvalitneniu informačného systému.
-Používatelia by sa tak v ňom vedeli lepšie orientovať a našli by hľadanú informáciu rýchlejšie.
+Používatelia by~sa tak v ňom vedeli lepšie orientovať a našli by~hľadanú informáciu rýchlejšie.
 Má pre nás preto detekcia takýchto dialógov zmysel.
 
 Informácia z takéhoto monitorovania je už dosť komplexná.
@@ -857,16 +860,16 @@ Vhodnejšia je relačná databáza.
 
 Mysleli sme si, že Zabbix bude vhodný nástroj na ukladanie takýchto štruktúrovaných dát, 
 	keďže metriky ukladá v relačnej databáze MySQL.
-Neskôr sme si ale uvedomili, že síce Zabbix na ukladanie metrík používa relačnú databázu, ale takúto komplexnú metriku mu nevieme poslať zo žiadného nástroja na zbieranie metrík, ktoré sme vyššie opisovali, keďže podporujú iba zbieranie jednoduchých metrík.
+Neskôr sme si ale~uvedomili, že síce Zabbix na ukladanie metrík používa relačnú databázu, ale takúto komplexnú metriku mu nevieme poslať zo žiadného nástroja na zbieranie metrík, ktoré sme vyššie opisovali, keďže podporujú iba zbieranie jednoduchých metrík.
 
 Potrebujeme teda zaznamenať komplexné metriky iným spôsobom.
 Výhodné môže byť zaznamenávanie týchto dát do logov.
 Dáta z logov potom môžeme vyhľadať, spracovať a uložiť do databázy nástrojom na spracovanie logov, napríklad open-source nástrojom Logstash.
 
 Dáta z logu by sme v pravidelných časových intervaloch (napríklad raz za mesiac) spracovali pomocou nástroja Logstash a uložili do databázy.
-Potom by sme už spracované dáta z logu vymazali, aby zbytočne nezaberali miesto na disku ale uvoľnili ho pre nové metriky.
+Potom by sme už spracované dáta z logu vymazali, aby zbytočne nezaberali miesto na disku ale uvoľnili ho~pre nové metriky.
 
-Ak by sme potom chceli robiť hĺbkovú analýzu metrík, mali by sme ich uločené v štruktúrovanej databáze a vedeli by sme sa na nich jednoducho dopytovať.
+Ak by sme potom chceli robiť hĺbkovú analýzu metrík, mali by sme ich uločené v~štruktúrovanej databáze a vedeli by sme sa na nich jednoducho dopytovať.
 
 Hĺbkovú analýzu získaných dát by sme robili pomocou niektorej z techník dolovania dát.
 Mali by sme tak užitočné informácie, ktorí by nám pomohli zlepšiť interakciu systému s používateľom informačného systému.
@@ -894,7 +897,7 @@ Porovnali sme open-source nástroje na zbieranie, ukladanie a vizualizáciu metr
 Povedali sme si o ich výhodách a nevýhodách vzhľadom na monitorovanie akademického informačného systému AiS2.
 Vybrali sme si nástroje Metrics a Zabbix a integrovali sme ich do systému AiS2.
 
-Zistili sme, že by naše problémy ohľadom agregácie metrík z viacerých inštalácií a prehľadné porovnanie týchto inštalácií vyriešil omnoho lepšie nástroj Ganglia.
+Zistili sme, že by naše problémy ohľadom agregácie metrík z viacerých inštalácií a~prehľadné porovnanie týchto inštalácií vyriešil omnoho lepšie nástroj Ganglia.
 Takisto by nám to uľahčilo konfiguráciu oproti nástroju Zabbix.
 
 Tiež sme zistili, že nástroj Zabbix nebude vhodný ani na dlhodobé monitorovanie systému AiS2 za účelom hĺbkovej analýzy.
