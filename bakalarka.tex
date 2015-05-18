@@ -189,7 +189,7 @@ Od~metriky požadujeme, aby bola okamžite ukončiteľná, aby hneď po jej zís
 
 Medzi základné typy metrík patria údaje o počte (counting), údaje o čase (timing), iné číselné hodnoty (celočíselné alebo desatinné), alebo niekedy aj nečíselné hodnoty (gauges). 
 
-Údajmi o počte môžeme získavať metriky ako napríklad počet požiadaviek, ktoré prišli na server za nejaký časový interval, počet volaní metódy v kóde, počet kliknutí na tlačidlo v informačnom systéme. Metriky tohto typu zbierame inkrementovaním počítadla v nástroji ako metrics alebo statsd v klientskej časti.
+Údajmi o počte môžeme získavať metriky ako napríklad počet požiadaviek, ktoré prišli na server za nejaký časový interval, počet volaní metódy v kóde, počet kliknutí na tlačidlo v informačnom systéme. Metriky tohto typu zbierame inkrementovaním počítadla v nástroji ako Metrics alebo Statsd v klientskej časti.
 
 Často potrebujeme zmerať časový údaj ako napríklad čas pripojenia k databáze, čas obsluhy požiadavky alebo čas strávený vykonávaním určitého kusu kódu. Zmeraný čas zaznamenáme nástrojom na zbieranie metrík.
 
@@ -519,7 +519,7 @@ Kvôli prehľadnosti sú základné rozdiely popísané v tabuľke 4.1.
 		\hline
 		Architektúra & Server totožný s klientom & Server a klient oddelený \\ \hline
 
-		Integrácia s ďalšími nástrojmi & Ganglia, Graphite, Librato, Spring, Sematext, Wicket, Guice, Scala, Clojure, Cassandra, 	Elasticsearch, Statsd, Datadog, Influxdb, Cdi, Aspectj, Apache Camel & Amqp, Ganglia, Librato, Socket.io, Statsd, Mongo, Mysql, Datadog, Monitis, Instrumental, Hosted graphite, Zabbix, Opentsdb, Influxdb, Stackdiver, Couchdb \\ \hline
+		Integrácia s ďalšími nástrojmi & Ganglia, Graphite, Librato, Spring, Sematext, Wicket, Guice, Scala, Clojure, Cassandra, 	Elasticsearch, Statsd, Datadog, Influxdb, Cdi, Aspectj, Apache Camel & Amqp, Ganglia, Librato, Socket.io, Statsd, Mongo, Mysql, Datadog, Monitis, Instrumental, Hosted Graphite, Zabbix, Opentsdb, Influxdb, Stackdiver, Couchdb \\ \hline
 
 		Implementácia Servera & Iba Java & Node.js, Python, Ruby, C, Go, Clojure, 	Perl \\ \hline
 
@@ -669,7 +669,7 @@ Ganglia je open-source nástroj zameraný na~distribuované monitorovanie celýc
 Je naozaj rozšírený, používajú ho napríklad známe spoločnosti ako Twitter, flickr, National Aeronautics and Space Administration (NASA), Wikipedia, CERN, Cisco, HP, Microsoft, Dell, nVidia, U.S. Air Force.
 Viac v \cite{5}.
 
-Metriky do Ganglie môžeme poslať pomocou Gmond modulov, Gmetric modulu alebo inými nástrojmi, ako napríklad statsd.
+Metriky do Ganglie môžeme poslať pomocou Gmond modulov, Gmetric modulu alebo inými nástrojmi, ako napríklad Statsd.
 Ak posielame metriky do Ganglie, nemusíme ich mať dopredu nakonfiguroavné.
 Gmetad vytvorí nový RRD súbor pre každú novú metriku, čo značne uľahčí konfiguráciu, ak metrík máme veľa.
 Webové používaťeľské rozhranie potom zobrazí základný graf pre každú metriku.
@@ -916,8 +916,8 @@ Hĺbkovú analýzu potom môžeme robiť s použitím techník dolovania dát.
 \begin{thebibliography}{42}
 %\bibitem{1} Ipsum, L.: Lorem ipsum dolor sit amet.
 
-	\bibitem{1} Information system. Wikipedia: the free encyclopedia [online]. San Francisco (CA): Wikimedia Foundation, 2001- [cit. 2015-05-18]. Dostupné z: http://en.wikipedia.org/wiki/Information\_system
-	\bibitem{2}  Webová aplikácia. Wikipedia: the free encyclopedia [online]. San Francisco (CA): Wikimedia Foundation, 2001- [cit. 2015-05-18]. Dostupné z: http://sk.wikipedia.org/wiki/Webov\%C3\%A1\_aplik\%C3\%A1cia
+	\bibitem{1} Information system. Wikipedia: the free encyclopedia [online]. San Francisco (CA): Wikimedia Foundation, 2001- [cit. 2015-05-17]. Dostupné z: http://en.wikipedia.org/wiki/Information\_system
+	\bibitem{2}  Webová aplikácia. Wikipedia: the free encyclopedia [online]. San Francisco (CA): Wikimedia Foundation, 2001- [cit. 2015-05-17]. Dostupné z: http://sk.wikipedia.org/wiki/Webov\%C3\%A1\_aplik\%C3\%A1cia
 	\bibitem{3} SMOLEN, Eduard. Metriky [online]. [cit. 2015-05-17]. Dostupné z: http://epodnikanie.euin.org/node/126
 	\bibitem{4} KAUSHIK, Avinash. Webová analytika 2.0: kompletní průvodce analýzami návštěvnosti. Vyd. 1. Brno: Computer Press, 2011. ISBN 978-80-251-2964-7.
 	\bibitem{5} MATT MASSIE, Bernard Li. Monitoring with Ganglia. 1. ed. Sebastopol, CA: O'Reilly, 2013. ISBN 9781449329709.
